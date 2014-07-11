@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
+		FEBE1B9B196FD85F0036948F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */; };
+		FEBE1B9D196FD85F0036948F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9C196FD85F0036948F /* UIKit.framework */; };
+		FEBE1BA3196FD85F0036948F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BA1196FD85F0036948F /* InfoPlist.strings */; };
+		FEBE1BA5196FD85F0036948F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BA4196FD85F0036948F /* main.m */; };
+		FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BA8196FD85F0036948F /* AppDelegate.m */; };
+		FEBE1BAC196FD85F0036948F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BAA196FD85F0036948F /* Main.storyboard */; };
+		FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BAE196FD85F0036948F /* FirstViewController.m */; };
+		FEBE1BB2196FD85F0036948F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BB1196FD85F0036948F /* SecondViewController.m */; };
+		FEBE1BB4196FD85F0036948F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BB3196FD85F0036948F /* Images.xcassets */; };
+		FEBE1BBB196FD85F0036948F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1BBA196FD85F0036948F /* XCTest.framework */; };
+		FEBE1BBC196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
+		FEBE1BBD196FD85F0036948F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9C196FD85F0036948F /* UIKit.framework */; };
+		FEBE1BC5196FD85F0036948F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BC3196FD85F0036948F /* InfoPlist.strings */; };
+		FEBE1BC7196FD85F0036948F /* LaVentanaDelArteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FEBE1BBE196FD85F0036948F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEBE1B8D196FD85F0036948F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEBE1B94196FD85F0036948F;
+			remoteInfo = LaVentanaDelArte;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaVentanaDelArte.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEBE1B98196FD85F0036948F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FEBE1B9C196FD85F0036948F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FEBE1BA0196FD85F0036948F /* LaVentanaDelArte-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaVentanaDelArte-Info.plist"; sourceTree = "<group>"; };
+		FEBE1BA2196FD85F0036948F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FEBE1BA4196FD85F0036948F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FEBE1BA6196FD85F0036948F /* LaVentanaDelArte-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LaVentanaDelArte-Prefix.pch"; sourceTree = "<group>"; };
+		FEBE1BA7196FD85F0036948F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FEBE1BA8196FD85F0036948F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FEBE1BAB196FD85F0036948F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEBE1BAD196FD85F0036948F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		FEBE1BAE196FD85F0036948F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		FEBE1BB0196FD85F0036948F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		FEBE1BB1196FD85F0036948F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		FEBE1BB3196FD85F0036948F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FEBE1BB9196FD85F0036948F /* LaVentanaDelArteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaVentanaDelArteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEBE1BBA196FD85F0036948F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FEBE1BC2196FD85F0036948F /* LaVentanaDelArteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaVentanaDelArteTests-Info.plist"; sourceTree = "<group>"; };
+		FEBE1BC4196FD85F0036948F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaVentanaDelArteTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FEBE1B92196FD85F0036948F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE1B9B196FD85F0036948F /* CoreGraphics.framework in Frameworks */,
+				FEBE1B9D196FD85F0036948F /* UIKit.framework in Frameworks */,
+				FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEBE1BB6196FD85F0036948F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE1BBB196FD85F0036948F /* XCTest.framework in Frameworks */,
+				FEBE1BBD196FD85F0036948F /* UIKit.framework in Frameworks */,
+				FEBE1BBC196FD85F0036948F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FEBE1B8C196FD85F0036948F = {
+			isa = PBXGroup;
+			children = (
+				FEBE1B9E196FD85F0036948F /* LaVentanaDelArte */,
+				FEBE1BC0196FD85F0036948F /* LaVentanaDelArteTests */,
+				FEBE1B97196FD85F0036948F /* Frameworks */,
+				FEBE1B96196FD85F0036948F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FEBE1B96196FD85F0036948F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */,
+				FEBE1BB9196FD85F0036948F /* LaVentanaDelArteTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEBE1B97196FD85F0036948F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1B98196FD85F0036948F /* Foundation.framework */,
+				FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */,
+				FEBE1B9C196FD85F0036948F /* UIKit.framework */,
+				FEBE1BBA196FD85F0036948F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEBE1B9E196FD85F0036948F /* LaVentanaDelArte */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BA7196FD85F0036948F /* AppDelegate.h */,
+				FEBE1BA8196FD85F0036948F /* AppDelegate.m */,
+				FEBE1BAA196FD85F0036948F /* Main.storyboard */,
+				FEBE1BAD196FD85F0036948F /* FirstViewController.h */,
+				FEBE1BAE196FD85F0036948F /* FirstViewController.m */,
+				FEBE1BB0196FD85F0036948F /* SecondViewController.h */,
+				FEBE1BB1196FD85F0036948F /* SecondViewController.m */,
+				FEBE1BB3196FD85F0036948F /* Images.xcassets */,
+				FEBE1B9F196FD85F0036948F /* Supporting Files */,
+			);
+			path = LaVentanaDelArte;
+			sourceTree = "<group>";
+		};
+		FEBE1B9F196FD85F0036948F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BA0196FD85F0036948F /* LaVentanaDelArte-Info.plist */,
+				FEBE1BA1196FD85F0036948F /* InfoPlist.strings */,
+				FEBE1BA4196FD85F0036948F /* main.m */,
+				FEBE1BA6196FD85F0036948F /* LaVentanaDelArte-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FEBE1BC0196FD85F0036948F /* LaVentanaDelArteTests */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */,
+				FEBE1BC1196FD85F0036948F /* Supporting Files */,
+			);
+			path = LaVentanaDelArteTests;
+			sourceTree = "<group>";
+		};
+		FEBE1BC1196FD85F0036948F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BC2196FD85F0036948F /* LaVentanaDelArteTests-Info.plist */,
+				FEBE1BC3196FD85F0036948F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FEBE1B94196FD85F0036948F /* LaVentanaDelArte */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEBE1BCA196FD85F0036948F /* Build configuration list for PBXNativeTarget "LaVentanaDelArte" */;
+			buildPhases = (
+				FEBE1B91196FD85F0036948F /* Sources */,
+				FEBE1B92196FD85F0036948F /* Frameworks */,
+				FEBE1B93196FD85F0036948F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LaVentanaDelArte;
+			productName = LaVentanaDelArte;
+			productReference = FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FEBE1BB8196FD85F0036948F /* LaVentanaDelArteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEBE1BCD196FD85F0036948F /* Build configuration list for PBXNativeTarget "LaVentanaDelArteTests" */;
+			buildPhases = (
+				FEBE1BB5196FD85F0036948F /* Sources */,
+				FEBE1BB6196FD85F0036948F /* Frameworks */,
+				FEBE1BB7196FD85F0036948F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEBE1BBF196FD85F0036948F /* PBXTargetDependency */,
+			);
+			name = LaVentanaDelArteTests;
+			productName = LaVentanaDelArteTests;
+			productReference = FEBE1BB9196FD85F0036948F /* LaVentanaDelArteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEBE1B8D196FD85F0036948F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = IronHack;
+				TargetAttributes = {
+					FEBE1BB8196FD85F0036948F = {
+						TestTargetID = FEBE1B94196FD85F0036948F;
+					};
+				};
+			};
+			buildConfigurationList = FEBE1B90196FD85F0036948F /* Build configuration list for PBXProject "LaVentanaDelArte" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FEBE1B8C196FD85F0036948F;
+			productRefGroup = FEBE1B96196FD85F0036948F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEBE1B94196FD85F0036948F /* LaVentanaDelArte */,
+				FEBE1BB8196FD85F0036948F /* LaVentanaDelArteTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FEBE1B93196FD85F0036948F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE1BB4196FD85F0036948F /* Images.xcassets in Resources */,
+				FEBE1BA3196FD85F0036948F /* InfoPlist.strings in Resources */,
+				FEBE1BAC196FD85F0036948F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEBE1BB7196FD85F0036948F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE1BC5196FD85F0036948F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FEBE1B91196FD85F0036948F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE1BB2196FD85F0036948F /* SecondViewController.m in Sources */,
+				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
+				FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */,
+				FEBE1BA5196FD85F0036948F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEBE1BB5196FD85F0036948F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEBE1BC7196FD85F0036948F /* LaVentanaDelArteTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FEBE1BBF196FD85F0036948F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEBE1B94196FD85F0036948F /* LaVentanaDelArte */;
+			targetProxy = FEBE1BBE196FD85F0036948F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FEBE1BA1196FD85F0036948F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEBE1BA2196FD85F0036948F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FEBE1BAA196FD85F0036948F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEBE1BAB196FD85F0036948F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FEBE1BC3196FD85F0036948F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEBE1BC4196FD85F0036948F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FEBE1BC8196FD85F0036948F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FEBE1BC9196FD85F0036948F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEBE1BCB196FD85F0036948F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaVentanaDelArte/LaVentanaDelArte-Prefix.pch";
+				INFOPLIST_FILE = "LaVentanaDelArte/LaVentanaDelArte-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FEBE1BCC196FD85F0036948F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaVentanaDelArte/LaVentanaDelArte-Prefix.pch";
+				INFOPLIST_FILE = "LaVentanaDelArte/LaVentanaDelArte-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FEBE1BCE196FD85F0036948F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LaVentanaDelArte.app/LaVentanaDelArte";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaVentanaDelArte/LaVentanaDelArte-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LaVentanaDelArteTests/LaVentanaDelArteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FEBE1BCF196FD85F0036948F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LaVentanaDelArte.app/LaVentanaDelArte";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LaVentanaDelArte/LaVentanaDelArte-Prefix.pch";
+				INFOPLIST_FILE = "LaVentanaDelArteTests/LaVentanaDelArteTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FEBE1B90196FD85F0036948F /* Build configuration list for PBXProject "LaVentanaDelArte" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEBE1BC8196FD85F0036948F /* Debug */,
+				FEBE1BC9196FD85F0036948F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEBE1BCA196FD85F0036948F /* Build configuration list for PBXNativeTarget "LaVentanaDelArte" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEBE1BCB196FD85F0036948F /* Debug */,
+				FEBE1BCC196FD85F0036948F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FEBE1BCD196FD85F0036948F /* Build configuration list for PBXNativeTarget "LaVentanaDelArteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEBE1BCE196FD85F0036948F /* Debug */,
+				FEBE1BCF196FD85F0036948F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FEBE1B8D196FD85F0036948F /* Project object */;
+}
