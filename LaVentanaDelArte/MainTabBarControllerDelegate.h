@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  MainTabBarControllerDelegate.h
 //  LaVentanaDelArte
 //
 //  Created by Ruben Jeronimo Fernandez on 11/07/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface MainTabBarControllerDelegate : NSObject <UITabBarControllerDelegate>
 
 @end

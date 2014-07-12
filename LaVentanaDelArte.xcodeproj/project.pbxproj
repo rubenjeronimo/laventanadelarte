@@ -15,13 +15,16 @@
 		FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BA8196FD85F0036948F /* AppDelegate.m */; };
 		FEBE1BAC196FD85F0036948F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BAA196FD85F0036948F /* Main.storyboard */; };
 		FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BAE196FD85F0036948F /* FirstViewController.m */; };
-		FEBE1BB2196FD85F0036948F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BB1196FD85F0036948F /* SecondViewController.m */; };
 		FEBE1BB4196FD85F0036948F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BB3196FD85F0036948F /* Images.xcassets */; };
 		FEBE1BBB196FD85F0036948F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1BBA196FD85F0036948F /* XCTest.framework */; };
 		FEBE1BBC196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
 		FEBE1BBD196FD85F0036948F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9C196FD85F0036948F /* UIKit.framework */; };
 		FEBE1BC5196FD85F0036948F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BC3196FD85F0036948F /* InfoPlist.strings */; };
 		FEBE1BC7196FD85F0036948F /* LaVentanaDelArteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */; };
+		FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */; };
+		FEBE1BD5196FF1870036948F /* EventosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD4196FF1870036948F /* EventosTableViewController.m */; };
+		FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */; };
+		FEBE1BDB196FFA400036948F /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BDA196FFA400036948F /* Evento.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +51,19 @@
 		FEBE1BAB196FD85F0036948F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEBE1BAD196FD85F0036948F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		FEBE1BAE196FD85F0036948F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		FEBE1BB0196FD85F0036948F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		FEBE1BB1196FD85F0036948F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		FEBE1BB3196FD85F0036948F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FEBE1BB9196FD85F0036948F /* LaVentanaDelArteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaVentanaDelArteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBE1BBA196FD85F0036948F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FEBE1BC2196FD85F0036948F /* LaVentanaDelArteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaVentanaDelArteTests-Info.plist"; sourceTree = "<group>"; };
 		FEBE1BC4196FD85F0036948F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaVentanaDelArteTests.m; sourceTree = "<group>"; };
+		FEBE1BD0196FD8B90036948F /* MainTabBarControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarControllerDelegate.h; sourceTree = "<group>"; };
+		FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarControllerDelegate.m; sourceTree = "<group>"; };
+		FEBE1BD3196FF1870036948F /* EventosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosTableViewController.h; sourceTree = "<group>"; };
+		FEBE1BD4196FF1870036948F /* EventosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosTableViewController.m; sourceTree = "<group>"; };
+		FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelo.xcdatamodel; sourceTree = "<group>"; };
+		FEBE1BD9196FFA400036948F /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		FEBE1BDA196FFA400036948F /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +123,10 @@
 		FEBE1B9E196FD85F0036948F /* LaVentanaDelArte */ = {
 			isa = PBXGroup;
 			children = (
-				FEBE1BA7196FD85F0036948F /* AppDelegate.h */,
-				FEBE1BA8196FD85F0036948F /* AppDelegate.m */,
-				FEBE1BAA196FD85F0036948F /* Main.storyboard */,
-				FEBE1BAD196FD85F0036948F /* FirstViewController.h */,
-				FEBE1BAE196FD85F0036948F /* FirstViewController.m */,
-				FEBE1BB0196FD85F0036948F /* SecondViewController.h */,
-				FEBE1BB1196FD85F0036948F /* SecondViewController.m */,
+				FEBE1BDF196FFAA00036948F /* delegates */,
+				FEBE1BDE196FFA560036948F /* controller */,
+				FEBE1BDD196FFA500036948F /* model */,
+				FEBE1BDC196FFA4B0036948F /* view */,
 				FEBE1BB3196FD85F0036948F /* Images.xcassets */,
 				FEBE1B9F196FD85F0036948F /* Supporting Files */,
 			);
@@ -155,6 +160,46 @@
 				FEBE1BC3196FD85F0036948F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FEBE1BDC196FFA4B0036948F /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BAA196FD85F0036948F /* Main.storyboard */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		FEBE1BDD196FFA500036948F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
+				FEBE1BD9196FFA400036948F /* Evento.h */,
+				FEBE1BDA196FFA400036948F /* Evento.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		FEBE1BDE196FFA560036948F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BAD196FD85F0036948F /* FirstViewController.h */,
+				FEBE1BAE196FD85F0036948F /* FirstViewController.m */,
+				FEBE1BD3196FF1870036948F /* EventosTableViewController.h */,
+				FEBE1BD4196FF1870036948F /* EventosTableViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		FEBE1BDF196FFAA00036948F /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				FEBE1BA7196FD85F0036948F /* AppDelegate.h */,
+				FEBE1BA8196FD85F0036948F /* AppDelegate.m */,
+				FEBE1BD0196FD8B90036948F /* MainTabBarControllerDelegate.h */,
+				FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */,
+			);
+			name = delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,10 +299,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEBE1BB2196FD85F0036948F /* SecondViewController.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
 				FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */,
 				FEBE1BA5196FD85F0036948F /* main.m in Sources */,
+				FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */,
+				FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */,
+				FEBE1BDB196FFA400036948F /* Evento.m in Sources */,
+				FEBE1BD5196FF1870036948F /* EventosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +520,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */,
+			);
+			currentVersion = FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */;
+			path = Modelo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FEBE1B8D196FD85F0036948F /* Project object */;
 }
