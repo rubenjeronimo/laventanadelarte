@@ -8,6 +8,7 @@
 
 #import "EventosTableViewController.h"
 #import "VentanaTableViewCell.h"
+#import "DetalleViewController.h"
 @interface EventosTableViewController ()
 @property (nonatomic,strong) NSArray *listadoEventos;
 //@property (nonatomic,strong)NSDictionary *evento;
@@ -73,7 +74,21 @@ static NSString *const space = @"space";
 
 //1.definir FetchresultController, 2.añadir observador al modelo, 3.cargar los datos cuando esté listo
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString: @"DetalleSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        DetalleViewController *detalleVC = [segue destinationViewController];
+        NSDictionary *evento = [self.listadoEventos objectAtIndex:indexPath.row];
+        NSString *tituloVC = [evento objectForKey:@"name"];
+        NSString *textDetailVC = [evento objectForKey:@"detail"];
+        NSString *latitudVC = [evento objectForKey:@"latitude"];
+        NSString *longitudVC = [evento objectForKey:@"longitude"];
+        NSString *urlVC = [evento objectForKey:@"url"];
+        detalleVC.nombreString = tituloVC;
+        detalleVC.detalleString = textDetailVC;
+        detalleVC.urlString = urlVC;
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.

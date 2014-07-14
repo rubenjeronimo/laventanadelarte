@@ -57,11 +57,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="ENm-Ae-1jQ" customClass="VentanaTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="ENm-Ae-1jQ" customClass="VentanaTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ENm-Ae-1jQ" id="vkZ-8z-Jx4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-Ck-qoS">
@@ -87,6 +87,7 @@
                                     <outlet property="ImageEvento" destination="1Mq-0r-aHD" id="ozR-fA-ySN"/>
                                     <outlet property="NameEvento" destination="bDX-Ck-qoS" id="7UP-hu-WtR"/>
                                     <outlet property="typeEvento" destination="CSS-eq-Cv1" id="5yg-aG-jI4"/>
+                                    <segue destination="adh-KO-d7V" kind="push" identifier="DetalleSegue" id="UPz-eb-5a1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="1115" y="561"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalle View Controller-->
         <scene sceneID="3GA-2N-dXD">
             <objects>
-                <viewController id="adh-KO-d7V" sceneMemberID="viewController">
+                <viewController id="adh-KO-d7V" customClass="DetalleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NuC-NO-Qbj"/>
                         <viewControllerLayoutGuide type="bottom" id="tLA-1a-lpj"/>
@@ -112,9 +113,42 @@
                     <view key="view" contentMode="scaleToFill" id="Rai-Zh-Uaq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
+                                <rect key="frame" x="0.0" y="65" width="320" height="249"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-bq-Uym">
+                                <rect key="frame" x="33" y="106" width="194" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Qs-S7M">
+                                <rect key="frame" x="0.0" y="312" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="365"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <mutableString key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
+
+Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cfh-p8-ATS"/>
+                    <connections>
+                        <outlet property="detailEvento" destination="gxk-SH-sgY" id="drR-oe-Cdp"/>
+                        <outlet property="imageEvento" destination="wwE-fD-atv" id="c2W-wl-kzf"/>
+                        <outlet property="nameEvento" destination="3Pr-bq-Uym" id="4cq-yE-xFh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNl-VH-CVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
