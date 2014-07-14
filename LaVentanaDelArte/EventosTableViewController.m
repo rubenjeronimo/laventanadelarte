@@ -7,7 +7,7 @@
 //
 
 #import "EventosTableViewController.h"
-
+#import "VentanaTableViewCell.h"
 @interface EventosTableViewController ()
 @property (nonatomic,strong) NSArray *listadoEventos;
 //@property (nonatomic,strong)NSDictionary *evento;
@@ -60,13 +60,13 @@ static NSString *const space = @"space";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
     NSDictionary *event = [self.listadoEventos objectAtIndex:indexPath.row];
-    cell.textLabel.text = [event objectForKey:name];
-    cell.detailTextLabel.text = [event objectForKey:space];
+    cell.NameEvento.text = [event objectForKey:name];
+    cell.typeEvento.text = [event objectForKey:space];
+
     return cell;
 }
 

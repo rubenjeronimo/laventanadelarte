@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
 		FEBE1B9B196FD85F0036948F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */; };
 		FEBE1B9D196FD85F0036948F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9C196FD85F0036948F /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
+		FE3D1E171973C21400973719 /* VentanaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentanaTableViewCell.m; sourceTree = "<group>"; };
 		FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaVentanaDelArte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBE1B98196FD85F0036948F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,8 @@
 				FEBE1BAE196FD85F0036948F /* FirstViewController.m */,
 				FEBE1BD3196FF1870036948F /* EventosTableViewController.h */,
 				FEBE1BD4196FF1870036948F /* EventosTableViewController.m */,
+				FE3D1E161973C21400973719 /* VentanaTableViewCell.h */,
+				FE3D1E171973C21400973719 /* VentanaTableViewCell.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
+				FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */,
 				FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */,
 				FEBE1BA5196FD85F0036948F /* main.m in Sources */,
 				FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */,
@@ -510,6 +516,7 @@
 				FEBE1BCC196FD85F0036948F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEBE1BCD196FD85F0036948F /* Build configuration list for PBXNativeTarget "LaVentanaDelArteTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +525,7 @@
 				FEBE1BCF196FD85F0036948F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
