@@ -39,29 +39,18 @@ static NSString *const space = @"space";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self cargaDatos];
+    
+    //[self cargaDatos];
+    [self takeData];
     
     
 }
 
--(void)cargaDatos{
-    Espacio *espacio1 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    Espacio *espacio2 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    Espacio *espacio3 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    Espacio *espacio4 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    espacio1.nombre = @"espacio 1";
-    espacio2.nombre = @"espacio 2";
-    espacio3.nombre = @"espacio 3";
-    espacio4.nombre = @"espacio 4";
-    self.listadoEspacios = [[NSMutableArray alloc]init];
-    self.listadoEventos = [[NSMutableArray alloc]init];
-    [self.listadoEspacios addObject:espacio1];
-    [self.listadoEspacios addObject:espacio2];
-    [self.listadoEspacios addObject:espacio3];
-    [self.listadoEspacios addObject:espacio4];
-    
-    [self.contexto save:nil];
+-(NSMutableArray *)listadoEspacios{
+    if (!_listadoEspacios) {
+        _listadoEspacios = [[NSMutableArray alloc]init];
+    }
+    return _listadoEspacios;
 }
 
 -(void) takeData{
@@ -77,8 +66,10 @@ static NSString *const space = @"space";
         self.espacio = (NSDictionary *)responseObject;
         NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
         for (NSDictionary *eve in listadoTemporal) {
-            Espacio *es=[[Espacio alloc]init];
+            Espacio *es= [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
             es.nombre = [eve valueForKeyPath:@"Name.text"];
+            es.descripcion = [eve valueForKeyPath:@"Detail.text"];
+            es.imagen =[eve valueForKeyPath:@"Image.text"];
 
             [self.listadoEspacios addObject:es];
         }
@@ -120,7 +111,10 @@ static NSString *const space = @"space";
     // Configure the cell...
     Espacio *espace = [self.listadoEspacios objectAtIndex:indexPath.row];
     cell.NameEvento.text = espace.nombre;
-
+    cell.typeEvento.text = espace.descripcion;
+    NSURL *url = [NSURL URLWithString:espace.imagen];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    cell.ImageEvento.image = [UIImage imageWithData:data];
     
     return cell;
 }
@@ -133,17 +127,7 @@ static NSString *const space = @"space";
         NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
         DetalleViewController *detalleVC = [segue destinationViewController];
         Espacio *espacio = [self.listadoEspacios objectAtIndex:indexPath.row];
-        //NSString *tituloVC = [evento objectForKey:@"nombre"];
-//        NSString *textDetailVC = [evento objectForKey:@"detail"];
-//        NSString *latitudVC = [evento objectForKey:@"latitude"];
-//        NSString *longitudVC = [evento objectForKey:@"longitude"];
-//        NSString *urlVC = [evento objectForKey:@"url"];
         detalleVC.espacio = espacio;
-        //detalleVC.nombreString = tituloVC;
-//        detalleVC.detalleString = textDetailVC;
-//        detalleVC.urlString = urlVC;
-//        detalleVC.latitud = latitudVC;
-//        detalleVC.longitud = longitudVC;
     }
 }
 
@@ -195,7 +179,36 @@ static NSString *const space = @"space";
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)cargaDatos{
+    Espacio *espacio1 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    Espacio *espacio2 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    Espacio *espacio3 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    Espacio *espacio4 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    espacio1.nombre = @"Centro Cultural La Corrala UAM";
+    espacio2.nombre = @"Fundación de los Ferrocarriles Españoles";
+    espacio3.nombre = @"Galería Alegría";
+    espacio4.nombre = @"Galería Arte 10";
+    espacio1.descripcion = @"Situado en el centro de la ciudad -en la histórica corrala de la calle de Carlos Arniches, en mitad de El Rastro-, La Corrala tiene por objetivo proyectar la creatividad y la capacidad de innovación científica de la Universidad Autónoma a todo Madrid.";
+    espacio2.descripcion = @"El Palacio de Fernán Núñez es la sede de la Fundación de los Ferrocarriles Españoles desde 1985. En el palacio se organizan exposiciones temporales.";
+    espacio3.descripcion = @"Apostamos por una programación en la que convivan artistas de corta, media y larga carrera con otros artistas absolutamente desconocidos fuera del circuito. La Galería Alegría es un espacio abierto al arte, al diseño y a todo aquello que nos interese y emocione";
+    espacio4.descripcion = @"En la Galería Arte 10, podrás encontrar expuesta básicamente obra gráfica moderna y contemporánea, esculturas, objetos y libros de artista. Realiza exposiciones tituladas y/o temáticas de la Colección Arte 10, pero ocasionalmente también de artistas del momento.";
+    espacio1.imagen = @"http://laventanadelarte.es/images/madrid/3874/foto-centro-2903142217318bb97c.jpg";
+    espacio2.imagen = @"http://laventanadelarte.es/images/madrid/3892/foto-centro-0204141839342818b4.jpg";
+    espacio3.imagen = @"http://laventanadelarte.es/images/madrid/3905/foto-centro-030414103516e1a1f2.jpg";
+    espacio4.imagen = @"http://laventanadelarte.es/images/madrid/3917/foto-centro-030414103849a3f68e.jpg";
+    espacio1.url = @"www.uam.es/ss/Satellite/es/1242657634005";
+    espacio2.url = @"www.ffe.es";
+    espacio3.url = @"www.galeriaalegria.es";
+    espacio4.url = @"www.arte10galeria.com";
+    self.listadoEspacios = [[NSMutableArray alloc]init];
+    self.listadoEventos = [[NSMutableArray alloc]init];
+    [self.listadoEspacios addObject:espacio1];
+    [self.listadoEspacios addObject:espacio2];
+    [self.listadoEspacios addObject:espacio3];
+    [self.listadoEspacios addObject:espacio4];
+    
+    [self.contexto save:nil];
+}
 
 
 @end

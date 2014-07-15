@@ -30,7 +30,11 @@
     // Do any additional setup after loading the view.
     self.title = self.espacio.nombre;
     self.detailEvento.text = self.espacio.descripcion;
-    
+    self.nameEvento.text = self.espacio.nombre;
+    NSURL *url = [NSURL URLWithString:self.espacio.imagen];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    self.imageEvento.image = [UIImage imageWithData:data];
+    self.urlButton.titleLabel.text = self.espacio.url;
 }
 
 - (void)didReceiveMemoryWarning

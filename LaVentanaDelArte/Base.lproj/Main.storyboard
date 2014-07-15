@@ -115,29 +115,36 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-bq-Uym">
-                                <rect key="frame" x="33" y="106" width="194" height="39"/>
+                                <rect key="frame" x="33" y="82" width="281" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Qs-S7M">
-                                <rect key="frame" x="0.0" y="66" width="320" height="708"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
+                                <rect key="frame" x="0.0" y="64" width="320" height="249"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Qs-S7M">
+                                <rect key="frame" x="0.0" y="64" width="320" height="719"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
-                                        <rect key="frame" x="0.0" y="150" width="320" height="365"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
+                                        <rect key="frame" x="0.0" y="177" width="320" height="365"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
 
 Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="520-fy-6Op">
+                                        <rect key="frame" x="20" y="584" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -148,6 +155,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                         <outlet property="detailEvento" destination="gxk-SH-sgY" id="drR-oe-Cdp"/>
                         <outlet property="imageEvento" destination="wwE-fD-atv" id="c2W-wl-kzf"/>
                         <outlet property="nameEvento" destination="3Pr-bq-Uym" id="4cq-yE-xFh"/>
+                        <outlet property="urlButton" destination="520-fy-6Op" id="xKQ-J8-uBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNl-VH-CVc" userLabel="First Responder" sceneMemberID="firstResponder"/>

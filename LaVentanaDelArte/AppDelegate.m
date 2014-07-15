@@ -23,38 +23,14 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 
-//- (NSManagedObjectContext *) contexto {
-//    if (_contexto == nil) {
-//        NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
-//        if (coordinator != nil) {
-//            _contexto = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-//            _contexto.persistentStoreCoordinator = coordinator;
-//        }
-//    }
-//    return _contexto;
-//}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     CoreDataStack *coredataStack = [CoreDataStack coreDataStackWithModelName:@"Modelo"];
         
-    //1 Clase Nueva: Inicializar Coredata Stack       SI
-    
-    //2 Delegate: Crear Propiedad un managedObjectContex    SI
-    
-    //3 Delegate: Pasar managedObjectContex a la primera vista.  creo que si
-    
-    //4 1º Vista: En la primra vista, crear objectos manulmente.
-    //5 1º Vista: Ver que la tabla funciona.
-    
-    //6 Crear una clase para datos de Internet
-    //6.1 Descargar JSON
-    //6.2 Parsearlo JSON y crear managedObjectContex por cada entrada.
-    //6.3 Salvar los datos.
-    
-    //7 1º Vista:  Configurar un fechtRequest en la vista eventos para que lea los cambios salvados.
-    
+
     
     
     self.tabBarControllerDelegate = [[MainTabBarControllerDelegate alloc]init];
@@ -64,10 +40,8 @@
     
     NSLog(@"%@",[(UINavigationController*)[tabBarController.viewControllers objectAtIndex:1]topViewController]);
     
-    
-    //3 pasar el manageobjectcontext a la primera vista. creo que se hace así.
+
     EventosTableViewController *tablaVC = (EventosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
-    //tablaVC.contexto = self.contexto;
     tablaVC.contexto = coredataStack.context;
     
     NSURL *docURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FirstDocument"];
