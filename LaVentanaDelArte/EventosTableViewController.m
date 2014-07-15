@@ -53,33 +53,7 @@ static NSString *const space = @"space";
     return _listadoEspacios;
 }
 
--(void) takeData{
-    NSString *string = @"https://www.kimonolabs.com/api/c4qaaysg?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
-    NSURL *urlEspacio = [NSURL URLWithString:string];
-    NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
-    
-    
-    
-    AFHTTPRequestOperation *operacion = [[AFHTTPRequestOperation alloc]initWithRequest:consultaEvento];
-    operacion.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.espacio = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
-        for (NSDictionary *eve in listadoTemporal) {
-            Espacio *es= [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-            es.nombre = [eve valueForKeyPath:@"Name.text"];
-            es.descripcion = [eve valueForKeyPath:@"Detail.text"];
-            es.imagen =[eve valueForKeyPath:@"Image.text"];
 
-            [self.listadoEspacios addObject:es];
-        }
-        [self.tableView reloadData];
-          NSLog(@"array:%@",self.listadoEventos);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"que mal");
-    }];
-    [operacion start];
-}
 
 
 
@@ -175,10 +149,14 @@ static NSString *const space = @"space";
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
+    // Get the new view controller using [segue destinationViewControlddler].
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+#pragma mark - downloading Data
 -(void)cargaDatos{
     Espacio *espacio1 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
     Espacio *espacio2 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
@@ -210,5 +188,33 @@ static NSString *const space = @"space";
     [self.contexto save:nil];
 }
 
+-(void) takeData{
+    NSString *string = @"https://www.kimonolabs.com/api/c4qaaysg?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
+    NSURL *urlEspacio = [NSURL URLWithString:string];
+    NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
+    
+    
+    
+    AFHTTPRequestOperation *operacion = [[AFHTTPRequestOperation alloc]initWithRequest:consultaEvento];
+    operacion.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.espacio = (NSDictionary *)responseObject;
+        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
+        for (NSDictionary *eve in listadoTemporal) {
+            Espacio *es= [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+            es.nombre = [eve valueForKeyPath:@"Name.text"];
+            es.descripcion = [eve valueForKeyPath:@"Detail.text"];
+            es.imagen =[eve valueForKeyPath:@"Image.src"];
+            
+            [self.listadoEspacios addObject:es];
+        }
+        [self.tableView reloadData];
+        NSLog(@"array:%@",self.listadoEventos);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"que mal");
+    }];
+    [operacion start];
+    [self.contexto save:nil];
+}
 
 @end

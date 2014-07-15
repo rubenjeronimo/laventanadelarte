@@ -14,7 +14,6 @@
 
 @implementation MainTabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    NSLog(@"jdjdj");
     return YES;
 }
 @end

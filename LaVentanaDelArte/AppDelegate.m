@@ -38,8 +38,6 @@
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     tabBarController.delegate = self.tabBarControllerDelegate;
     
-    NSLog(@"%@",[(UINavigationController*)[tabBarController.viewControllers objectAtIndex:1]topViewController]);
-    
 
     EventosTableViewController *tablaVC = (EventosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
     tablaVC.contexto = coredataStack.context;
