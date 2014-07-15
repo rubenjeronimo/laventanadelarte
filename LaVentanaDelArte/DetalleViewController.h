@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Espacio;
 
 @interface DetalleViewController : UIViewController
-@property (nonatomic,strong) NSString *nombreString;
-@property (nonatomic,strong) NSString *detalleString;
-@property (nonatomic,strong) NSString * urlString;
+//@property (nonatomic,strong) NSString *nombreString;
+//@property (nonatomic,strong) NSString *detalleString;
+//@property (nonatomic,strong) NSString * urlString;
+//@property (nonatomic,strong) NSString * latitud;
+//@property (nonatomic,strong) NSString * longitud;
+@property (nonatomic, strong) Espacio *espacio;
 @property (weak, nonatomic) IBOutlet UILabel *nameEvento;
 @property (weak, nonatomic) IBOutlet UITextView *detailEvento;
 @property (weak, nonatomic) IBOutlet UIImageView *imageEvento;

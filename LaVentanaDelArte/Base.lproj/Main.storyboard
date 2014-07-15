@@ -78,7 +78,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Mq-0r-aHD">
-                                            <rect key="frame" x="230" y="5" width="70" height="70"/>
+                                            <rect key="frame" x="205" y="5" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -92,8 +92,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="uHe-DN-F69" id="4o2-Uz-vCS"/>
-                            <outlet property="delegate" destination="uHe-DN-F69" id="UaY-W3-XJp"/>
+                            <outlet property="dataSource" destination="uHe-DN-F69" id="lUG-JG-Zjd"/>
+                            <outlet property="delegate" destination="uHe-DN-F69" id="iYf-Qx-MCg"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Gqk-oX-CCB"/>
@@ -114,30 +114,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
-                                <rect key="frame" x="0.0" y="65" width="320" height="249"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-bq-Uym">
                                 <rect key="frame" x="33" y="106" width="194" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Qs-S7M">
-                                <rect key="frame" x="0.0" y="312" width="320" height="416"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Qs-S7M">
+                                <rect key="frame" x="0.0" y="66" width="320" height="708"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="365"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
+                                        <rect key="frame" x="0.0" y="150" width="320" height="365"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <mutableString key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
+                                        <string key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
 
-Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </mutableString>
+Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -157,7 +157,8 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
             <objects>
-                <tabBarController id="8YX-ce-x5E" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="ourtabbar" id="8YX-ce-x5E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5yN-Ek-rxO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQR-rB-NYL">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -171,7 +172,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="180"/>
+            <point key="canvasLocation" x="30" y="190"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="e7B-eN-H1d">
@@ -195,6 +196,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="sad13.jpg" width="625" height="924"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

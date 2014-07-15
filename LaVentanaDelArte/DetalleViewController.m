@@ -7,6 +7,7 @@
 //
 
 #import "DetalleViewController.h"
+#import "Espacio.h"
 
 @interface DetalleViewController ()
 
@@ -27,6 +28,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = self.espacio.nombre;
+    self.detailEvento.text = self.espacio.descripcion;
+    
 }
 
 - (void)didReceiveMemoryWarning

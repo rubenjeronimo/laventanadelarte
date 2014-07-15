@@ -9,9 +9,14 @@
 #import "EventosTableViewController.h"
 #import "VentanaTableViewCell.h"
 #import "DetalleViewController.h"
-@interface EventosTableViewController ()
-@property (nonatomic,strong) NSArray *listadoEventos;
-//@property (nonatomic,strong)NSDictionary *evento;
+#import "Evento.h"
+#import "Espacio.h"
+@interface EventosTableViewController () 
+@property (nonatomic,strong) NSMutableArray *listadoEspacios;
+@property (nonatomic,strong) NSDictionary *espacio;
+@property (nonatomic,strong) NSMutableArray *listadoEventos;
+@property (nonatomic,strong) NSDictionary *evento;
+
 @end
 
 @implementation EventosTableViewController
@@ -26,17 +31,66 @@ static NSString *const space = @"space";
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+
+    //[self takeData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.listadoEventos = @[@{name:@"expo 1",space:@"museo coconut"},@{name:@"expo 2",space:@"museo otro"}];
+
+    [self cargaDatos];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void)cargaDatos{
+    Espacio *espacio1 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    Espacio *espacio2 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    Espacio *espacio3 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    Espacio *espacio4 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    espacio1.nombre = @"espacio 1";
+    espacio2.nombre = @"espacio 2";
+    espacio3.nombre = @"espacio 3";
+    espacio4.nombre = @"espacio 4";
+    self.listadoEspacios = [[NSMutableArray alloc]init];
+    self.listadoEventos = [[NSMutableArray alloc]init];
+    [self.listadoEspacios addObject:espacio1];
+    [self.listadoEspacios addObject:espacio2];
+    [self.listadoEspacios addObject:espacio3];
+    [self.listadoEspacios addObject:espacio4];
+    
+    [self.contexto save:nil];
+}
+
+-(void) takeData{
+    NSString *string = @"https://www.kimonolabs.com/api/c4qaaysg?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
+    NSURL *urlEspacio = [NSURL URLWithString:string];
+    NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
+    
+    
+    
+    AFHTTPRequestOperation *operacion = [[AFHTTPRequestOperation alloc]initWithRequest:consultaEvento];
+    operacion.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.espacio = (NSDictionary *)responseObject;
+        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
+        for (NSDictionary *eve in listadoTemporal) {
+            Espacio *es=[[Espacio alloc]init];
+            es.nombre = [eve valueForKeyPath:@"Name.text"];
+
+            [self.listadoEspacios addObject:es];
+        }
+        [self.tableView reloadData];
+          NSLog(@"array:%@",self.listadoEventos);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"que mal");
+    }];
+    [operacion start];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,7 +109,7 @@ static NSString *const space = @"space";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.listadoEventos count];
+    return [self.listadoEspacios count];
 }
 
 
@@ -64,10 +118,10 @@ static NSString *const space = @"space";
     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *event = [self.listadoEventos objectAtIndex:indexPath.row];
-    cell.NameEvento.text = [event objectForKey:name];
-    cell.typeEvento.text = [event objectForKey:space];
+    Espacio *espace = [self.listadoEspacios objectAtIndex:indexPath.row];
+    cell.NameEvento.text = espace.nombre;
 
+    
     return cell;
 }
 
@@ -76,17 +130,20 @@ static NSString *const space = @"space";
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString: @"DetalleSegue"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
         DetalleViewController *detalleVC = [segue destinationViewController];
-        NSDictionary *evento = [self.listadoEventos objectAtIndex:indexPath.row];
-        NSString *tituloVC = [evento objectForKey:@"name"];
-        NSString *textDetailVC = [evento objectForKey:@"detail"];
-        NSString *latitudVC = [evento objectForKey:@"latitude"];
-        NSString *longitudVC = [evento objectForKey:@"longitude"];
-        NSString *urlVC = [evento objectForKey:@"url"];
-        detalleVC.nombreString = tituloVC;
-        detalleVC.detalleString = textDetailVC;
-        detalleVC.urlString = urlVC;
+        Espacio *espacio = [self.listadoEspacios objectAtIndex:indexPath.row];
+        //NSString *tituloVC = [evento objectForKey:@"nombre"];
+//        NSString *textDetailVC = [evento objectForKey:@"detail"];
+//        NSString *latitudVC = [evento objectForKey:@"latitude"];
+//        NSString *longitudVC = [evento objectForKey:@"longitude"];
+//        NSString *urlVC = [evento objectForKey:@"url"];
+        detalleVC.espacio = espacio;
+        //detalleVC.nombreString = tituloVC;
+//        detalleVC.detalleString = textDetailVC;
+//        detalleVC.urlString = urlVC;
+//        detalleVC.latitud = latitudVC;
+//        detalleVC.longitud = longitudVC;
     }
 }
 
