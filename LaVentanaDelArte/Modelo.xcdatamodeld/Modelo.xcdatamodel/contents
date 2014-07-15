@@ -7,13 +7,14 @@
         <attribute name="longitud" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="evento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evento" inverseName="space" inverseEntity="Evento" syncable="YES"/>
     </entity>
     <entity name="Evento" representedClassName="Evento" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="space" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="space" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Espacio" inverseName="evento" inverseEntity="Espacio" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Espacio" positionX="-63" positionY="0" width="128" height="135"/>
-        <element name="Evento" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Espacio" positionX="-63" positionY="0" width="128" height="150"/>
+        <element name="Evento" positionX="-63" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

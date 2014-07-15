@@ -78,7 +78,9 @@
                             <outlet property="delegate" destination="uHe-DN-F69" id="iYf-Qx-MCg"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Gqk-oX-CCB"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dju-0o-w4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,40 +109,38 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Qs-S7M">
-                                <rect key="frame" x="0.0" y="64" width="320" height="719"/>
+                                <rect key="frame" x="0.0" y="137" width="320" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
-                                        <rect key="frame" x="7" y="65" width="320" height="365"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
+                                        <rect key="frame" x="15" y="-5" width="320" height="205"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
+                                        <mutableString key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
 
-Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </string>
+Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="520-fy-6Op">
-                                        <rect key="frame" x="20" y="584" width="280" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="520-fy-6Op" firstAttribute="top" secondItem="gxk-SH-sgY" secondAttribute="bottom" constant="8" id="pA1-MT-7au"/>
-                                </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN9-S7-2pm">
+                                <rect key="frame" x="137" y="356" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cfh-p8-ATS"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="detailEvento" destination="gxk-SH-sgY" id="drR-oe-Cdp"/>
                         <outlet property="imageEvento" destination="wwE-fD-atv" id="c2W-wl-kzf"/>
                         <outlet property="nameEvento" destination="3Pr-bq-Uym" id="4cq-yE-xFh"/>
-                        <outlet property="urlButton" destination="520-fy-6Op" id="xKQ-J8-uBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNl-VH-CVc" userLabel="First Responder" sceneMemberID="firstResponder"/>

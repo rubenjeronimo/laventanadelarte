@@ -30,10 +30,10 @@
 		FE6509BE19757DF600474A23 /* events-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE6509BC19757DF600474A23 /* events-icon.png */; };
 		FE6509BF19757DF600474A23 /* 618311-Bank-512.png in Resources */ = {isa = PBXBuildFile; fileRef = FE6509BD19757DF600474A23 /* 618311-Bank-512.png */; };
 		FE6509C119757EB600474A23 /* fondo.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FE6509C019757EB600474A23 /* fondo.JPG */; };
+		FE650A081975857A00474A23 /* Espacio+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FE650A071975857A00474A23 /* Espacio+Model.m */; };
 		FE7397A31973FA710072BC7F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7397A21973FA710072BC7F /* CoreDataStack.m */; };
 		FEAF5E3A1975353A00988526 /* intro.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E391975353A00988526 /* intro.png */; };
 		FEAF5E3E197536C500988526 /* iconoFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E3D197536C500988526 /* iconoFirst.png */; };
-		FEAF5E411975577900988526 /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAF5E401975577900988526 /* Espacio.m */; };
 		FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
 		FEBE1B9B196FD85F0036948F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */; };
 		FEBE1B9D196FD85F0036948F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9C196FD85F0036948F /* UIKit.framework */; };
@@ -51,7 +51,8 @@
 		FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */; };
 		FEBE1BD5196FF1870036948F /* EventosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD4196FF1870036948F /* EventosTableViewController.m */; };
 		FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */; };
-		FEBE1BDB196FFA400036948F /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BDA196FFA400036948F /* Evento.m */; };
+		FEFB8913197591310013E688 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFB8912197591310013E688 /* Evento.m */; };
+		FEFB8916197591310013E688 /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFB8915197591310013E688 /* Espacio.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,12 +110,12 @@
 		FE6509BC19757DF600474A23 /* events-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "events-icon.png"; sourceTree = "<group>"; };
 		FE6509BD19757DF600474A23 /* 618311-Bank-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "618311-Bank-512.png"; sourceTree = "<group>"; };
 		FE6509C019757EB600474A23 /* fondo.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fondo.JPG; sourceTree = "<group>"; };
+		FE650A061975857A00474A23 /* Espacio+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Espacio+Model.h"; sourceTree = "<group>"; };
+		FE650A071975857A00474A23 /* Espacio+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Espacio+Model.m"; sourceTree = "<group>"; };
 		FE7397A11973FA710072BC7F /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		FE7397A21973FA710072BC7F /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		FEAF5E391975353A00988526 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
 		FEAF5E3D197536C500988526 /* iconoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFirst.png; sourceTree = "<group>"; };
-		FEAF5E3F1975577900988526 /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
-		FEAF5E401975577900988526 /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
 		FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaVentanaDelArte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBE1B98196FD85F0036948F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,8 +140,10 @@
 		FEBE1BD3196FF1870036948F /* EventosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosTableViewController.h; sourceTree = "<group>"; };
 		FEBE1BD4196FF1870036948F /* EventosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosTableViewController.m; sourceTree = "<group>"; };
 		FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelo.xcdatamodel; sourceTree = "<group>"; };
-		FEBE1BD9196FFA400036948F /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
-		FEBE1BDA196FFA400036948F /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
+		FEFB8911197591310013E688 /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		FEFB8912197591310013E688 /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
+		FEFB8914197591310013E688 /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
+		FEFB8915197591310013E688 /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,11 +321,13 @@
 			children = (
 				FE7397A11973FA710072BC7F /* CoreDataStack.h */,
 				FE7397A21973FA710072BC7F /* CoreDataStack.m */,
-				FEAF5E3F1975577900988526 /* Espacio.h */,
-				FEAF5E401975577900988526 /* Espacio.m */,
+				FE650A061975857A00474A23 /* Espacio+Model.h */,
+				FE650A071975857A00474A23 /* Espacio+Model.m */,
+				FEFB8911197591310013E688 /* Evento.h */,
+				FEFB8914197591310013E688 /* Espacio.h */,
+				FEFB8915197591310013E688 /* Espacio.m */,
+				FEFB8912197591310013E688 /* Evento.m */,
 				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
-				FEBE1BD9196FFA400036948F /* Evento.h */,
-				FEBE1BDA196FFA400036948F /* Evento.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE650A081975857A00474A23 /* Espacio+Model.m in Sources */,
 				FE3D1E481973E0A500973719 /* AFSecurityPolicy.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
 				FE3D1E471973E0A500973719 /* AFNetworkReachabilityManager.m in Sources */,
@@ -472,6 +478,7 @@
 				FE3D1E4A1973E0A500973719 /* AFURLRequestSerialization.m in Sources */,
 				FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */,
 				FE3D1E4C1973E0A500973719 /* AFURLSessionManager.m in Sources */,
+				FEFB8916197591310013E688 /* Espacio.m in Sources */,
 				FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */,
 				FE3D1E451973E0A500973719 /* AFHTTPRequestOperationManager.m in Sources */,
 				FE3D1E521973E0A500973719 /* UIProgressView+AFNetworking.m in Sources */,
@@ -480,9 +487,8 @@
 				FE3D1E4B1973E0A500973719 /* AFURLResponseSerialization.m in Sources */,
 				FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */,
 				FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */,
-				FEAF5E411975577900988526 /* Espacio.m in Sources */,
+				FEFB8913197591310013E688 /* Evento.m in Sources */,
 				FE3D1E531973E0A500973719 /* UIRefreshControl+AFNetworking.m in Sources */,
-				FEBE1BDB196FFA400036948F /* Evento.m in Sources */,
 				FEBE1BD5196FF1870036948F /* EventosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
