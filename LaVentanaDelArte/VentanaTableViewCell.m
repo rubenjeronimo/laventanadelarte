@@ -23,13 +23,35 @@
 {
     // Initialization code
     [self setBackground];
+    [self setImage];
 }
 
+-(void)setImage{
+    self.ImageEvento.layer.cornerRadius = self.ImageEvento.frame.size.width/2;
+    self.ImageEvento.clipsToBounds = YES;
+}
 
 -(void)setBackground{
     CALayer *layer = [CALayer layer];
-    layer.backgroundColor = [UIColor colorWithRed:0.731 green:0.441 blue:0.14 alpha:0.5].CGColor;
+    
+    
+//    UIImage *imagen = self.ImageEvento.image;
+//    CIImage *blurImagen = [CIImage imageWithCGImage:imagen.CGImage];
+//    CIFilter *gaussiano = [CIFilter filterWithName:@"CIGaussianBlur"];
+//    [gaussiano setValue:blurImagen forKey:@"Input Image"];
+//    [gaussiano setValue:[NSNumber numberWithFloat: 10] forKey: @"inputRadius"]; //change number to increase/decrease blur
+//    CIImage *resultImage = [gaussiano valueForKey: @"outputImage"];
+//    
+//    //create UIImage from filtered image
+//    blurImagen = [[[UIImage alloc] initWithCIImage:resultImage]CIImage];
+    
+    
+    
+    
+    layer.backgroundColor = [UIColor colorWithRed:0.1 green:0.2 blue:0.1 alpha:0.7].CGColor;
+    
     layer.cornerRadius = 20;
+    layer.frame = CGRectInset(self.layer.frame, 5, 5);
     [self.layer insertSublayer:layer atIndex:0];
 }
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated

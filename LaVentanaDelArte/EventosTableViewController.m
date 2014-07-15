@@ -93,9 +93,6 @@ static NSString *const space = @"space";
     return cell;
 }
 
-
-//1.definir FetchresultController, 2.añadir observador al modelo, 3.cargar los datos cuando esté listo
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString: @"DetalleSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
@@ -209,7 +206,7 @@ static NSString *const space = @"space";
             [self.listadoEspacios addObject:es];
         }
         [self.tableView reloadData];
-        NSLog(@"array:%@",self.listadoEventos);
+       // NSLog(@"array:%@",self.listadoEventos);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"que mal");
     }];
