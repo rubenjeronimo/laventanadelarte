@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE0D6DD819766A7500B29D8E /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DD719766A7500B29D8E /* Espacio.m */; };
+		FE0D6DDB19766A7500B29D8E /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DDA19766A7500B29D8E /* Evento.m */; };
+		FE0D6DE11976774400B29D8E /* EventosTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE01976774400B29D8E /* EventosTableView.m */; };
+		FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE3197681BA00B29D8E /* EventosViewController.m */; };
 		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E1A1973C51800973719 /* DetalleViewController.m */; };
 		FE3D1E1D1973CEE300973719 /* sad13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE3D1E1C1973CEE300973719 /* sad13.jpg */; };
@@ -41,7 +45,6 @@
 		FEBE1BA5196FD85F0036948F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BA4196FD85F0036948F /* main.m */; };
 		FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BA8196FD85F0036948F /* AppDelegate.m */; };
 		FEBE1BAC196FD85F0036948F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BAA196FD85F0036948F /* Main.storyboard */; };
-		FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BAE196FD85F0036948F /* FirstViewController.m */; };
 		FEBE1BB4196FD85F0036948F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BB3196FD85F0036948F /* Images.xcassets */; };
 		FEBE1BBB196FD85F0036948F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1BBA196FD85F0036948F /* XCTest.framework */; };
 		FEBE1BBC196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
@@ -49,10 +52,8 @@
 		FEBE1BC5196FD85F0036948F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BC3196FD85F0036948F /* InfoPlist.strings */; };
 		FEBE1BC7196FD85F0036948F /* LaVentanaDelArteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */; };
 		FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */; };
-		FEBE1BD5196FF1870036948F /* EventosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD4196FF1870036948F /* EventosTableViewController.m */; };
+		FEBE1BD5196FF1870036948F /* EspaciosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */; };
 		FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */; };
-		FEFB8913197591310013E688 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFB8912197591310013E688 /* Evento.m */; };
-		FEFB8916197591310013E688 /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFB8915197591310013E688 /* Espacio.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE0D6DD619766A7500B29D8E /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
+		FE0D6DD719766A7500B29D8E /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
+		FE0D6DD919766A7500B29D8E /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		FE0D6DDA19766A7500B29D8E /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
+		FE0D6DDF1976774400B29D8E /* EventosTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosTableView.h; sourceTree = "<group>"; };
+		FE0D6DE01976774400B29D8E /* EventosTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosTableView.m; sourceTree = "<group>"; };
+		FE0D6DE2197681BA00B29D8E /* EventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosViewController.h; sourceTree = "<group>"; };
+		FE0D6DE3197681BA00B29D8E /* EventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosViewController.m; sourceTree = "<group>"; };
 		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
 		FE3D1E171973C21400973719 /* VentanaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentanaTableViewCell.m; sourceTree = "<group>"; };
 		FE3D1E191973C51800973719 /* DetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleViewController.h; sourceTree = "<group>"; };
@@ -127,8 +136,6 @@
 		FEBE1BA7196FD85F0036948F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FEBE1BA8196FD85F0036948F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FEBE1BAB196FD85F0036948F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FEBE1BAD196FD85F0036948F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		FEBE1BAE196FD85F0036948F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		FEBE1BB3196FD85F0036948F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FEBE1BB9196FD85F0036948F /* LaVentanaDelArteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaVentanaDelArteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBE1BBA196FD85F0036948F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -137,13 +144,9 @@
 		FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaVentanaDelArteTests.m; sourceTree = "<group>"; };
 		FEBE1BD0196FD8B90036948F /* MainTabBarControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarControllerDelegate.h; sourceTree = "<group>"; };
 		FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarControllerDelegate.m; sourceTree = "<group>"; };
-		FEBE1BD3196FF1870036948F /* EventosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosTableViewController.h; sourceTree = "<group>"; };
-		FEBE1BD4196FF1870036948F /* EventosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosTableViewController.m; sourceTree = "<group>"; };
+		FEBE1BD3196FF1870036948F /* EspaciosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EspaciosTableViewController.h; sourceTree = "<group>"; };
+		FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EspaciosTableViewController.m; sourceTree = "<group>"; };
 		FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelo.xcdatamodel; sourceTree = "<group>"; };
-		FEFB8911197591310013E688 /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
-		FEFB8912197591310013E688 /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
-		FEFB8914197591310013E688 /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
-		FEFB8915197591310013E688 /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,11 +326,11 @@
 				FE7397A21973FA710072BC7F /* CoreDataStack.m */,
 				FE650A061975857A00474A23 /* Espacio+Model.h */,
 				FE650A071975857A00474A23 /* Espacio+Model.m */,
-				FEFB8911197591310013E688 /* Evento.h */,
-				FEFB8914197591310013E688 /* Espacio.h */,
-				FEFB8915197591310013E688 /* Espacio.m */,
-				FEFB8912197591310013E688 /* Evento.m */,
 				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
+				FE0D6DD619766A7500B29D8E /* Espacio.h */,
+				FE0D6DD719766A7500B29D8E /* Espacio.m */,
+				FE0D6DD919766A7500B29D8E /* Evento.h */,
+				FE0D6DDA19766A7500B29D8E /* Evento.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -335,14 +338,16 @@
 		FEBE1BDE196FFA560036948F /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				FEBE1BAD196FD85F0036948F /* FirstViewController.h */,
-				FEBE1BAE196FD85F0036948F /* FirstViewController.m */,
-				FEBE1BD3196FF1870036948F /* EventosTableViewController.h */,
-				FEBE1BD4196FF1870036948F /* EventosTableViewController.m */,
-				FE3D1E161973C21400973719 /* VentanaTableViewCell.h */,
-				FE3D1E171973C21400973719 /* VentanaTableViewCell.m */,
 				FE3D1E191973C51800973719 /* DetalleViewController.h */,
 				FE3D1E1A1973C51800973719 /* DetalleViewController.m */,
+				FE3D1E161973C21400973719 /* VentanaTableViewCell.h */,
+				FE3D1E171973C21400973719 /* VentanaTableViewCell.m */,
+				FE0D6DDF1976774400B29D8E /* EventosTableView.h */,
+				FE0D6DE01976774400B29D8E /* EventosTableView.m */,
+				FEBE1BD3196FF1870036948F /* EspaciosTableViewController.h */,
+				FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */,
+				FE0D6DE2197681BA00B29D8E /* EventosViewController.h */,
+				FE0D6DE3197681BA00B29D8E /* EventosViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE650A081975857A00474A23 /* Espacio+Model.m in Sources */,
+				FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */,
 				FE3D1E481973E0A500973719 /* AFSecurityPolicy.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
 				FE3D1E471973E0A500973719 /* AFNetworkReachabilityManager.m in Sources */,
@@ -476,20 +482,20 @@
 				FE3D1E461973E0A500973719 /* AFHTTPSessionManager.m in Sources */,
 				FE3D1E4F1973E0A500973719 /* UIAlertView+AFNetworking.m in Sources */,
 				FE3D1E4A1973E0A500973719 /* AFURLRequestSerialization.m in Sources */,
-				FEBE1BAF196FD85F0036948F /* FirstViewController.m in Sources */,
 				FE3D1E4C1973E0A500973719 /* AFURLSessionManager.m in Sources */,
-				FEFB8916197591310013E688 /* Espacio.m in Sources */,
+				FE0D6DD819766A7500B29D8E /* Espacio.m in Sources */,
 				FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */,
 				FE3D1E451973E0A500973719 /* AFHTTPRequestOperationManager.m in Sources */,
+				FE0D6DE11976774400B29D8E /* EventosTableView.m in Sources */,
 				FE3D1E521973E0A500973719 /* UIProgressView+AFNetworking.m in Sources */,
 				FEBE1BA5196FD85F0036948F /* main.m in Sources */,
 				FE3D1E501973E0A500973719 /* UIButton+AFNetworking.m in Sources */,
 				FE3D1E4B1973E0A500973719 /* AFURLResponseSerialization.m in Sources */,
 				FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */,
+				FE0D6DDB19766A7500B29D8E /* Evento.m in Sources */,
 				FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */,
-				FEFB8913197591310013E688 /* Evento.m in Sources */,
 				FE3D1E531973E0A500973719 /* UIRefreshControl+AFNetworking.m in Sources */,
-				FEBE1BD5196FF1870036948F /* EventosTableViewController.m in Sources */,
+				FEBE1BD5196FF1870036948F /* EspaciosTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

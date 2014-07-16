@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 IronHack. All rights reserved.
 //
 
-#import "EventosTableViewController.h"
+#import "EspaciosTableViewController.h"
 #import "VentanaTableViewCell.h"
 #import "DetalleViewController.h"
 #import "Evento.h"
 #import "Espacio.h"
-@interface EventosTableViewController () 
+@interface EspaciosTableViewController () 
 @property (nonatomic,strong) NSMutableArray *listadoEspacios;
 @property (nonatomic,strong) NSDictionary *espacio;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation EventosTableViewController
+@implementation EspaciosTableViewController
 static NSString *const name = @"name";
 static NSString *const space = @"space";
 - (id)initWithStyle:(UITableViewStyle)style

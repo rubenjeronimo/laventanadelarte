@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventosTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface EspaciosTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic,strong) UIManagedDocument *miModelo;
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
