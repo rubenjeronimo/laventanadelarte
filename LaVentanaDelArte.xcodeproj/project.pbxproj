@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FE0D6DD819766A7500B29D8E /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DD719766A7500B29D8E /* Espacio.m */; };
 		FE0D6DDB19766A7500B29D8E /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DDA19766A7500B29D8E /* Evento.m */; };
-		FE0D6DE11976774400B29D8E /* EventosTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE01976774400B29D8E /* EventosTableView.m */; };
 		FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE3197681BA00B29D8E /* EventosViewController.m */; };
 		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E1A1973C51800973719 /* DetalleViewController.m */; };
@@ -51,7 +50,6 @@
 		FEBE1BBD196FD85F0036948F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B9C196FD85F0036948F /* UIKit.framework */; };
 		FEBE1BC5196FD85F0036948F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEBE1BC3196FD85F0036948F /* InfoPlist.strings */; };
 		FEBE1BC7196FD85F0036948F /* LaVentanaDelArteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */; };
-		FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */; };
 		FEBE1BD5196FF1870036948F /* EspaciosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */; };
 		FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -71,8 +69,6 @@
 		FE0D6DD719766A7500B29D8E /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
 		FE0D6DD919766A7500B29D8E /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
 		FE0D6DDA19766A7500B29D8E /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
-		FE0D6DDF1976774400B29D8E /* EventosTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosTableView.h; sourceTree = "<group>"; };
-		FE0D6DE01976774400B29D8E /* EventosTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosTableView.m; sourceTree = "<group>"; };
 		FE0D6DE2197681BA00B29D8E /* EventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosViewController.h; sourceTree = "<group>"; };
 		FE0D6DE3197681BA00B29D8E /* EventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosViewController.m; sourceTree = "<group>"; };
 		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
@@ -142,8 +138,6 @@
 		FEBE1BC2196FD85F0036948F /* LaVentanaDelArteTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LaVentanaDelArteTests-Info.plist"; sourceTree = "<group>"; };
 		FEBE1BC4196FD85F0036948F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FEBE1BC6196FD85F0036948F /* LaVentanaDelArteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaVentanaDelArteTests.m; sourceTree = "<group>"; };
-		FEBE1BD0196FD8B90036948F /* MainTabBarControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarControllerDelegate.h; sourceTree = "<group>"; };
-		FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarControllerDelegate.m; sourceTree = "<group>"; };
 		FEBE1BD3196FF1870036948F /* EspaciosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EspaciosTableViewController.h; sourceTree = "<group>"; };
 		FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EspaciosTableViewController.m; sourceTree = "<group>"; };
 		FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelo.xcdatamodel; sourceTree = "<group>"; };
@@ -342,8 +336,6 @@
 				FE3D1E1A1973C51800973719 /* DetalleViewController.m */,
 				FE3D1E161973C21400973719 /* VentanaTableViewCell.h */,
 				FE3D1E171973C21400973719 /* VentanaTableViewCell.m */,
-				FE0D6DDF1976774400B29D8E /* EventosTableView.h */,
-				FE0D6DE01976774400B29D8E /* EventosTableView.m */,
 				FEBE1BD3196FF1870036948F /* EspaciosTableViewController.h */,
 				FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */,
 				FE0D6DE2197681BA00B29D8E /* EventosViewController.h */,
@@ -357,8 +349,6 @@
 			children = (
 				FEBE1BA7196FD85F0036948F /* AppDelegate.h */,
 				FEBE1BA8196FD85F0036948F /* AppDelegate.m */,
-				FEBE1BD0196FD8B90036948F /* MainTabBarControllerDelegate.h */,
-				FEBE1BD1196FD8B90036948F /* MainTabBarControllerDelegate.m */,
 			);
 			name = delegates;
 			sourceTree = "<group>";
@@ -486,14 +476,12 @@
 				FE0D6DD819766A7500B29D8E /* Espacio.m in Sources */,
 				FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */,
 				FE3D1E451973E0A500973719 /* AFHTTPRequestOperationManager.m in Sources */,
-				FE0D6DE11976774400B29D8E /* EventosTableView.m in Sources */,
 				FE3D1E521973E0A500973719 /* UIProgressView+AFNetworking.m in Sources */,
 				FEBE1BA5196FD85F0036948F /* main.m in Sources */,
 				FE3D1E501973E0A500973719 /* UIButton+AFNetworking.m in Sources */,
 				FE3D1E4B1973E0A500973719 /* AFURLResponseSerialization.m in Sources */,
 				FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */,
 				FE0D6DDB19766A7500B29D8E /* Evento.m in Sources */,
-				FEBE1BD2196FD8B90036948F /* MainTabBarControllerDelegate.m in Sources */,
 				FE3D1E531973E0A500973719 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FEBE1BD5196FF1870036948F /* EspaciosTableViewController.m in Sources */,
 			);

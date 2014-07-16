@@ -4,41 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - First-->
-        <scene sceneID="W3I-pn-N6e">
-            <objects>
-                <viewController title="First" id="CZ4-MO-1fc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s9W-kb-ARv"/>
-                        <viewControllerLayoutGuide type="bottom" id="dtj-EO-iXF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2VE-Yg-loa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="cHZ-ah-kIr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYy-lQ-zTA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pulsa para ver los eventos">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SUB-Uw-ENe" kind="modal" id="6cg-rX-GVr"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Eventos" image="events-icon.png" id="u1e-5L-l1D"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
-        </scene>
         <!--Espacios Table View Controller-->
         <scene sceneID="zl4-ue-du4">
             <objects>
@@ -108,16 +73,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8VW-Pf-WAu" customClass="EventosTableView">
-                                <rect key="frame" x="0.0" y="131" width="320" height="356"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8VW-Pf-WAu">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="XaS-pn-ypX" customClass="VentanaTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="80"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="82" id="XaS-pn-ypX" customClass="VentanaTableViewCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="82"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XaS-pn-ypX" id="4NC-qC-Gsh">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5H4-Uf-uEr">
@@ -155,6 +120,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8VW-Pf-WAu" firstAttribute="top" secondItem="8xA-cJ-eT9" secondAttribute="bottom" id="8cS-G4-GQI"/>
+                            <constraint firstItem="8VW-Pf-WAu" firstAttribute="leading" secondItem="05b-BX-jef" secondAttribute="leading" id="RSE-pL-dr0"/>
+                            <constraint firstAttribute="trailing" secondItem="8VW-Pf-WAu" secondAttribute="trailing" id="iXo-3C-nTc"/>
+                            <constraint firstItem="Xuj-Hw-TLo" firstAttribute="top" secondItem="8VW-Pf-WAu" secondAttribute="bottom" id="inm-rk-W9g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8ob-6x-NJx"/>
                     <connections>
@@ -238,8 +209,8 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="2zC-hw-wms" kind="relationship" relationship="viewControllers" id="eL3-UZ-EYb"/>
+                        <segue destination="SUB-Uw-ENe" kind="relationship" relationship="viewControllers" id="OOQ-Zc-N5Q"/>
+                        <segue destination="2zC-hw-wms" kind="relationship" relationship="viewControllers" id="FOD-5I-RIN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -265,10 +236,11 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
             </objects>
             <point key="canvasLocation" x="623" y="561"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Eventos-->
         <scene sceneID="z7E-so-8fp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SUB-Uw-ENe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Eventos" image="events-icon.png" id="Sj9-kX-QKq"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="TCd-SM-ygA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tl2-dQ-v1S">
@@ -282,13 +254,12 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e04-QT-Xde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="-138"/>
+            <point key="canvasLocation" x="635" y="-112"/>
         </scene>
     </scenes>
     <resources>
         <image name="618311-Bank-512.png" width="40" height="40"/>
         <image name="events-icon.png" width="40" height="40"/>
-        <image name="fondo.JPG" width="633" height="356"/>
         <image name="sad13.jpg" width="625" height="924"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

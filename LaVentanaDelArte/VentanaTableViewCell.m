@@ -41,7 +41,7 @@
 //    [gaussiano setValue:blurImagen forKey:@"Input Image"];
 //    [gaussiano setValue:[NSNumber numberWithFloat: 10] forKey: @"inputRadius"]; //change number to increase/decrease blur
 //    CIImage *resultImage = [gaussiano valueForKey: @"outputImage"];
-//    
+//
 //    //create UIImage from filtered image
 //    blurImagen = [[[UIImage alloc] initWithCIImage:resultImage]CIImage];
     

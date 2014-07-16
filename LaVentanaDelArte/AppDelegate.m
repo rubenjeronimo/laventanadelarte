@@ -7,12 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "MainTabBarControllerDelegate.h"
 #import "EspaciosTableViewController.h"
 #import "EventosViewController.h"
 #import "CoreDataStack.h"
 @interface AppDelegate ()
-@property (nonatomic,strong)MainTabBarControllerDelegate *tabBarControllerDelegate;
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
 @property (nonatomic,strong) NSManagedObjectModel *modelo;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -30,44 +28,20 @@
 {
     // Override point for customization after application launch.
     CoreDataStack *coredataStack = [CoreDataStack coreDataStackWithModelName:@"Modelo"];
-        
-
-    
-    
-    self.tabBarControllerDelegate = [[MainTabBarControllerDelegate alloc]init];
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    tabBarController.delegate = self.tabBarControllerDelegate;
     
 
     EspaciosTableViewController *tablaVC = (EspaciosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
     tablaVC.contexto = coredataStack.context;
     
     
-//    EventosViewController *evenVC = (EventosViewController*)[[tabBarController.viewControllers objectAtIndex:0]topViewController];
-//    evenVC.contexto = coredataStack.context;
+    EventosViewController *evenVC = (EventosViewController*)[(UINavigationController*)[tabBarController.viewControllers objectAtIndex:0] topViewController];
+    evenVC.contexto = coredataStack.context;
     
+    EspaciosTableViewController *eventosVC = (EspaciosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
+    eventosVC.contexto = coredataStack.context;
     
-    NSURL *docURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"FirstDocument"];
-    UIManagedDocument *miModelo = [[UIManagedDocument alloc]initWithFileURL:docURL];
-
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[docURL path]]) {
-        [miModelo openWithCompletionHandler:^(BOOL success){
-            if (!success) {
-                // Handle the error.
-            }
-        }];
-    }
-    else {
-        [miModelo saveToURL:docURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success){
-            if (!success) {
-                // Handle the error.
-            }
-        }];
-    }
-   EspaciosTableViewController *eventosVC = (EspaciosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
-    eventosVC.miModelo = miModelo;
     return YES;
 }
 
