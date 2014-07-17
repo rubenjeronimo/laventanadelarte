@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class addData;
 @interface EventosViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
+@property (nonatomic,strong) addData *loadingData;
 @end

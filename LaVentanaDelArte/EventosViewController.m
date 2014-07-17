@@ -9,6 +9,7 @@
 #import "EventosViewController.h"
 #import "VentanaTableViewCell.h"
 #import "Evento.h"
+#import "addData.h"
 @interface EventosViewController () <NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -19,18 +20,17 @@
 
 @implementation EventosViewController {
     NSFetchedResultsController *_fetchedResultsController;
+
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    //1. Setup the CATransform3D structure
     CATransform3D rotation;
     rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
     rotation.m34 = 1.0/ -600;
     
     
-    //2. Define the initial state (Before the animation)
     cell.layer.shadowColor = [[UIColor blackColor]CGColor];
     cell.layer.shadowOffset = CGSizeMake(10, 10);
     cell.alpha = 0;
@@ -39,7 +39,6 @@
     cell.layer.anchorPoint = CGPointMake(0, 0.5);
     
     
-    //3. Define the final state (After the animation) and commit the animation
     [UIView beginAnimations:@"rotation" context:NULL];
     [UIView setAnimationDuration:0.8];
     cell.layer.transform = CATransform3DIdentity;
@@ -63,9 +62,31 @@
     [super viewDidLoad];
     
     [self reloadData];
-    
-    [self takeData];
+    addData *addD = [[addData alloc]init];
+    addD.contexto = self.contexto;
+    [addD takeDataEventos];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"events loaded"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"not Found"
+                                               object:nil];
 }
+
+- (void)receivedNotification:(NSNotification *) notification {
+    if ([[notification name] isEqualToString:@"events loaded"]) {
+        [self reloadData];
+    } else if ([[notification name] isEqualToString:@"Not Found"]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"
+                                                            message:nil delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -132,50 +153,7 @@
 //}
 
 
--(void) takeData{
-    NSString *string = @"https://www.kimonolabs.com/api/eennv4bk?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
-    NSURL *urlEspacio = [NSURL URLWithString:string];
-    NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
-        
-    AFHTTPRequestOperation *operacion = [[AFHTTPRequestOperation alloc]initWithRequest:consultaEvento];
-    operacion.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.evento = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"results.collection1"];
-        for (NSDictionary *eve in listadoTemporal) {
-            
-            NSString *name = [eve valueForKeyPath:@"nombreExpo.text"];
-            Evento *ev = [self eventoByName:name];
-            
-            if (!ev) {
-                ev= [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
-            }
-            
-            @try {
-                ev.name = [eve valueForKeyPath:@"nombreExpo.text"];
-                ev.descripcion = [eve valueForKeyPath:@"detalleExpo.text"];
-                ev.imagen =[eve valueForKeyPath:@"imagenExpo.src"];
-            }
-            @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
-                [ev.managedObjectContext deleteObject:ev];
-            }
-        }
-        
-        [self.contexto performBlock:^{
-            NSError * error = nil;
-            if (![self.contexto save:&error]) {
-                NSLog(@"Error saving context: %@", error.localizedDescription);
-            }
-        }];
 
-        [self reloadData];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"que mal");
-    }];
-    [operacion start];
-}
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {
@@ -198,20 +176,7 @@
     [self.tableView reloadData];
 }
 
-- (Evento *)eventoByName:(NSString *)name {
-    NSError * error = nil;
-    
-    NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"NAME":name};
-    
-    NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"eventosByName" substitutionVariables:mappings];
-    NSArray *result = [self.contexto executeFetchRequest:request error:&error];
-    if (!result) {
-        NSLog(@"Error fetching eventos with name (%@): %@", name, error.localizedDescription);
-        return nil;
-    }
-    return [result firstObject];
-}
+
 
 -(void)cargaDatos{
     Evento *evento1 = [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];

@@ -10,6 +10,7 @@
 #import "EspaciosTableViewController.h"
 #import "EventosViewController.h"
 #import "CoreDataStack.h"
+#import "addData.h"
 @interface AppDelegate ()
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
 @property (nonatomic,strong) NSManagedObjectModel *modelo;
@@ -41,7 +42,7 @@
     
     EspaciosTableViewController *eventosVC = (EspaciosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
     eventosVC.contexto = coredataStack.context;
-    
+
     
     return YES;
 }
