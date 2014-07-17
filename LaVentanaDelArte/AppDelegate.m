@@ -42,6 +42,7 @@
     EspaciosTableViewController *eventosVC = (EspaciosTableViewController *)[[tabBarController.viewControllers objectAtIndex:1]topViewController];
     eventosVC.contexto = coredataStack.context;
     
+    
     return YES;
 }
 
