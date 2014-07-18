@@ -11,6 +11,7 @@
 #import "DetalleViewController.h"
 #import "Evento.h"
 #import "Espacio.h"
+#import "addData.h"
 @interface EspaciosTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic,strong) NSMutableArray *listadoEspacios;
 @property (nonatomic,strong) NSDictionary *espacio;
@@ -65,10 +66,29 @@ static NSString *const space = @"space";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self takeData];
-    
-    
+    addData *addD = [[addData alloc]init];
+    addD.contexto = self.contexto;
+    [addD takeDataEspacios];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"spaces loaded"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"not Found"
+                                               object:nil];
+}
+
+- (void)receivedNotification:(NSNotification *) notification {
+    if ([[notification name] isEqualToString:@"spaces loaded"]) {
+        [self reloadData];
+    } else if ([[notification name] isEqualToString:@"Not Found"]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"
+                                                            message:nil delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }
 }
 
 -(NSMutableArray *)listadoEspacios{
@@ -246,65 +266,7 @@ static NSString *const space = @"space";
     [self.contexto save:nil];
 }
 
--(void) takeData{
-    NSString *string = @"https://www.kimonolabs.com/api/c4qaaysg?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
-    NSURL *urlEspacio = [NSURL URLWithString:string];
-    NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
-    
-    
-    
-    AFHTTPRequestOperation *operacion = [[AFHTTPRequestOperation alloc]initWithRequest:consultaEvento];
-    operacion.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.espacio = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
-        for (NSDictionary *eve in listadoTemporal) {
-            NSString *name = [eve valueForKeyPath:@"Name.text"];
-            Espacio *esp = [self espacioByName:name];
-            if (!esp) {
-                esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-            }
-            @try {
-                esp.nombre = [eve valueForKeyPath:@"Name.text"];
-                esp.descripcion = [eve valueForKeyPath:@"Detail.text"];
-                esp.imagen =[eve valueForKeyPath:@"Image.src"];
-            }
-            @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
-                [esp.managedObjectContext deleteObject:esp];
-            }
-        }
-       
-        [self.contexto performBlock:^{
-            NSError * error = nil;
-            if (![self.contexto save:&error]) {
-                NSLog(@"Error saving context: %@", error.localizedDescription);
-            }
-        }];
-        
-          [self reloadData];
-       // [[NSNotificationCenter defaultCenter] postNotificationName:@"spaces loaded" object:self];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"que mal");
-    }];
-    [operacion start];
-}
 
-- (Espacio *)espacioByName:(NSString *)name {
-    NSError * error = nil;
-    
-    NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"NOMBRE":name};
-    
-    NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"espaciosByName" substitutionVariables:mappings];
-    NSArray *result = [self.contexto executeFetchRequest:request error:&error];
-    if (!result) {
-        NSLog(@"Error fetching eventos with name (%@): %@", name, error.localizedDescription);
-        return nil;
-    }
-    return [result firstObject];
-}
 @end
 
 

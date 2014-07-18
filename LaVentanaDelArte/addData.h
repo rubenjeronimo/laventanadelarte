@@ -9,8 +9,11 @@
 #import <CoreData/CoreData.h>
 #import <Foundation/Foundation.h>
 @class Evento;
+@class Espacio;
 @interface addData : NSObject
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
 -(void) takeDataEventos;
+-(void) takeDataEspacios;
 - (Evento *)eventoByName:(NSString *)name;
+- (Espacio *)espacioByName:(NSString *)name;
 @end
