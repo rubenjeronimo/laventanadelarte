@@ -133,7 +133,7 @@
 {
     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+
     Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     cell.NameEvento.text = evento.name;
     cell.typeEvento.text = evento.descripcion;

@@ -11,7 +11,7 @@
 #import "DetalleViewController.h"
 #import "Evento.h"
 #import "Espacio.h"
-@interface EspaciosTableViewController () 
+@interface EspaciosTableViewController () <NSFetchedResultsControllerDelegate>
 @property (nonatomic,strong) NSMutableArray *listadoEspacios;
 @property (nonatomic,strong) NSDictionary *espacio;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
@@ -19,7 +19,10 @@
 
 @end
 
-@implementation EspaciosTableViewController
+@implementation EspaciosTableViewController{
+    NSFetchedResultsController *_fetchedResultsController;
+}
+
 static NSString *const name = @"name";
 static NSString *const space = @"space";
 - (id)initWithStyle:(UITableViewStyle)style
@@ -63,7 +66,6 @@ static NSString *const space = @"space";
 {
     [super viewDidLoad];
     
-    //[self cargaDatos];
     [self takeData];
     
     
@@ -76,7 +78,16 @@ static NSString *const space = @"space";
     return _listadoEspacios;
 }
 
-
+- (void)reloadData {
+    NSError *error = nil;
+    
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
+    }
+    
+    [self.tableView reloadData];
+    
+}
 
 
 
@@ -90,14 +101,20 @@ static NSString *const space = @"space";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+
+    return [[[self fetchedResultsController] sections] count];;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.listadoEspacios count];
+    NSInteger numberOfItems = 0;
+    
+    if ([self fetchedResultsController].sections.count > 0) {
+        id<NSFetchedResultsSectionInfo> sectionInfo = [self fetchedResultsController].sections[section];
+        numberOfItems = [sectionInfo numberOfObjects];
+    }
+    
+    return numberOfItems;
 }
 
 
@@ -106,7 +123,7 @@ static NSString *const space = @"space";
     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    Espacio *espace = [self.listadoEspacios objectAtIndex:indexPath.row];
+    Espacio *espace = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     cell.NameEvento.text = espace.nombre;
     cell.typeEvento.text = espace.descripcion;
     NSURL *url = [NSURL URLWithString:espace.imagen];
@@ -114,6 +131,7 @@ static NSString *const space = @"space";
     cell.ImageEvento.image = [UIImage imageWithData:data];
     
     return cell;
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -174,6 +192,26 @@ static NSString *const space = @"space";
 }
 */
 
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Espacio"];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", @"gale"];
+    //    fetchRequest.predicate = predicate;
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES]];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
 
 
 #pragma mark - downloading Data
@@ -221,20 +259,52 @@ static NSString *const space = @"space";
         self.espacio = (NSDictionary *)responseObject;
         NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
         for (NSDictionary *eve in listadoTemporal) {
-            Espacio *es= [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-            es.nombre = [eve valueForKeyPath:@"Name.text"];
-            es.descripcion = [eve valueForKeyPath:@"Detail.text"];
-            es.imagen =[eve valueForKeyPath:@"Image.src"];
-            
-            [self.listadoEspacios addObject:es];
+            NSString *name = [eve valueForKeyPath:@"Name.text"];
+            Espacio *esp = [self espacioByName:name];
+            if (!esp) {
+                esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
+            }
+            @try {
+                esp.nombre = [eve valueForKeyPath:@"Name.text"];
+                esp.descripcion = [eve valueForKeyPath:@"Detail.text"];
+                esp.imagen =[eve valueForKeyPath:@"Image.src"];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"Exception: %@", exception);
+                [esp.managedObjectContext deleteObject:esp];
+            }
         }
-        [self.tableView reloadData];
-       // NSLog(@"array:%@",self.listadoEventos);
+       
+        [self.contexto performBlock:^{
+            NSError * error = nil;
+            if (![self.contexto save:&error]) {
+                NSLog(@"Error saving context: %@", error.localizedDescription);
+            }
+        }];
+        
+          [self reloadData];
+       // [[NSNotificationCenter defaultCenter] postNotificationName:@"spaces loaded" object:self];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"que mal");
     }];
     [operacion start];
-    [self.contexto save:nil];
 }
 
+- (Espacio *)espacioByName:(NSString *)name {
+    NSError * error = nil;
+    
+    NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
+    NSDictionary *mappings = @{@"NOMBRE":name};
+    
+    NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"espaciosByName" substitutionVariables:mappings];
+    NSArray *result = [self.contexto executeFetchRequest:request error:&error];
+    if (!result) {
+        NSLog(@"Error fetching eventos with name (%@): %@", name, error.localizedDescription);
+        return nil;
+    }
+    return [result firstObject];
+}
 @end
+
+
