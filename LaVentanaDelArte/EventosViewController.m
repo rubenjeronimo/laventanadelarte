@@ -10,6 +10,7 @@
 #import "VentanaTableViewCell.h"
 #import "Evento.h"
 #import "addData.h"
+#import "DetalleViewController.h"
 @interface EventosViewController () <NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -20,39 +21,13 @@
 
 @implementation EventosViewController {
     NSFetchedResultsController *_fetchedResultsController;
-
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    CATransform3D rotation;
-    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-    rotation.m34 = 1.0/ -600;
-    
-    
-    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-    cell.layer.shadowOffset = CGSizeMake(10, 10);
-    cell.alpha = 0;
-    
-    cell.layer.transform = rotation;
-    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-    
-    
-    [UIView beginAnimations:@"rotation" context:NULL];
-    [UIView setAnimationDuration:0.8];
-    cell.layer.transform = CATransform3DIdentity;
-    cell.alpha = 1;
-    cell.layer.shadowOffset = CGSizeMake(0, 0);
-    [UIView commitAnimations];
-    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
@@ -60,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self controlesNavegacion];
     [self reloadData];
     addData *addD = [[addData alloc]init];
     addD.contexto = self.contexto;
@@ -73,6 +48,46 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"not Found"
                                                object:nil];
+}
+
+
+-(void) controlesNavegacion{
+    UIBarButtonItem *filtroTipo = [[UIBarButtonItem alloc]  initWithTitle:@"Tipo" style:UIBarButtonItemStyleDone target:self action:@selector(tipo:)];
+    
+    UIBarButtonItem *filtroCercano = [[UIBarButtonItem alloc] initWithTitle:@"Cerca" style:UIBarButtonItemStyleDone target:self action:@selector(cercano:)];
+    
+    UIBarButtonItem *busqueda = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchicon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(busca:)];
+    
+    NSArray *myButtonArray = [[NSArray alloc] initWithObjects:filtroTipo, filtroCercano, busqueda, nil];
+    
+    self.navigationItem.rightBarButtonItems = myButtonArray;
+}
+
+-(void)tipo:(id)sender{
+    NSLog(@"tipo ");
+}
+
+-(void)cercano:(id)sender{
+    NSLog(@"cercano");
+}
+
+-(void)busca:(id)sender{
+    NSLog(@"busca");
+    
+    
+    CGRect frameVistaBusqueda =CGRectMake(self.view.frame.size.width/2 -150, self.view.frame.size.height/2 -150, 300, 100);
+    
+    UIView *vistaBusqueda = [[UIView alloc]initWithFrame:frameVistaBusqueda];
+    vistaBusqueda.layer.cornerRadius = 20;
+    CGRect frameBarraBusqueda = CGRectMake(frameVistaBusqueda.size.width/2-100,frameVistaBusqueda.size.height/2, 200, 30);
+    UISearchBar *barraBusqueda = [[UISearchBar alloc]initWithFrame:frameBarraBusqueda];
+    barraBusqueda.backgroundColor = [UIColor whiteColor];
+    barraBusqueda.alpha = 1;
+    barraBusqueda.placeholder = @"busca...";
+    vistaBusqueda.backgroundColor = [UIColor colorWithRed:0.699 green:0.867 blue:0.535 alpha:0.7];
+    [self.view addSubview:vistaBusqueda];
+    [vistaBusqueda addSubview:barraBusqueda];
+    [barraBusqueda resignFirstResponder];
 }
 
 - (void)receivedNotification:(NSNotification *) notification {
@@ -91,7 +106,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(NSMutableArray*) listadoEventos{
     if (!_listadoEventos) {
@@ -143,17 +157,38 @@
     return cell;
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    if ([segue.identifier isEqualToString: @"EventoSegue"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
-//        DetalleViewController *detalleVC = [segue destinationViewController];
-//        Evento *evento = [self.listadoEventos objectAtIndex:indexPath.row];
-//        detalleVC.espacio = evento;
-//    }
-//}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    CATransform3D rotation;
+    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+    rotation.m34 = 1.0/ -600;
+    
+    
+    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+    cell.layer.shadowOffset = CGSizeMake(10, 10);
+    cell.alpha = 0;
+    
+    cell.layer.transform = rotation;
+    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+    
+    
+    [UIView beginAnimations:@"rotation" context:NULL];
+    [UIView setAnimationDuration:0.8];
+    cell.layer.transform = CATransform3DIdentity;
+    cell.alpha = 1;
+    cell.layer.shadowOffset = CGSizeMake(0, 0);
+    [UIView commitAnimations];
+}
 
-
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString: @"EventoSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
+        DetalleViewController *detalleVC = [segue destinationViewController];
+        Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        detalleVC.evento = evento;
+    }
+}
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {
@@ -161,8 +196,7 @@
     }
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", @"gale"];
-//    fetchRequest.predicate = predicate;
+
     fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
@@ -178,43 +212,5 @@
 
 
 
--(void)cargaDatos{
-    Evento *evento1 = [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
-    Evento *evento2 = [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
-    Evento *evento3 = [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
-    Evento *evento4 = [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
-    evento1.name = @"Centro Cultural La Corrala UAM";
-    evento2.name = @"Fundación de los Ferrocarriles Españoles";
-    evento3.name = @"Galería Alegría";
-    evento4.name = @"Galería Arte 10";
-    evento1.descripcion = @"Situado en el centro de la ciudad -en la histórica corrala de la calle de Carlos Arniches, en mitad de El Rastro-, La Corrala tiene por objetivo proyectar la creatividad y la capacidad de innovación científica de la Universidad Autónoma a todo Madrid.";
-    evento2.descripcion = @"El Palacio de Fernán Núñez es la sede de la Fundación de los Ferrocarriles Españoles desde 1985. En el palacio se organizan exposiciones temporales.";
-    evento3.descripcion = @"Apostamos por una programación en la que convivan artistas de corta, media y larga carrera con otros artistas absolutamente desconocidos fuera del circuito. La Galería Alegría es un espacio abierto al arte, al diseño y a todo aquello que nos interese y emocione";
-    evento4.descripcion = @"En la Galería Arte 10, podrás encontrar expuesta básicamente obra gráfica moderna y contemporánea, esculturas, objetos y libros de artista. Realiza exposiciones tituladas y/o temáticas de la Colección Arte 10, pero ocasionalmente también de artistas del momento.";
-    evento1.imagen = @"http://laventanadelarte.es/images/madrid/3874/foto-centro-2903142217318bb97c.jpg";
-    evento2.imagen = @"http://laventanadelarte.es/images/madrid/3892/foto-centro-0204141839342818b4.jpg";
-    evento3.imagen = @"http://laventanadelarte.es/images/madrid/3905/foto-centro-030414103516e1a1f2.jpg";
-    evento4.imagen = @"http://laventanadelarte.es/images/madrid/3917/foto-centro-030414103849a3f68e.jpg";
-
-
-    self.listadoEventos = [[NSMutableArray alloc]init];
-    [self.listadoEventos addObject:evento1];
-    [self.listadoEventos addObject:evento2];
-    [self.listadoEventos addObject:evento3];
-    [self.listadoEventos addObject:evento4];
-    
-    [self.contexto save:nil];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

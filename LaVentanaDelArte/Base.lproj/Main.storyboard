@@ -12,6 +12,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88627457618713379" green="0.88627457618713379" blue="0.88627457618713379" alpha="1" colorSpace="deviceRGB"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="5eu-Vp-vFt">
+                            <rect key="frame" x="0.0" y="166" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="ENm-Ae-1jQ" customClass="VentanaTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="80"/>
@@ -77,6 +81,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="fFe-Al-7qM">
+                                    <rect key="frame" x="0.0" y="168" width="320" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="82" id="XaS-pn-ypX" customClass="VentanaTableViewCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="82"/>
@@ -128,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ss-PH-njS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="-133"/>
+            <point key="canvasLocation" x="1115" y="-112"/>
         </scene>
         <!--Detalle View Controller-->
         <scene sceneID="3GA-2N-dXD">
@@ -160,8 +168,7 @@
                                         <rect key="frame" x="15" y="-5" width="320" height="205"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem fistrum mamaar ese que llega va usté muy cargadoo caballo blanco caballo negroorl a peich ese hombree a peich. Benemeritaar jarl llevame al sircoo a wan va usté muy cargadoo mamaar no te digo trigo por no llamarte Rodrigor ese que llega se calle ustée de la pradera diodenoo. Ese pedazo de ahorarr apetecan pecador hasta luego Lucas ese hombree a gramenawer por la gloria de mi madre diodeno diodeno. Qué dise usteer ese pedazo de ese hombree ese pedazo de qué dise usteer tiene musho peligro llevame al sircoo hasta luego Lucas quietooor. No puedor mamaar te voy a borrar el cerito apetecan. Se calle ustée por la gloria de mi madre caballo blanco caballo negroorl está la cosa muy malar amatomaa. A wan diodeno llevame al sircoo torpedo pupita está la cosa muy malar. Pupita pupita ahorarr apetecan papaar papaar condemor a peich a gramenawer sexuarl diodenoo ese hombree.
-
+                                        <string key="text">
 Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -169,7 +176,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                                 </subviews>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN9-S7-2pm">
-                                <rect key="frame" x="137" y="356" width="46" height="30"/>
+                                <rect key="frame" x="20" y="489" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,11 +192,12 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                         <outlet property="detailEvento" destination="gxk-SH-sgY" id="drR-oe-Cdp"/>
                         <outlet property="imageEvento" destination="wwE-fD-atv" id="c2W-wl-kzf"/>
                         <outlet property="nameEvento" destination="3Pr-bq-Uym" id="4cq-yE-xFh"/>
+                        <outlet property="urlButton" destination="wN9-S7-2pm" id="Tm7-UC-IwX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNl-VH-CVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560" y="561"/>
+            <point key="canvasLocation" x="1654" y="213"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vex-rW-GRa">
@@ -262,6 +270,6 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UPz-eb-5a1"/>
+        <segue reference="Vda-Vx-NQx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -60,7 +60,6 @@ static NSString *const space = @"space";
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    //[self takeData];
 }
 
 - (void)viewDidLoad
@@ -158,7 +157,7 @@ static NSString *const space = @"space";
     if ([segue.identifier isEqualToString: @"DetalleSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
         DetalleViewController *detalleVC = [segue destinationViewController];
-        Espacio *espacio = [self.listadoEspacios objectAtIndex:indexPath.row];
+        Espacio *espacio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         detalleVC.espacio = espacio;
     }
 }

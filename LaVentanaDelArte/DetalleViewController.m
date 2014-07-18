@@ -8,7 +8,7 @@
 
 #import "DetalleViewController.h"
 #import "Espacio.h"
-
+#import "Evento.h"
 @interface DetalleViewController ()
 
 @end
@@ -28,13 +28,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = self.espacio.nombre;
-    self.detailEvento.text = self.espacio.descripcion;
-    self.nameEvento.text = self.espacio.nombre;
-    NSURL *url = [NSURL URLWithString:self.espacio.imagen];
+    if (self.espacio && !self.evento) {
+        self.title = self.espacio.nombre;
+        self.detailEvento.text = self.espacio.descripcion;
+        self.nameEvento.text = self.espacio.nombre;
+        NSURL *url = [NSURL URLWithString:self.espacio.imagen];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        self.imageEvento.image = [UIImage imageWithData:data];
+        self.urlButton.titleLabel.text = self.espacio.nombre;
+    }else if (self.evento && !self.espacio){
+    
+    self.title = self.evento.name;
+    self.detailEvento.text = self.evento.descripcion;
+    self.nameEvento.text = self.evento.name;
+    NSURL *url = [NSURL URLWithString:self.evento.imagen];
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.imageEvento.image = [UIImage imageWithData:data];
-    self.urlButton.titleLabel.text = self.espacio.url;
+    self.urlButton.titleLabel.text = @"";
+    }
 }
 
 - (void)didReceiveMemoryWarning
