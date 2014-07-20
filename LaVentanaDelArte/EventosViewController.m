@@ -11,14 +11,19 @@
 #import "Evento.h"
 #import "addData.h"
 #import "DetalleViewController.h"
-@interface EventosViewController () <NSFetchedResultsControllerDelegate>
+@interface EventosViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
 @property (nonatomic,strong) NSDictionary *evento;
-
+@property (nonatomic,strong) NSArray *eventosFiltrados;
+@property (nonatomic,strong) NSFetchRequest *eventosBusquedaFetchRequest;
 @end
-
+typedef enum
+{
+    searchScopeEvento = 0,
+    searchScopeEspacio = 1
+} EventoSearchScope;
 @implementation EventosViewController {
     NSFetchedResultsController *_fetchedResultsController;
 }
@@ -31,6 +36,61 @@
     }
     return self;
 }
+
+
+- (NSFetchRequest *)eventosBusquedaFetchRequest
+{
+    if (_eventosBusquedaFetchRequest != nil)
+    {
+        return _eventosBusquedaFetchRequest;
+    }
+    
+    _eventosBusquedaFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
+    [_eventosBusquedaFetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [_eventosBusquedaFetchRequest setSortDescriptors:sortDescriptors];
+    
+    return _eventosBusquedaFetchRequest;
+}
+- (void)searchForText:(NSString *)searchText scope:(EventoSearchScope)scopeOption
+{
+    if (self.contexto)
+    {
+        NSString *predicateFormat = @"%K BEGINSWITH[cd] %@";
+        NSString *searchAttribute = @"name";
+        
+        if (scopeOption == searchScopeEspacio)
+        {
+            searchAttribute = @"Evento";
+        }
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchAttribute, searchText];
+        [self.eventosBusquedaFetchRequest setPredicate:predicate];
+        
+        NSError *error = nil;
+        self.eventosFiltrados = [self.contexto executeFetchRequest:self.eventosBusquedaFetchRequest error:&error];
+    }
+}
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    EventoSearchScope scopeKey = controller.searchBar.selectedScopeButtonIndex;
+    [self searchForText:searchString scope:scopeKey];
+    return YES;
+}
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    NSString *searchString = controller.searchBar.text;
+    [self searchForText:searchString scope:searchOption];
+    return YES;
+}
+
+
+
+
+
 
 - (void)viewDidLoad
 {
@@ -56,9 +116,9 @@
     
     UIBarButtonItem *filtroCercano = [[UIBarButtonItem alloc] initWithTitle:@"Cerca" style:UIBarButtonItemStyleDone target:self action:@selector(cercano:)];
     
-    UIBarButtonItem *busqueda = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchicon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(busca:)];
+//    UIBarButtonItem *busqueda = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchicon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(busca:)];
     
-    NSArray *myButtonArray = [[NSArray alloc] initWithObjects:filtroTipo, filtroCercano, busqueda, nil];
+    NSArray *myButtonArray = [[NSArray alloc] initWithObjects:filtroTipo, filtroCercano, nil];
     
     self.navigationItem.rightBarButtonItems = myButtonArray;
 }
@@ -71,6 +131,7 @@
     NSLog(@"cercano");
 }
 
+/*
 -(void)busca:(id)sender{
     NSLog(@"busca");
     
@@ -89,6 +150,7 @@
     [vistaBusqueda addSubview:barraBusqueda];
     [barraBusqueda resignFirstResponder];
 }
+*/
 
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"events loaded"]) {
@@ -105,8 +167,11 @@
 
 - (void)didReceiveMemoryWarning
 {
+    self.eventosBusquedaFetchRequest = nil;
     [super didReceiveMemoryWarning];
 }
+
+
 -(NSMutableArray*) listadoEventos{
     if (!_listadoEventos) {
         _listadoEventos = [[NSMutableArray alloc]init];
@@ -127,26 +192,65 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+
     return [[[self fetchedResultsController] sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger numberOfItems = 0;
-    
-    if ([self fetchedResultsController].sections.count > 0) {
-        id<NSFetchedResultsSectionInfo> sectionInfo = [self fetchedResultsController].sections[section];
-        numberOfItems = [sectionInfo numberOfObjects];
+    if (tableView == self.tableView)
+    {
+        NSInteger numberOfItems = 0;
+        
+        if ([self fetchedResultsController].sections.count > 0) {
+            id<NSFetchedResultsSectionInfo> sectionInfo = [self fetchedResultsController].sections[section];
+            numberOfItems = [sectionInfo numberOfObjects];
+        }
+        
+        return numberOfItems;
     }
 
-    return numberOfItems;
+    else
+    {
+        return [self.eventosFiltrados count];
+    }
+    
 }
+    
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
     
+    VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[VentanaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+//        cell.textLabel.text = self.eventosFiltrados[indexPath.row];
+        Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        cell.NameEvento.text = evento.name;
+        cell.typeEvento.text = evento.descripcion;
+        NSURL *url = [NSURL URLWithString:evento.imagen];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        cell.ImageEvento.image = [UIImage imageWithData:data];
+    } else {
+//        cell.textLabel.text = self.listadoEventos[indexPath.row];
+        Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        cell.NameEvento.text = evento.name;
+        cell.typeEvento.text = evento.descripcion;
+        NSURL *url = [NSURL URLWithString:evento.imagen];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        cell.ImageEvento.image = [UIImage imageWithData:data];
+    }
+    
+    return cell;
+   /*
+    VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+ //   VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
     Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     cell.NameEvento.text = evento.name;
@@ -155,6 +259,7 @@
     NSData *data = [NSData dataWithContentsOfURL:url];
     cell.ImageEvento.image = [UIImage imageWithData:data];
     return cell;
+    */
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
