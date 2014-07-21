@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UISwitch *searchPoint;
 @property (nonatomic,strong) CLLocation *selectedLocation;
 @property (nonatomic,strong) NSMutableArray *cameras;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoMapa;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
 @end
 
 @implementation MapViewController
@@ -32,7 +35,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     
-    
+    [self setAnchoToolBar];
     self.latitudPOI = 40.392756;
     self.longitudPOI = -3.693344;
     [self mapea];
@@ -107,7 +110,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 
 }
 
@@ -115,6 +118,22 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)setAnchoToolBar{
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    self.anchoToolBar.constant = self.view.frame.size.width;
+    self.anchoMapa.constant = self.view.frame.size.width;
+    self.altoMapa.constant = self.view.frame.size.height;
+    [CATransaction commit];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    
+    [self setAnchoToolBar];
+
 }
 
 /*

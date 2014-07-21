@@ -14,6 +14,8 @@
 		FE1F73501977E01900D9EE5D /* addData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1F734F1977E01900D9EE5D /* addData.m */; };
 		FE1F735819780C1E00D9EE5D /* Defaul-568@2x.png.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE1F735719780C1E00D9EE5D /* Defaul-568@2x.png.jpg */; };
 		FE2A72C1197D194F00B3EAF8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */; };
+		FE2A72C3197D290100B3EAF8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C2197D290100B3EAF8 /* Social.framework */; };
+		FE2A72C5197D295A00B3EAF8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C4197D295900B3EAF8 /* Twitter.framework */; };
 		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E1A1973C51800973719 /* DetalleViewController.m */; };
 		FE3D1E1D1973CEE300973719 /* sad13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE3D1E1C1973CEE300973719 /* sad13.jpg */; };
@@ -85,6 +87,8 @@
 		FE1F734F1977E01900D9EE5D /* addData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addData.m; sourceTree = "<group>"; };
 		FE1F735719780C1E00D9EE5D /* Defaul-568@2x.png.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Defaul-568@2x.png.jpg"; path = "Images.xcassets/LaunchImage.launchimage/Defaul-568@2x.png.jpg"; sourceTree = "<group>"; };
 		FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		FE2A72C2197D290100B3EAF8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FE2A72C4197D295900B3EAF8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
 		FE3D1E171973C21400973719 /* VentanaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentanaTableViewCell.m; sourceTree = "<group>"; };
 		FE3D1E191973C51800973719 /* DetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleViewController.h; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2A72C5197D295A00B3EAF8 /* Twitter.framework in Frameworks */,
+				FE2A72C3197D290100B3EAF8 /* Social.framework in Frameworks */,
 				FE2A72C1197D194F00B3EAF8 /* MessageUI.framework in Frameworks */,
 				FE3F9918197BE0A4006D5BDC /* CoreLocation.framework in Frameworks */,
 				FE3F9916197BE09E006D5BDC /* MapKit.framework in Frameworks */,
@@ -279,6 +285,8 @@
 		FEBE1B97196FD85F0036948F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE2A72C4197D295900B3EAF8 /* Twitter.framework */,
+				FE2A72C2197D290100B3EAF8 /* Social.framework */,
 				FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */,
 				FE3F9917197BE0A4006D5BDC /* CoreLocation.framework */,
 				FE3F9915197BE09E006D5BDC /* MapKit.framework */,

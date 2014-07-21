@@ -11,12 +11,15 @@
 #import "Evento.h"
 #import "MapViewController.h"
 #import <MessageUI/MessageUI.h>
-@interface DetalleViewController ()
+#import <Social/Social.h>
+#import <Twitter/Twitter.h>
+@interface DetalleViewController ()<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topTextFieldContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightTextFieldConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTextFieldConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftButtonsConstraint;
+@property (nonatomic,strong) SLComposeViewController *mySLComposerSheet;
 
 @end
 
@@ -125,6 +128,136 @@
 
 
 
+- (IBAction)shareWithOthers:(id)sender {
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Comparte" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"e-mail",@"Twitter",@"Facebook", nil];
+    [as showInView:self.view];
+   
+    
+    
+
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            [self sendMail];
+            break;
+        case 1:
+            [self sendTwitter];
+            break;
+        case 2:
+            [self sendFacebook];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)sendMail{
+    NSString *nombre = self.evento.name;
+    NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
+    
+    NSString *emailTitle = @"Suggestion from La Ventana del Arte";
+    NSString *messageBody = body;
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    
+    [self presentViewController:mc animated:YES completion:NULL];
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void) sendTwitter{
+    NSString *nombre = self.evento.name;
+    NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
+    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+
+    [twitter setInitialText:body];
+//    [twitter addImage:[UIImage imageNamed:@"image.png"]];
+    
+    [self presentViewController:twitter animated:YES completion:nil];
+    
+    twitter.completionHandler = ^(TWTweetComposeViewControllerResult res) {
+        
+        if(res == TWTweetComposeViewControllerResultDone) {
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success" message:@"The Tweet was posted successfully." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+            
+            [alert show];
+            
+        }
+        if(res == TWTweetComposeViewControllerResultCancelled) {
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Cancelled" message:@"You Cancelled posting the Tweet." delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+            
+            [alert show];
+            
+        }
+        [self dismissModalViewControllerAnimated:YES];
+        
+    };
+    
+}
+
+-(void)sendFacebook{
+    if(![SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])  {
+        NSLog(@"log output of your choice here");
+    }
+    // Facebook may not be available but the SLComposeViewController will handle the error for us.
+
+    self.mySLComposerSheet = [[SLComposeViewController alloc] init];
+    self.mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    NSString *nombre = self.evento.name;
+    NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
+    [self.mySLComposerSheet setInitialText:body];
+//    [self.mySLComposerSheet addImage:self.photos.firstObject]; //an image you could post
+    
+    [self presentViewController:self.mySLComposerSheet animated:YES completion:nil];
+    
+    [self.mySLComposerSheet setCompletionHandler:^(SLComposeViewControllerResult result) {
+        NSString *output;
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                output = @"Action Cancelled";
+                break;
+            case SLComposeViewControllerResultDone:
+                output = @"Post Successfull";
+                break;
+            default:
+                break;
+        }
+        if (![output isEqualToString:@"Action Cancelled"]) {
+            // Only alert if the post was a success. Or not! Up to you.
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook" message:output delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+}
 
 
 - (IBAction)mapDetailView:(id)sender {

@@ -38,6 +38,11 @@
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="wOK-4e-cXP">
+                            <rect key="frame" x="0.0" y="221" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="0.23100823179999999" green="0.52840453710000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="ENm-Ae-1jQ" customClass="VentanaTableViewCell">
                                 <rect key="frame" x="0.0" y="141" width="320" height="80"/>
@@ -263,14 +268,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBH-oY-EQh">
-                                <rect key="frame" x="0.0" y="111" width="320" height="368"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBH-oY-EQh">
+                                <rect key="frame" x="0.0" y="111" width="320" height="404"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="6tC-xy-KPA"/>
+                                    <constraint firstAttribute="height" constant="404" id="pF9-v8-3MT"/>
+                                </constraints>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-Hr-4Fd">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999973" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-Hr-4Fd">
                                 <rect key="frame" x="0.0" y="67" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="OO3-wd-8J4"/>
+                                </constraints>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6jR-kX-TwM"/>
                                     <barButtonItem title="tipo" id="ccy-WP-vhh">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -291,15 +304,22 @@
                                             <action selector="fly:" destination="E7K-U9-Xmo" id="ZzU-Du-s7b"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qLL-oR-dzQ"/>
                                 </items>
                                 <color key="barTintColor" white="0.66199570105820105" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xcV-Hr-4Fd" firstAttribute="top" secondItem="zjl-lN-BaW" secondAttribute="bottom" id="13s-Cr-D64"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qcR-cj-D2e"/>
                     <connections>
                         <outlet property="MapView" destination="TBH-oY-EQh" id="Xxa-bZ-631"/>
+                        <outlet property="altoMapa" destination="pF9-v8-3MT" id="vD1-d8-kls"/>
+                        <outlet property="anchoMapa" destination="6tC-xy-KPA" id="Qfd-1O-XnG"/>
+                        <outlet property="anchoToolBar" destination="OO3-wd-8J4" id="I7b-cc-JLS"/>
                         <outlet property="mapView" destination="TBH-oY-EQh" id="VAq-N7-unR"/>
                     </connections>
                 </viewController>
@@ -411,7 +431,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                     <navigationItem key="navigationItem" title="Ficha" id="Cfh-p8-ATS">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="SLJ-Mj-1DU">
                             <connections>
-                                <action selector="shareWithOtherUsers:" destination="adh-KO-d7V" id="kt4-Oa-RoS"/>
+                                <action selector="shareWithOthers:" destination="adh-KO-d7V" id="3OX-RB-KDO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -506,7 +526,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vda-Vx-NQx"/>
+        <segue reference="UPz-eb-5a1"/>
         <segue reference="j8a-tN-o6X"/>
     </inferredMetricsTieBreakers>
 </document>
