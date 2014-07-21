@@ -108,7 +108,9 @@ static NSString *const space = @"space";
     
 }
 
-
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -148,7 +150,8 @@ static NSString *const space = @"space";
     NSURL *url = [NSURL URLWithString:espace.imagen];
     NSData *data = [NSData dataWithContentsOfURL:url];
     cell.ImageEvento.image = [UIImage imageWithData:data];
-    
+    [cell reDibujaSerie];
+
     return cell;
     
 }

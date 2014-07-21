@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *NameEvento;
 @property (weak, nonatomic) IBOutlet UILabel *typeEvento;
 @property (weak, nonatomic) IBOutlet UIImageView *ImageEvento;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopImageCell;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightImageCell;
+-(void) reDibujaSerie;
 @end

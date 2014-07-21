@@ -11,8 +11,10 @@
 #import "Evento.h"
 #import "addData.h"
 #import "DetalleViewController.h"
+#import "MapViewController.h"
 @interface EventosViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
 @property (nonatomic,strong) NSDictionary *evento;
@@ -87,7 +89,10 @@ typedef enum
     return YES;
 }
 
-
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    self.anchoToolBar.constant = self.view.frame.size.width;
+    [self.tableView reloadData];
+}
 
 
 
@@ -95,7 +100,8 @@ typedef enum
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self controlesNavegacion];
+    self.navigationController.navigationBar.backgroundColor = [UIColor grayColor];
+    self.anchoToolBar.constant = self.view.frame.size.width;
     [self reloadData];
     addData *addD = [[addData alloc]init];
     addD.contexto = self.contexto;
@@ -110,18 +116,27 @@ typedef enum
                                                object:nil];
 }
 
-
--(void) controlesNavegacion{
-    UIBarButtonItem *filtroTipo = [[UIBarButtonItem alloc]  initWithTitle:@"Tipo" style:UIBarButtonItemStyleDone target:self action:@selector(tipo:)];
+- (IBAction)areaEstudio:(id)sender {
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Exposicion",@"Todos", nil];
+    [as showInView:self.view];
     
-    UIBarButtonItem *filtroCercano = [[UIBarButtonItem alloc] initWithTitle:@"Cerca" style:UIBarButtonItemStyleDone target:self action:@selector(cercano:)];
-    
-//    UIBarButtonItem *busqueda = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchicon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(busca:)];
-    
-    NSArray *myButtonArray = [[NSArray alloc] initWithObjects:filtroTipo, filtroCercano, nil];
-    
-    self.navigationItem.rightBarButtonItems = myButtonArray;
 }
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Exposiciones");
+            [self.tableView reloadData];
+            break;
+        case 1:
+            NSLog(@"Todos");
+            [self.tableView reloadData];
+            break;
+        default:
+            break;
+    }
+}
+
 
 -(void)tipo:(id)sender{
     NSLog(@"tipo ");
@@ -129,6 +144,9 @@ typedef enum
 
 -(void)cercano:(id)sender{
     NSLog(@"cercano");
+    MapViewController *mapView = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+    [self presentViewController:mapView animated:YES completion:nil];
+    
 }
 
 /*
@@ -246,7 +264,7 @@ typedef enum
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.ImageEvento.image = [UIImage imageWithData:data];
     }
-    
+    [cell reDibujaSerie];
     return cell;
    /*
     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -315,7 +333,7 @@ typedef enum
     [self.tableView reloadData];
 }
 
-
+//#pragma mark - ancho tool bar
 
 
 @end

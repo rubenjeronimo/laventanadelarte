@@ -32,28 +32,69 @@
 }
 
 -(void)setBackground{
+    UIColor *colorOne = [UIColor colorWithWhite:0.9 alpha:1.0];
+    UIColor *colorTwo = [UIColor colorWithHue:0.625 saturation:0.0 brightness:0.85 alpha:1.0];
+    UIColor *colorThree     = [UIColor colorWithHue:0.625 saturation:0.0 brightness:0.7 alpha:1.0];
+    UIColor *colorFour = [UIColor colorWithHue:0.625 saturation:0.0 brightness:0.4 alpha:1.0];
+                         
+    NSArray *colores =  [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, colorThree.CGColor, colorFour.CGColor, nil];
+                         
+    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+    NSNumber *stopTwo = [NSNumber numberWithFloat:0.6];
+    NSNumber *stopThree = [NSNumber numberWithFloat:0.99];
+    NSNumber *stopFour = [NSNumber numberWithFloat:1.0];
+    NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, stopThree, stopFour, nil];
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+                         gradientLayer.colors = colores;
+                         gradientLayer.locations = locations;
+    
     CALayer *layer = [CALayer layer];
-    
-    
-//    UIImage *imagen = self.ImageEvento.image;
-//    CIImage *blurImagen = [CIImage imageWithCGImage:imagen.CGImage];
-//    CIFilter *gaussiano = [CIFilter filterWithName:@"CIGaussianBlur"];
-//    [gaussiano setValue:blurImagen forKey:@"Input Image"];
-//    [gaussiano setValue:[NSNumber numberWithFloat: 10] forKey: @"inputRadius"]; //change number to increase/decrease blur
-//    CIImage *resultImage = [gaussiano valueForKey: @"outputImage"];
-//
-//    //create UIImage from filtered image
-//    blurImagen = [[[UIImage alloc] initWithCIImage:resultImage]CIImage];
-    
-    
-    
     
     layer.backgroundColor = [UIColor colorWithRed:0.1 green:0.2 blue:0.1 alpha:0.7].CGColor;
     
-    layer.cornerRadius = 20;
-    layer.frame = CGRectInset(self.layer.frame, 5, 5);
-    [self.layer insertSublayer:layer atIndex:0];
+    gradientLayer.cornerRadius = 10;
+    gradientLayer.frame = CGRectInset(self.layer.frame, 5, 5);
+    [self.layer insertSublayer:gradientLayer atIndex:0];
 }
+
+-(void) reDibujaSerie{
+    
+    UIDeviceOrientation orientacion = [[UIDevice currentDevice]orientation];
+    
+    if (orientacion==UIDeviceOrientationPortrait || orientacion==UIDeviceOrientationUnknown) {
+        [self setPortait];
+        
+    }else if (orientacion == UIDeviceOrientationLandscapeLeft || orientacion == UIDeviceOrientationLandscapeRight){
+        [self setLandscape];
+    }
+}
+
+
+-(void) setLandscape{
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
+    layer.frame = CGRectInset(self.bounds, 5, 2.5);
+    self.TopImageCell.constant = 11;
+    self.rightImageCell.constant = 8;
+    [CATransaction commit];
+    
+}
+
+-(void) setPortait{
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    CALayer *layer = [self.layer.sublayers objectAtIndex:0];
+    layer.frame = CGRectInset(self.bounds, 5, 2.5);
+    self.TopImageCell.constant = 11;
+    self.rightImageCell.constant = 8;
+    [CATransaction commit];
+    
+}
+
+
+
+
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated
 //{
 //    [super setSelected:selected animated:animated];

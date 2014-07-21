@@ -13,6 +13,7 @@
 		FE19B4BB1979505F00D40808 /* searchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE19B4BA1979505F00D40808 /* searchicon.png */; };
 		FE1F73501977E01900D9EE5D /* addData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1F734F1977E01900D9EE5D /* addData.m */; };
 		FE1F735819780C1E00D9EE5D /* Defaul-568@2x.png.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE1F735719780C1E00D9EE5D /* Defaul-568@2x.png.jpg */; };
+		FE2A72C1197D194F00B3EAF8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */; };
 		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E1A1973C51800973719 /* DetalleViewController.m */; };
 		FE3D1E1D1973CEE300973719 /* sad13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE3D1E1C1973CEE300973719 /* sad13.jpg */; };
@@ -33,6 +34,11 @@
 		FE3D1E521973E0A500973719 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E3F1973E0A500973719 /* UIProgressView+AFNetworking.m */; };
 		FE3D1E531973E0A500973719 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E411973E0A500973719 /* UIRefreshControl+AFNetworking.m */; };
 		FE3D1E541973E0A500973719 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E431973E0A500973719 /* UIWebView+AFNetworking.m */; };
+		FE3F9916197BE09E006D5BDC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F9915197BE09E006D5BDC /* MapKit.framework */; };
+		FE3F9918197BE0A4006D5BDC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3F9917197BE0A4006D5BDC /* CoreLocation.framework */; };
+		FE3F991B197BE0CF006D5BDC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3F991A197BE0CF006D5BDC /* MapViewController.m */; };
+		FE3F991E197C33BD006D5BDC /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3F991C197C33BD006D5BDC /* like.png */; };
+		FE3F991F197C33BD006D5BDC /* unlike.png in Resources */ = {isa = PBXBuildFile; fileRef = FE3F991D197C33BD006D5BDC /* unlike.png */; };
 		FE6509BE19757DF600474A23 /* events-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE6509BC19757DF600474A23 /* events-icon.png */; };
 		FE6509BF19757DF600474A23 /* 618311-Bank-512.png in Resources */ = {isa = PBXBuildFile; fileRef = FE6509BD19757DF600474A23 /* 618311-Bank-512.png */; };
 		FE6509C119757EB600474A23 /* fondo.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FE6509C019757EB600474A23 /* fondo.JPG */; };
@@ -78,6 +84,7 @@
 		FE1F734E1977E01900D9EE5D /* addData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addData.h; sourceTree = "<group>"; };
 		FE1F734F1977E01900D9EE5D /* addData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addData.m; sourceTree = "<group>"; };
 		FE1F735719780C1E00D9EE5D /* Defaul-568@2x.png.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Defaul-568@2x.png.jpg"; path = "Images.xcassets/LaunchImage.launchimage/Defaul-568@2x.png.jpg"; sourceTree = "<group>"; };
+		FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
 		FE3D1E171973C21400973719 /* VentanaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentanaTableViewCell.m; sourceTree = "<group>"; };
 		FE3D1E191973C51800973719 /* DetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleViewController.h; sourceTree = "<group>"; };
@@ -119,6 +126,12 @@
 		FE3D1E411973E0A500973719 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		FE3D1E421973E0A500973719 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		FE3D1E431973E0A500973719 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		FE3F9915197BE09E006D5BDC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FE3F9917197BE0A4006D5BDC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FE3F9919197BE0CF006D5BDC /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		FE3F991A197BE0CF006D5BDC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		FE3F991C197C33BD006D5BDC /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
+		FE3F991D197C33BD006D5BDC /* unlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlike.png; sourceTree = "<group>"; };
 		FE6509BC19757DF600474A23 /* events-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "events-icon.png"; sourceTree = "<group>"; };
 		FE6509BD19757DF600474A23 /* 618311-Bank-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "618311-Bank-512.png"; sourceTree = "<group>"; };
 		FE6509C019757EB600474A23 /* fondo.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fondo.JPG; sourceTree = "<group>"; };
@@ -155,6 +168,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2A72C1197D194F00B3EAF8 /* MessageUI.framework in Frameworks */,
+				FE3F9918197BE0A4006D5BDC /* CoreLocation.framework in Frameworks */,
+				FE3F9916197BE09E006D5BDC /* MapKit.framework in Frameworks */,
 				FEBE1B9B196FD85F0036948F /* CoreGraphics.framework in Frameworks */,
 				FEBE1B9D196FD85F0036948F /* UIKit.framework in Frameworks */,
 				FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */,
@@ -177,6 +193,8 @@
 		FE2BD188197530A600F523AF /* artwork */ = {
 			isa = PBXGroup;
 			children = (
+				FE3F991C197C33BD006D5BDC /* like.png */,
+				FE3F991D197C33BD006D5BDC /* unlike.png */,
 				FE19B4BA1979505F00D40808 /* searchicon.png */,
 				FE1F735719780C1E00D9EE5D /* Defaul-568@2x.png.jpg */,
 				FE6509C019757EB600474A23 /* fondo.JPG */,
@@ -261,6 +279,9 @@
 		FEBE1B97196FD85F0036948F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */,
+				FE3F9917197BE0A4006D5BDC /* CoreLocation.framework */,
+				FE3F9915197BE09E006D5BDC /* MapKit.framework */,
 				FEBE1B98196FD85F0036948F /* Foundation.framework */,
 				FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */,
 				FEBE1B9C196FD85F0036948F /* UIKit.framework */,
@@ -351,6 +372,8 @@
 				FEBE1BD4196FF1870036948F /* EspaciosTableViewController.m */,
 				FE0D6DE2197681BA00B29D8E /* EventosViewController.h */,
 				FE0D6DE3197681BA00B29D8E /* EventosViewController.m */,
+				FE3F9919197BE0CF006D5BDC /* MapViewController.h */,
+				FE3F991A197BE0CF006D5BDC /* MapViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -444,10 +467,12 @@
 				FE6509BF19757DF600474A23 /* 618311-Bank-512.png in Resources */,
 				FE3D1E1D1973CEE300973719 /* sad13.jpg in Resources */,
 				FEBE1BB4196FD85F0036948F /* Images.xcassets in Resources */,
+				FE3F991F197C33BD006D5BDC /* unlike.png in Resources */,
 				FE6509C119757EB600474A23 /* fondo.JPG in Resources */,
 				FE1F735819780C1E00D9EE5D /* Defaul-568@2x.png.jpg in Resources */,
 				FEBE1BA3196FD85F0036948F /* InfoPlist.strings in Resources */,
 				FEAF5E3E197536C500988526 /* iconoFirst.png in Resources */,
+				FE3F991E197C33BD006D5BDC /* like.png in Resources */,
 				FEBE1BAC196FD85F0036948F /* Main.storyboard in Resources */,
 				FEAF5E3A1975353A00988526 /* intro.png in Resources */,
 				FE6509BE19757DF600474A23 /* events-icon.png in Resources */,
@@ -496,6 +521,7 @@
 				FE3D1E4B1973E0A500973719 /* AFURLResponseSerialization.m in Sources */,
 				FEBE1BD8196FF9900036948F /* Modelo.xcdatamodeld in Sources */,
 				FE0D6DDB19766A7500B29D8E /* Evento.m in Sources */,
+				FE3F991B197BE0CF006D5BDC /* MapViewController.m in Sources */,
 				FE3D1E531973E0A500973719 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FEBE1BD5196FF1870036948F /* EspaciosTableViewController.m in Sources */,
 			);
