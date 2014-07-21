@@ -77,6 +77,7 @@
     layer.frame = CGRectInset(self.bounds, 5, 2.5);
     self.TopImageCell.constant = 11;
     self.rightImageCell.constant = 8;
+    self.rightSpacesImageConstraint.constant = 8;
     [CATransaction commit];
     
 }
@@ -88,6 +89,7 @@
     layer.frame = CGRectInset(self.bounds, 5, 2.5);
     self.TopImageCell.constant = 11;
     self.rightImageCell.constant = 8;
+    self.rightSpacesImageConstraint.constant = 8;
     [CATransaction commit];
     
 }

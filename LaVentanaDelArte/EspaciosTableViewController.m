@@ -76,6 +76,7 @@ static NSString *const space = @"space";
                                              selector:@selector(receivedNotification:)
                                                  name:@"not Found"
                                                object:nil];
+    [self reloadData];
 }
 
 - (void)receivedNotification:(NSNotification *) notification {
@@ -230,6 +231,25 @@ static NSString *const space = @"space";
     return _fetchedResultsController;
 }
 
+- (IBAction)areaEstudio:(id)sender {
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Arte Contemporaneo",@"Todos", nil];
+    [as showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Arte Contemporaneo");
+            [self.tableView reloadData];
+            break;
+        case 1:
+            NSLog(@"Todos");
+            [self.tableView reloadData];
+            break;
+        default:
+            break;
+    }
+}
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView reloadData];

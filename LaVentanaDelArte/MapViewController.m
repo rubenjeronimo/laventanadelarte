@@ -8,12 +8,11 @@
 
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
-
+#import "Espacio.h"
 @interface MapViewController ()<MKMapViewDelegate,UIActionSheetDelegate>
 @property  double latitudPOI;
 @property double longitudPOI;
 @property (weak, nonatomic) IBOutlet MKMapView *MapView;
-@property (nonatomic,strong) NSArray *listadoBares;
 @property (weak, nonatomic) IBOutlet UISwitch *searchPoint;
 @property (nonatomic,strong) CLLocation *selectedLocation;
 @property (nonatomic,strong) NSMutableArray *cameras;
@@ -131,11 +130,20 @@
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    
     [self setAnchoToolBar];
-
 }
 
+
+-(void)POI{
+    for (Espacio *espacio in self.contexto) {
+        //        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake(self.latitudPOI, self.longitudPOI);
+        //        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+        //        [anotacion setCoordinate:coorPunto];
+        
+        [self.MapView addAnnotation:espacio];
+    }
+    
+}
 /*
 #pragma mark - Navigation
 

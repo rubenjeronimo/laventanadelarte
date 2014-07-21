@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewLabelConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftButtonsConstraint;
 @property (nonatomic,strong) SLComposeViewController *mySLComposerSheet;
+@property (weak, nonatomic) IBOutlet UIButton *botonLike;
+@property (weak, nonatomic) IBOutlet UIButton *botonUnlike;
 
 @end
 
@@ -124,17 +126,9 @@
 
 
 
-
-
-
-
 - (IBAction)shareWithOthers:(id)sender {
     UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Comparte" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"e-mail",@"Twitter",@"Facebook", nil];
     [as showInView:self.view];
-   
-    
-    
-
     
 }
 
@@ -269,5 +263,21 @@
     NSURL        *url       = [NSURL URLWithString:@"http://www.laventanadelarte.es"];
     [[UIApplication sharedApplication] openURL:url];
 }
+
+- (IBAction)likeButton:(id)sender {
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.2];
+    self.botonUnlike.alpha = 0.2;
+    self.botonLike.alpha = 1;
+    [CATransaction commit];
+}
+- (IBAction)unlikeButton:(id)sender {
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.2];
+    self.botonUnlike.alpha = 1;
+    self.botonLike.alpha = 0.2;
+    [CATransaction commit];
+}
+
 
 @end

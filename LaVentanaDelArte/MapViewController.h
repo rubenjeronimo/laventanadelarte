@@ -10,5 +10,5 @@
 #import <MapKit/MapKit.h>
 
 @interface MapViewController : UIViewController
-
+@property (nonatomic,strong) NSManagedObjectContext *contexto;
 @end

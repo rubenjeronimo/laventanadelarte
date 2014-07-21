@@ -61,15 +61,7 @@ typedef enum
 {
     if (self.contexto)
     {
-        NSString *predicateFormat = @"%K BEGINSWITH[cd] %@";
-        NSString *searchAttribute = @"name";
-        
-        if (scopeOption == searchScopeEspacio)
-        {
-            searchAttribute = @"Evento";
-        }
-        
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat, searchAttribute, searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", searchText];
         [self.eventosBusquedaFetchRequest setPredicate:predicate];
         
         NSError *error = nil;
@@ -210,8 +202,11 @@ typedef enum
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-    return [[[self fetchedResultsController] sections] count];
+    if (tableView == self.tableView) {
+        return [[[self fetchedResultsController] sections] count];
+    }
+    
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -244,25 +239,36 @@ typedef enum
     
     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[VentanaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[VentanaTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-//        cell.textLabel.text = self.eventosFiltrados[indexPath.row];
-        Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        cell.NameEvento.text = evento.name;
-        cell.typeEvento.text = evento.descripcion;
+        Evento *evento = self.eventosFiltrados[indexPath.row];
+        cell.textLabel.text = evento.name;
+        cell.detailTextLabel.text = evento.descripcion;
         NSURL *url = [NSURL URLWithString:evento.imagen];
         NSData *data = [NSData dataWithContentsOfURL:url];
-        cell.ImageEvento.image = [UIImage imageWithData:data];
+        cell.imageView.image = [UIImage imageWithData:data];
     } else {
-//        cell.textLabel.text = self.listadoEventos[indexPath.row];
         Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         cell.NameEvento.text = evento.name;
         cell.typeEvento.text = evento.descripcion;
-        NSURL *url = [NSURL URLWithString:evento.imagen];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        cell.ImageEvento.image = [UIImage imageWithData:data];
+        
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+
+            NSURL *url = [NSURL URLWithString:evento.imagen];
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                VentanaTableViewCell *destcell = (VentanaTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+                if (destcell) {
+                    destcell.ImageEvento.image = image;
+                }
+            });
+
+        });
+        
     }
     [cell reDibujaSerie];
     return cell;
@@ -280,29 +286,36 @@ typedef enum
     */
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    CATransform3D rotation;
-    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-    rotation.m34 = 1.0/ -600;
-    
-    
-    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-    cell.layer.shadowOffset = CGSizeMake(10, 10);
-    cell.alpha = 0;
-    
-    cell.layer.transform = rotation;
-    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-    
-    
-    [UIView beginAnimations:@"rotation" context:NULL];
-    [UIView setAnimationDuration:0.8];
-    cell.layer.transform = CATransform3DIdentity;
-    cell.alpha = 1;
-    cell.layer.shadowOffset = CGSizeMake(0, 0);
-    [UIView commitAnimations];
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    
+//    CATransform3D rotation;
+//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+//    rotation.m34 = 1.0/ -600;
+//    
+//    
+//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+//    cell.layer.shadowOffset = CGSizeMake(10, 10);
+//    cell.alpha = 0;
+//    
+//    cell.layer.transform = rotation;
+//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+//    
+//    
+//    [UIView beginAnimations:@"rotation" context:NULL];
+//    [UIView setAnimationDuration:0.8];
+//    cell.layer.transform = CATransform3DIdentity;
+//    cell.alpha = 1;
+//    cell.layer.shadowOffset = CGSizeMake(0, 0);
+//    [UIView commitAnimations];
+//}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView != self.tableView) {
+        
+    }
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString: @"EventoSegue"]) {
@@ -319,7 +332,7 @@ typedef enum
     }
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
-
+//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"type == %@", self.type];
     fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];

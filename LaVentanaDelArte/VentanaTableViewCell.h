@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ImageEvento;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopImageCell;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightImageCell;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightSpacesImageConstraint;
 -(void) reDibujaSerie;
 @end
