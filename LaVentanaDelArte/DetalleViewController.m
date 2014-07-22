@@ -22,6 +22,7 @@
 @property (nonatomic,strong) SLComposeViewController *mySLComposerSheet;
 @property (weak, nonatomic) IBOutlet UIButton *botonLike;
 @property (weak, nonatomic) IBOutlet UIButton *botonUnlike;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightViewTitulo;
 
 @end
 
@@ -60,6 +61,13 @@
     self.imageEvento.image = [UIImage imageWithData:data];
 
     }
+    
+    self.urlButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.urlButton.layer.borderWidth = 1.0;
+    self.urlButton.layer.cornerRadius = 5.0;
+    self.mapButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.mapButton.layer.borderWidth = 1.0;
+    self.mapButton.layer.cornerRadius = 5.0;
     [self reDibuja];
 }
 
@@ -107,6 +115,7 @@
     self.leftTextFieldConstraint.constant=320;
     self.topViewLabelConstraint.constant = 0;
     self.leftButtonsConstraint.constant = 320;
+    self.heightViewTitulo.constant = 50;
     [CATransaction commit];
     
 }
@@ -114,11 +123,12 @@
 -(void) setPortait{
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.1];
-    self.topTextFieldContraint.constant = 320;
+    self.topTextFieldContraint.constant = 300;
     self.rightTextFieldConstraint.constant = 8;
     self.leftTextFieldConstraint.constant=8;
-    self.topViewLabelConstraint.constant = 250;
+    self.topViewLabelConstraint.constant = 225;
     self.leftButtonsConstraint.constant = 8;
+    self.heightViewTitulo.constant = 60;
     [CATransaction commit];
     
 }
@@ -127,6 +137,29 @@
 
 
 - (IBAction)shareWithOthers:(id)sender {
+  /*
+    NSString *text = @"How to add Facebook and Twitter sharing to an iOS app";
+    NSURL *url = [NSURL URLWithString:@"http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/"];
+    
+    UIActivityViewController *controller =
+    [[UIActivityViewController alloc]
+     initWithActivityItems:@[text, url]
+     applicationActivities:nil];
+    
+    controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+                                         UIActivityTypeMessage,
+                                         
+                                         UIActivityTypePrint,
+                                         UIActivityTypeCopyToPasteboard,
+                                         UIActivityTypeAssignToContact,
+                                         UIActivityTypeSaveToCameraRoll,
+                                         UIActivityTypeAddToReadingList,
+                                         UIActivityTypePostToFlickr,
+                                         UIActivityTypePostToVimeo,
+                                         UIActivityTypePostToTencentWeibo,
+                                         UIActivityTypeAirDrop];
+    [self presentViewController:controller animated:YES completion:nil];
+   */
     UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Comparte" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"e-mail",@"Twitter",@"Facebook", nil];
     [as showInView:self.view];
     

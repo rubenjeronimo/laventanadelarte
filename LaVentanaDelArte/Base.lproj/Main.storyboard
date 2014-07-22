@@ -69,14 +69,14 @@
                                                 <constraint firstAttribute="width" constant="60" id="qCo-dO-IcY"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-Ck-qoS">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-Ck-qoS">
                                             <rect key="frame" x="20" y="5" width="199" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSS-eq-Cv1">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSS-eq-Cv1">
                                             <rect key="frame" x="20" y="52" width="199" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
@@ -84,7 +84,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="CSS-eq-Cv1" firstAttribute="top" secondItem="bDX-Ck-qoS" secondAttribute="bottom" priority="900" constant="4" id="D8v-JA-k9n"/>
+                                        <constraint firstItem="CSS-eq-Cv1" firstAttribute="top" secondItem="bDX-Ck-qoS" secondAttribute="bottom" priority="250" constant="4" id="D8v-JA-k9n"/>
                                         <constraint firstItem="bDX-Ck-qoS" firstAttribute="leading" secondItem="vkZ-8z-Jx4" secondAttribute="leading" constant="8" id="Gwk-J6-bIC"/>
                                         <constraint firstItem="1Mq-0r-aHD" firstAttribute="leading" secondItem="bDX-Ck-qoS" secondAttribute="trailing" constant="8" id="InJ-Rb-ONF"/>
                                         <constraint firstAttribute="trailing" secondItem="CSS-eq-Cv1" secondAttribute="trailing" constant="68" id="cIU-Hz-NUZ"/>
@@ -367,13 +367,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
+                            <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
                                 <rect key="frame" x="-6" y="0.0" width="326" height="351"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN9-S7-2pm">
-                                <rect key="frame" x="0.0" y="489" width="90" height="30"/>
+                                <rect key="frame" x="0.0" y="489" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="2JN-HJ-ORu"/>
+                                    <constraint firstAttribute="height" constant="30" id="4w4-2l-MNl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Leer mas">
@@ -384,19 +388,19 @@
                                     <action selector="LeerMas:" destination="adh-KO-d7V" eventType="touchUpInside" id="uiE-Pg-HP0"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
-                                <rect key="frame" x="0.0" y="359" width="320" height="122"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxk-SH-sgY">
+                                <rect key="frame" x="0.0" y="359" width="320" height="112"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="700" constant="320" id="3dy-1o-4bi"/>
+                                    <constraint firstAttribute="height" constant="112" id="ofN-XV-wgD"/>
                                 </constraints>
-                                <string key="text">
-Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </string>
+                                <string key="text">Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor diodeno diodenoo ese que llega condemor. Amatomaa la caidita por la gloria de mi madre torpedo a gramenawer va usté muy cargadoo ese hombree torpedo no te digo trigo por no llamarte Rodrigor pecador. Te va a hasé pupitaa condemor a peich caballo blanco caballo negroorl hasta luego </string>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHn-OI-4pN">
+                            <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHn-OI-4pN">
                                 <rect key="frame" x="0.0" y="288" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -408,23 +412,42 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.65056630291005291" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="Sh0-q7-FDx"/>
+                                    <constraint firstAttribute="width" constant="320" id="ZVm-8u-U5r"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kq-AK-9bF">
-                                <rect key="frame" x="98" y="489" width="90" height="30"/>
+                                <rect key="frame" x="98" y="489" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4i0-U1-J3G"/>
+                                    <constraint firstAttribute="width" constant="70" id="Hn7-Kb-PzX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <state key="normal" title="Mapa">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="mapDetailView:" destination="adh-KO-d7V" eventType="touchUpInside" id="GXL-G8-3WO"/>
                                     <segue destination="E7K-U9-Xmo" kind="push" id="j8a-tN-o6X"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM9-a4-QEe">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM9-a4-QEe">
                                 <rect key="frame" x="214" y="479" width="36" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="g3e-dp-hPH"/>
+                                    <constraint firstAttribute="height" constant="35" id="ri7-FG-PKZ"/>
+                                </constraints>
                                 <state key="normal" image="like.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -433,9 +456,13 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                                     <action selector="likeButton:" destination="adh-KO-d7V" eventType="touchUpInside" id="7Da-sd-7ea"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHL-wX-JcT">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHL-wX-JcT">
                                 <rect key="frame" x="264" y="479" width="36" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7dx-p7-rj2"/>
+                                    <constraint firstAttribute="width" constant="36" id="QiI-Zo-CKd"/>
+                                </constraints>
                                 <state key="normal" image="unlike.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -448,8 +475,9 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="qHL-wX-JcT" secondAttribute="bottom" constant="5" id="3JU-q9-n9h"/>
-                            <constraint firstItem="pM9-a4-QEe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5kq-AK-9bF" secondAttribute="trailing" priority="900" constant="26" id="Ch0-91-meY"/>
-                            <constraint firstAttribute="trailing" secondItem="qHL-wX-JcT" secondAttribute="trailing" constant="20" id="FdZ-sC-zoO"/>
+                            <constraint firstItem="pM9-a4-QEe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5kq-AK-9bF" secondAttribute="trailing" priority="900" constant="10" id="Ch0-91-meY"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qHL-wX-JcT" secondAttribute="trailing" constant="10" id="FdZ-sC-zoO"/>
+                            <constraint firstItem="AHn-OI-4pN" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" id="KdF-ty-HFL"/>
                             <constraint firstItem="5kq-AK-9bF" firstAttribute="leading" secondItem="wN9-S7-2pm" secondAttribute="trailing" constant="8" id="LKc-VN-0gD"/>
                             <constraint firstItem="gxk-SH-sgY" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" id="doo-Wh-Kkd"/>
                             <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="pM9-a4-QEe" secondAttribute="bottom" constant="5" id="fnV-V8-cFO"/>
@@ -458,8 +486,8 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                             <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="5kq-AK-9bF" secondAttribute="bottom" id="mRf-Rb-MQZ"/>
                             <constraint firstAttribute="trailing" secondItem="gxk-SH-sgY" secondAttribute="trailing" id="p6L-em-SV0"/>
                             <constraint firstItem="AHn-OI-4pN" firstAttribute="top" secondItem="NuC-NO-Qbj" secondAttribute="bottom" constant="224" id="tIp-we-CTE"/>
-                            <constraint firstItem="qHL-wX-JcT" firstAttribute="leading" secondItem="pM9-a4-QEe" secondAttribute="trailing" constant="14" id="zDq-WN-wQv"/>
-                            <constraint firstItem="wN9-S7-2pm" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" id="zvH-C7-mia"/>
+                            <constraint firstItem="qHL-wX-JcT" firstAttribute="leading" secondItem="pM9-a4-QEe" secondAttribute="trailing" constant="5" id="zDq-WN-wQv"/>
+                            <constraint firstItem="wN9-S7-2pm" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" constant="5" id="zvH-C7-mia"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ficha" id="Cfh-p8-ATS">
@@ -475,9 +503,11 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
                         <outlet property="botonLike" destination="pM9-a4-QEe" id="rKd-aF-QOg"/>
                         <outlet property="botonUnlike" destination="qHL-wX-JcT" id="mfs-bX-NwJ"/>
                         <outlet property="detailEvento" destination="gxk-SH-sgY" id="drR-oe-Cdp"/>
+                        <outlet property="heightViewTitulo" destination="Sh0-q7-FDx" id="68e-4o-cQk"/>
                         <outlet property="imageEvento" destination="wwE-fD-atv" id="c2W-wl-kzf"/>
                         <outlet property="leftButtonsConstraint" destination="zvH-C7-mia" id="JAR-uN-EQf"/>
                         <outlet property="leftTextFieldConstraint" destination="doo-Wh-Kkd" id="lYa-o9-W26"/>
+                        <outlet property="mapButton" destination="5kq-AK-9bF" id="wMD-Go-tta"/>
                         <outlet property="nameEvento" destination="3Pr-bq-Uym" id="4cq-yE-xFh"/>
                         <outlet property="rightTextFieldConstraint" destination="p6L-em-SV0" id="692-dg-fJU"/>
                         <outlet property="topTextFieldContraint" destination="gub-0f-fVJ" id="t7F-Qr-zE9"/>
@@ -562,7 +592,7 @@ Torpedo no puedor no te digo trigo por no llamarte Rodrigor no puedor no puedor 
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vda-Vx-NQx"/>
-        <segue reference="p6F-TL-6w8"/>
+        <segue reference="UPz-eb-5a1"/>
+        <segue reference="j8a-tN-o6X"/>
     </inferredMetricsTieBreakers>
 </document>

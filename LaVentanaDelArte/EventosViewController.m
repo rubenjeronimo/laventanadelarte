@@ -12,6 +12,12 @@
 #import "addData.h"
 #import "DetalleViewController.h"
 #import "MapViewController.h"
+
+typedef NS_ENUM(NSUInteger, FilterType) {
+    FilterTypeAll,
+    FilterTypeArts
+};
+
 @interface EventosViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
@@ -20,6 +26,7 @@
 @property (nonatomic,strong) NSDictionary *evento;
 @property (nonatomic,strong) NSArray *eventosFiltrados;
 @property (nonatomic,strong) NSFetchRequest *eventosBusquedaFetchRequest;
+@property (nonatomic) FilterType currentFilter;
 @end
 typedef enum
 {
@@ -61,7 +68,7 @@ typedef enum
 {
     if (self.contexto)
     {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@ AND desc COANT", searchText];
         [self.eventosBusquedaFetchRequest setPredicate:predicate];
         
         NSError *error = nil;
@@ -118,15 +125,19 @@ typedef enum
     switch (buttonIndex) {
         case 0:
             NSLog(@"Exposiciones");
-            [self.tableView reloadData];
+            self.currentFilter = FilterTypeArts;
             break;
         case 1:
             NSLog(@"Todos");
-            [self.tableView reloadData];
+            self.currentFilter = FilterTypeAll;
             break;
         default:
             break;
     }
+
+    _fetchedResultsController = nil;
+    [self reloadData];
+
 }
 
 
@@ -332,7 +343,9 @@ typedef enum
     }
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
-//    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"type == %@", self.type];
+    if (self.currentFilter == FilterTypeArts) {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"tipo == %@", @(self.currentFilter)];
+    }
     fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];

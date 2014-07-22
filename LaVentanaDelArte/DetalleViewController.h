@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *detailEvento;
 @property (weak, nonatomic) IBOutlet UIImageView *imageEvento;
 @property (weak, nonatomic) IBOutlet UIButton *urlButton;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
 
 @end

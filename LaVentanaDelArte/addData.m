@@ -38,6 +38,7 @@
                 ev.name = [eve valueForKeyPath:@"nombreExpo.text"];
                 ev.descripcion = [eve valueForKeyPath:@"detalleExpo.text"];
                 ev.imagen =[eve valueForKeyPath:@"imagenExpo.src"];
+                ev.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
             }
             @catch (NSException *exception) {
                 NSLog(@"Exception: %@", exception);

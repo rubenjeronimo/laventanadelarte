@@ -94,7 +94,13 @@
     
 }
 
-
+-(void)prepareForReuse{
+    [super prepareForReuse];
+    self.NameEvento.text=nil;
+    self.typeEvento.text=nil;
+    self.ImageEvento.image = nil;
+    
+}
 
 
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated
