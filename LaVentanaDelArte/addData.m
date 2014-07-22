@@ -99,6 +99,7 @@
                 esp.nombre = [eve valueForKeyPath:@"Name.text"];
                 esp.descripcion = [eve valueForKeyPath:@"Detail.text"];
                 esp.imagen =[eve valueForKeyPath:@"Image.src"];
+                esp.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
             }
             @catch (NSException *exception) {
                 NSLog(@"Exception: %@", exception);

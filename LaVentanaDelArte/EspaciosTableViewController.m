@@ -12,12 +12,16 @@
 #import "Evento.h"
 #import "Espacio.h"
 #import "addData.h"
-@interface EspaciosTableViewController () <NSFetchedResultsControllerDelegate>
+typedef NS_ENUM(NSUInteger, FilterType) {
+    FilterTypeAll,
+    FilterTypeArts
+};
+@interface EspaciosTableViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property (nonatomic,strong) NSMutableArray *listadoEspacios;
 @property (nonatomic,strong) NSDictionary *espacio;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
 @property (nonatomic,strong) NSDictionary *evento;
-
+@property (nonatomic) FilterType currentFilter;
 @end
 
 @implementation EspaciosTableViewController{
@@ -139,9 +143,10 @@ static NSString *const space = @"space";
     return numberOfItems;
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *CellIdentifier = @"Cell";
     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
@@ -156,6 +161,62 @@ static NSString *const space = @"space";
     return cell;
     
 }
+*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[VentanaTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        Espacio *espacio = [[self fetchedResultsController]objectAtIndexPath:indexPath];
+        cell.textLabel.text = espacio.nombre;
+        cell.detailTextLabel.text = espacio.descripcion;
+        NSURL *url = [NSURL URLWithString:espacio.imagen];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        cell.imageView.image = [UIImage imageWithData:data];
+    } else {
+        Espacio *espacio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        cell.NameEvento.text = espacio.nombre;
+        cell.typeEvento.text = espacio.descripcion;
+        
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+            NSURL *url = [NSURL URLWithString:espacio.imagen];
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                VentanaTableViewCell *destcell = (VentanaTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+                if (destcell) {
+                    destcell.ImageEvento.image = image;
+                }
+            });
+            
+        });
+        
+    }
+    [cell reDibujaSerie];
+    return cell;
+    /*
+     VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+     //   VentanaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+     
+     Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+     cell.NameEvento.text = evento.name;
+     cell.typeEvento.text = evento.descripcion;
+     NSURL *url = [NSURL URLWithString:evento.imagen];
+     NSData *data = [NSData dataWithContentsOfURL:url];
+     cell.ImageEvento.image = [UIImage imageWithData:data];
+     return cell;
+     */
+}
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString: @"DetalleSegue"]) {
@@ -223,6 +284,10 @@ static NSString *const space = @"space";
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Espacio"];
     //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", @"gale"];
     //    fetchRequest.predicate = predicate;
+    if (self.currentFilter == FilterTypeArts) {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"tipo == %@", @(self.currentFilter)];
+    }
+
     fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
@@ -231,6 +296,10 @@ static NSString *const space = @"space";
     return _fetchedResultsController;
 }
 
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
 - (IBAction)areaEstudio:(id)sender {
     UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Arte Contemporaneo",@"Todos", nil];
     [as showInView:self.view];
@@ -239,54 +308,20 @@ static NSString *const space = @"space";
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
-            NSLog(@"Arte Contemporaneo");
-            [self.tableView reloadData];
+            self.currentFilter = FilterTypeArts;
             break;
         case 1:
-            NSLog(@"Todos");
-            [self.tableView reloadData];
+            self.currentFilter = FilterTypeAll;
             break;
         default:
             break;
     }
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView reloadData];
+    _fetchedResultsController = nil;
+    [self reloadData];
 }
 
 
-#pragma mark - downloading Data
--(void)cargaDatos{
-    Espacio *espacio1 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    Espacio *espacio2 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    Espacio *espacio3 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    Espacio *espacio4 = [NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    espacio1.nombre = @"Centro Cultural La Corrala UAM";
-    espacio2.nombre = @"Fundación de los Ferrocarriles Españoles";
-    espacio3.nombre = @"Galería Alegría";
-    espacio4.nombre = @"Galería Arte 10";
-    espacio1.descripcion = @"Situado en el centro de la ciudad -en la histórica corrala de la calle de Carlos Arniches, en mitad de El Rastro-, La Corrala tiene por objetivo proyectar la creatividad y la capacidad de innovación científica de la Universidad Autónoma a todo Madrid.";
-    espacio2.descripcion = @"El Palacio de Fernán Núñez es la sede de la Fundación de los Ferrocarriles Españoles desde 1985. En el palacio se organizan exposiciones temporales.";
-    espacio3.descripcion = @"Apostamos por una programación en la que convivan artistas de corta, media y larga carrera con otros artistas absolutamente desconocidos fuera del circuito. La Galería Alegría es un espacio abierto al arte, al diseño y a todo aquello que nos interese y emocione";
-    espacio4.descripcion = @"En la Galería Arte 10, podrás encontrar expuesta básicamente obra gráfica moderna y contemporánea, esculturas, objetos y libros de artista. Realiza exposiciones tituladas y/o temáticas de la Colección Arte 10, pero ocasionalmente también de artistas del momento.";
-    espacio1.imagen = @"http://laventanadelarte.es/images/madrid/3874/foto-centro-2903142217318bb97c.jpg";
-    espacio2.imagen = @"http://laventanadelarte.es/images/madrid/3892/foto-centro-0204141839342818b4.jpg";
-    espacio3.imagen = @"http://laventanadelarte.es/images/madrid/3905/foto-centro-030414103516e1a1f2.jpg";
-    espacio4.imagen = @"http://laventanadelarte.es/images/madrid/3917/foto-centro-030414103849a3f68e.jpg";
-    espacio1.url = @"www.uam.es/ss/Satellite/es/1242657634005";
-    espacio2.url = @"www.ffe.es";
-    espacio3.url = @"www.galeriaalegria.es";
-    espacio4.url = @"www.arte10galeria.com";
-    self.listadoEspacios = [[NSMutableArray alloc]init];
-    self.listadoEventos = [[NSMutableArray alloc]init];
-    [self.listadoEspacios addObject:espacio1];
-    [self.listadoEspacios addObject:espacio2];
-    [self.listadoEspacios addObject:espacio3];
-    [self.listadoEspacios addObject:espacio4];
-    
-    [self.contexto save:nil];
-}
+
 
 
 @end
