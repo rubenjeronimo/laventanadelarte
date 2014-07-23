@@ -137,13 +137,14 @@
 
 
 - (IBAction)shareWithOthers:(id)sender {
-  /*
-    NSString *text = @"How to add Facebook and Twitter sharing to an iOS app";
-    NSURL *url = [NSURL URLWithString:@"http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/"];
+    NSString *nombre = self.evento.name;
+    NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
+    NSString *imagen = self.evento.imagen;
+    NSURL *url = [NSURL URLWithString:imagen];
     
     UIActivityViewController *controller =
     [[UIActivityViewController alloc]
-     initWithActivityItems:@[text, url]
+     initWithActivityItems:@[body, url]
      applicationActivities:nil];
     
     controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
@@ -159,12 +160,15 @@
                                          UIActivityTypePostToTencentWeibo,
                                          UIActivityTypeAirDrop];
     [self presentViewController:controller animated:YES completion:nil];
-   */
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Comparte" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"e-mail",@"Twitter",@"Facebook", nil];
-    [as showInView:self.view];
+   
+    
+    
+    
+//    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Comparte" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"e-mail",@"Twitter",@"Facebook", nil];
+//    [as showInView:self.view];
     
 }
-
+/*
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
@@ -285,7 +289,7 @@
         }
     }];
 }
-
+*/
 
 - (IBAction)mapDetailView:(id)sender {
     MapViewController *mapView = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];

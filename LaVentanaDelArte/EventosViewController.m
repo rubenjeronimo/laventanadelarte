@@ -21,6 +21,10 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @interface EventosViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoToolBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topTableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightTipoButtonConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMapButtonConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
 @property (nonatomic,strong) NSDictionary *evento;
@@ -68,7 +72,7 @@ typedef enum
 {
     if (self.contexto)
     {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", searchText];
         [self.eventosBusquedaFetchRequest setPredicate:predicate];
         
         NSError *error = nil;
@@ -91,10 +95,42 @@ typedef enum
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     self.anchoToolBar.constant = self.view.frame.size.width;
     [self.tableView reloadData];
+    [self reDibujaToolBar];
 }
 
+-(void) reDibujaToolBar{
+    
+    UIDeviceOrientation orientacion = [[UIDevice currentDevice]orientation];
+    
+    if (orientacion==UIDeviceOrientationPortrait || orientacion==UIDeviceOrientationUnknown) {
+        [self setPortait];
+        
+    }else if (orientacion == UIDeviceOrientationLandscapeLeft || orientacion == UIDeviceOrientationLandscapeRight){
+        [self setLandscape];
+    }
+}
 
+-(void) setLandscape{
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    self.altoToolBar.constant = 45;
+    self.topTableView.constant = -10;
+    self.leftMapButtonConstraint.constant = self.view.frame.size.width/4;
+    self.rightTipoButtonConstraint.constant = self.view.frame.size.width/4;
+    [CATransaction commit];
+    
+}
 
+-(void) setPortait{
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    self.altoToolBar.constant = 65;
+    self.topTableView.constant = 0;
+    self.leftMapButtonConstraint.constant = self.view.frame.size.width/6;
+    self.rightTipoButtonConstraint.constant = self.view.frame.size.width/6;
+    [CATransaction commit];
+    
+}
 
 - (void)viewDidLoad
 {
@@ -113,6 +149,8 @@ typedef enum
                                              selector:@selector(receivedNotification:)
                                                  name:@"not Found"
                                                object:nil];
+    [self reDibujaToolBar];
+
 }
 
 - (IBAction)areaEstudio:(id)sender {
@@ -211,13 +249,15 @@ typedef enum
     
 }
 
+#pragma mark - Table View Datasource Methods
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (tableView == self.tableView) {
         return [[[self fetchedResultsController] sections] count];
     }
     
-    return 1;
+    return 1; // filtered events
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -323,9 +363,9 @@ typedef enum
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView != self.tableView) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetalleViewController *detalleVC = [[DetalleViewController alloc]init];
-        Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        NSIndexPath *indexPath = [tableView indexPathForSelectedRow];
+        DetalleViewController *detalleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"detalleStoryboard"];
+        Evento *evento = [[self eventosFiltrados] objectAtIndex:indexPath.row];
         detalleVC.evento = evento;
         
         [[self navigationController] pushViewController:detalleVC animated:YES];
@@ -333,6 +373,8 @@ typedef enum
     }
 }
 
+
+#pragma mark - Segues
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString: @"EventoSegue"]) {
@@ -342,6 +384,8 @@ typedef enum
         detalleVC.evento = evento;
     }
 }
+
+#pragma mark - Fetched Result Controller
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {

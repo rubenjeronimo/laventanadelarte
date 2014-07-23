@@ -142,7 +142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8VW-Pf-WAu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8VW-Pf-WAu">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,12 +185,15 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="9wc-Sj-muQ"/>
+                                                        <constraint firstAttribute="height" constant="22" id="KXR-04-CBS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="5H4-Uf-uEr" firstAttribute="leading" secondItem="3PA-bP-Imr" secondAttribute="trailing" constant="8" symbolic="YES" id="8Yq-hE-s6W"/>
+                                                <constraint firstItem="ugr-PD-yeV" firstAttribute="top" secondItem="3PA-bP-Imr" secondAttribute="bottom" constant="8" symbolic="YES" id="C3p-BH-D6e"/>
                                                 <constraint firstItem="ugr-PD-yeV" firstAttribute="leading" secondItem="4NC-qC-Gsh" secondAttribute="leading" constant="8" id="LO1-Mn-ITF"/>
                                                 <constraint firstItem="5H4-Uf-uEr" firstAttribute="top" secondItem="4NC-qC-Gsh" secondAttribute="top" constant="11" id="LPu-MC-m1O"/>
                                                 <constraint firstAttribute="trailing" secondItem="5H4-Uf-uEr" secondAttribute="trailing" constant="5" id="Maq-IZ-ZSA"/>
@@ -262,13 +265,18 @@
                             <constraint firstAttribute="trailing" secondItem="8VW-Pf-WAu" secondAttribute="trailing" id="PiP-CJ-7V7"/>
                             <constraint firstItem="8VW-Pf-WAu" firstAttribute="top" secondItem="8xA-cJ-eT9" secondAttribute="bottom" id="TXH-lL-5rP"/>
                             <constraint firstItem="8VW-Pf-WAu" firstAttribute="leading" secondItem="05b-BX-jef" secondAttribute="leading" id="dn3-DL-CWI"/>
+                            <constraint firstItem="Xuj-Hw-TLo" firstAttribute="top" secondItem="8VW-Pf-WAu" secondAttribute="bottom" id="eYg-nM-GML"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Exposiciones" id="8ob-6x-NJx"/>
                     <connections>
+                        <outlet property="altoToolBar" destination="R0M-he-P2O" id="mT6-ZI-X0n"/>
                         <outlet property="anchoToolBar" destination="rTw-Nh-kTW" id="bfy-XI-U26"/>
+                        <outlet property="leftMapButtonConstraint" destination="NHm-QC-uYh" id="OLh-Jf-gbC"/>
+                        <outlet property="rightTipoButtonConstraint" destination="q0l-QT-fgr" id="p2M-bR-b3c"/>
                         <outlet property="searchDisplayController" destination="SPj-9H-CV7" id="XAO-D6-bmc"/>
                         <outlet property="tableView" destination="8VW-Pf-WAu" id="BXa-Lh-4Iu"/>
+                        <outlet property="topTableView" destination="TXH-lL-5rP" id="Rfc-xk-epe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ss-PH-njS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -296,7 +304,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBH-oY-EQh">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBH-oY-EQh">
                                 <rect key="frame" x="0.0" y="111" width="320" height="404"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
@@ -304,7 +312,7 @@
                                     <constraint firstAttribute="height" constant="404" id="pF9-v8-3MT"/>
                                 </constraints>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999973" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-Hr-4Fd">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-Hr-4Fd">
                                 <rect key="frame" x="0.0" y="67" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <constraints>
@@ -339,7 +347,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xcV-Hr-4Fd" firstAttribute="top" secondItem="zjl-lN-BaW" secondAttribute="bottom" id="13s-Cr-D64"/>
+                            <constraint firstItem="xcV-Hr-4Fd" firstAttribute="top" secondItem="zjl-lN-BaW" secondAttribute="bottom" constant="3" id="13s-Cr-D64"/>
+                            <constraint firstItem="xcV-Hr-4Fd" firstAttribute="bottom" secondItem="TBH-oY-EQh" secondAttribute="top" id="5oU-O4-y9p"/>
+                            <constraint firstItem="xcV-Hr-4Fd" firstAttribute="leading" secondItem="oVJ-Ap-qqI" secondAttribute="leading" id="bSY-vv-G5V"/>
+                            <constraint firstItem="xcV-Hr-4Fd" firstAttribute="leading" secondItem="TBH-oY-EQh" secondAttribute="leading" id="fev-d0-Qs9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qcR-cj-D2e"/>
@@ -358,7 +369,7 @@
         <!--Detalle View Controller - Ficha-->
         <scene sceneID="3GA-2N-dXD">
             <objects>
-                <viewController id="adh-KO-d7V" customClass="DetalleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detalleStoryboard" id="adh-KO-d7V" customClass="DetalleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NuC-NO-Qbj"/>
                         <viewControllerLayoutGuide type="bottom" id="tLA-1a-lpj"/>
@@ -592,7 +603,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mfb-gc-Sks"/>
-        <segue reference="UPz-eb-5a1"/>
+        <segue reference="p6F-TL-6w8"/>
+        <segue reference="Vda-Vx-NQx"/>
     </inferredMetricsTieBreakers>
 </document>
