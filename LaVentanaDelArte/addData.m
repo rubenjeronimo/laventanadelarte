@@ -39,6 +39,7 @@
                 ev.descripcion = [eve valueForKeyPath:@"detalleExpo.text"];
                 ev.imagen =[eve valueForKeyPath:@"imagenExpo.src"];
                 ev.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
+                
             }
             @catch (NSException *exception) {
                 NSLog(@"Exception: %@", exception);
@@ -100,6 +101,8 @@
                 esp.descripcion = [eve valueForKeyPath:@"Detail.text"];
                 esp.imagen =[eve valueForKeyPath:@"Image.src"];
                 esp.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
+                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
             }
             @catch (NSException *exception) {
                 NSLog(@"Exception: %@", exception);
@@ -137,4 +140,10 @@
     }
     return [result firstObject];
 }
+
+- (CGFloat)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
+    float diff = bigNumber - smallNumber;
+    return (((float) (arc4random() % ((unsigned)RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
+}
+
 @end

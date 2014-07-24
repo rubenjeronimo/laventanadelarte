@@ -232,7 +232,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="E7K-U9-Xmo" kind="push" id="p6F-TL-6w8"/>
+                                            <segue destination="E7K-U9-Xmo" kind="push" identifier="eventoMapaSegue" id="p6F-TL-6w8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-ob-OFk">
@@ -449,7 +449,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="E7K-U9-Xmo" kind="push" id="j8a-tN-o6X"/>
+                                    <segue destination="E7K-U9-Xmo" kind="push" identifier="detalleMapaSegue" id="j8a-tN-o6X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM9-a4-QEe">
@@ -603,7 +603,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="p6F-TL-6w8"/>
         <segue reference="Vda-Vx-NQx"/>
+        <segue reference="j8a-tN-o6X"/>
     </inferredMetricsTieBreakers>
 </document>

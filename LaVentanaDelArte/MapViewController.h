@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-
+@class  Espacio;
 @interface MapViewController : UIViewController
+@property (nonatomic,strong) Espacio *detalleEspacio;
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
+-(void) setDetalleAnotacion;
 @end

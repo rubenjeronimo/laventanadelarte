@@ -291,8 +291,18 @@
 }
 */
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"detalleMapaSegue"]) {
+        MapViewController *mapView = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+        mapView.detalleEspacio = self.espacio;
+        [mapView setDetalleAnotacion];
+    }
+}
+
+
 - (IBAction)mapDetailView:(id)sender {
     MapViewController *mapView = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+    mapView.detalleEspacio = self.espacio;
     [self presentViewController:mapView animated:YES completion:nil];
 }
 

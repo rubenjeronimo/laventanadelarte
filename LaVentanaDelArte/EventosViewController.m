@@ -383,6 +383,10 @@ typedef enum
         Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         detalleVC.evento = evento;
     }
+    else if ([segue.identifier isEqualToString:@"eventoMapaSegue"]){
+        MapViewController *mapView = [segue destinationViewController];
+        mapView.contexto = self.contexto;
+    }
 }
 
 #pragma mark - Fetched Result Controller

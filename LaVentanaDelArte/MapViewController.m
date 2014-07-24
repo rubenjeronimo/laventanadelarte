@@ -19,9 +19,13 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoMapa;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
+@property (strong,nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong,nonatomic) NSFetchRequest *espaciosFetchRequest;
 @end
 
 @implementation MapViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,15 +42,15 @@
     self.latitudPOI = 40.392756;
     self.longitudPOI = -3.693344;
     [self mapea];
-
-    CLLocationCoordinate2D punto;
-    punto.latitude = self.latitudPOI;
-    punto.longitude = self.longitudPOI;
-    MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
-    anotacion.coordinate = punto;
-    anotacion.title = @"no vamos mal";
-
-    [self.MapView addAnnotation:anotacion];
+//    [self POI];
+//    CLLocationCoordinate2D punto;
+//    punto.latitude = self.latitudPOI;
+//    punto.longitude = self.longitudPOI;
+//    MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+//    anotacion.coordinate = punto;
+//    anotacion.title = @"no vamos mal";
+//
+//    [self.MapView addAnnotation:anotacion];
 }
 
 -(void)mapea{
@@ -109,6 +113,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self POI];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"spaces loaded"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"not Found"
+                                               object:nil];
 
 
 }
@@ -134,16 +147,70 @@
 }
 
 
+//añadir una observacion a la notificacion spaces loaded de addData para que repinte los datos cargados. condicion multi-hilo
+
 -(void)POI{
-    for (Espacio *espacio in self.contexto) {
-        //        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake(self.latitudPOI, self.longitudPOI);
-        //        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
-        //        [anotacion setCoordinate:coorPunto];
+    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
+                CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
+                MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+                [anotacion setCoordinate:coorPunto];
         
-        [self.MapView addAnnotation:espacio];
+        [self.MapView addAnnotation:anotacion];
     }
     
 }
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:self.espaciosFetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
+  
+    return fetchedResultsController;
+}
+
+- (NSFetchRequest *)espaciosFetchRequest
+{
+    if (_espaciosFetchRequest != nil)
+    {
+        return _espaciosFetchRequest;
+    }
+    
+    _espaciosFetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    [_espaciosFetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [_espaciosFetchRequest setSortDescriptors:sortDescriptors];
+    
+    return _espaciosFetchRequest;
+}
+
+
+
+- (void)receivedNotification:(NSNotification *) notification {
+    if ([[notification name] isEqualToString:@"spaces loaded"]) {
+        [self POI];
+        [self.MapView reloadInputViews];
+    } else if ([[notification name] isEqualToString:@"Not Found"]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"
+                                                            message:nil delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+        [alertView show];
+    }
+}
+
+-(void) setDetalleAnotacion{
+    CLLocationCoordinate2D punto;
+        punto.latitude = [self.detalleEspacio.latitud floatValue];
+        punto.longitude = [self.detalleEspacio.longitud floatValue];
+        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+        anotacion.coordinate = punto;
+        anotacion.title = self.detalleEspacio.nombre;
+    
+        [self.MapView addAnnotation:anotacion];
+    [self.MapView reloadInputViews];
+}
+
 /*
 #pragma mark - Navigation
 
