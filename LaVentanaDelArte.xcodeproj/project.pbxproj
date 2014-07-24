@@ -46,6 +46,9 @@
 		FE6509C119757EB600474A23 /* fondo.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FE6509C019757EB600474A23 /* fondo.JPG */; };
 		FE650A081975857A00474A23 /* Espacio+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = FE650A071975857A00474A23 /* Espacio+Model.m */; };
 		FE7397A31973FA710072BC7F /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7397A21973FA710072BC7F /* CoreDataStack.m */; };
+		FE79014619814A8000670F59 /* MapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE79014519814A8000670F59 /* MapasViewController.m */; };
+		FE79014919817A9500670F59 /* museocontemporaneo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE79014719817A9500670F59 /* museocontemporaneo.png */; };
+		FE79014A19817A9500670F59 /* museonormal.png in Resources */ = {isa = PBXBuildFile; fileRef = FE79014819817A9500670F59 /* museonormal.png */; };
 		FEAF5E3A1975353A00988526 /* intro.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E391975353A00988526 /* intro.png */; };
 		FEAF5E3E197536C500988526 /* iconoFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E3D197536C500988526 /* iconoFirst.png */; };
 		FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
@@ -143,6 +146,10 @@
 		FE650A071975857A00474A23 /* Espacio+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Espacio+Model.m"; sourceTree = "<group>"; };
 		FE7397A11973FA710072BC7F /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		FE7397A21973FA710072BC7F /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		FE79014419814A8000670F59 /* MapasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapasViewController.h; sourceTree = "<group>"; };
+		FE79014519814A8000670F59 /* MapasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapasViewController.m; sourceTree = "<group>"; };
+		FE79014719817A9500670F59 /* museocontemporaneo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = museocontemporaneo.png; sourceTree = "<group>"; };
+		FE79014819817A9500670F59 /* museonormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = museonormal.png; sourceTree = "<group>"; };
 		FEAF5E391975353A00988526 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
 		FEAF5E3D197536C500988526 /* iconoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFirst.png; sourceTree = "<group>"; };
 		FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaVentanaDelArte.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +206,8 @@
 		FE2BD188197530A600F523AF /* artwork */ = {
 			isa = PBXGroup;
 			children = (
+				FE79014719817A9500670F59 /* museocontemporaneo.png */,
+				FE79014819817A9500670F59 /* museonormal.png */,
 				FE3F991C197C33BD006D5BDC /* like.png */,
 				FE3F991D197C33BD006D5BDC /* unlike.png */,
 				FE19B4BA1979505F00D40808 /* searchicon.png */,
@@ -382,6 +391,8 @@
 				FE0D6DE3197681BA00B29D8E /* EventosViewController.m */,
 				FE3F9919197BE0CF006D5BDC /* MapViewController.h */,
 				FE3F991A197BE0CF006D5BDC /* MapViewController.m */,
+				FE79014419814A8000670F59 /* MapasViewController.h */,
+				FE79014519814A8000670F59 /* MapasViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -479,8 +490,10 @@
 				FE6509C119757EB600474A23 /* fondo.JPG in Resources */,
 				FE1F735819780C1E00D9EE5D /* Defaul-568@2x.png.jpg in Resources */,
 				FEBE1BA3196FD85F0036948F /* InfoPlist.strings in Resources */,
+				FE79014A19817A9500670F59 /* museonormal.png in Resources */,
 				FEAF5E3E197536C500988526 /* iconoFirst.png in Resources */,
 				FE3F991E197C33BD006D5BDC /* like.png in Resources */,
+				FE79014919817A9500670F59 /* museocontemporaneo.png in Resources */,
 				FEBE1BAC196FD85F0036948F /* Main.storyboard in Resources */,
 				FEAF5E3A1975353A00988526 /* intro.png in Resources */,
 				FE6509BE19757DF600474A23 /* events-icon.png in Resources */,
@@ -503,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE650A081975857A00474A23 /* Espacio+Model.m in Sources */,
+				FE79014619814A8000670F59 /* MapasViewController.m in Sources */,
 				FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */,
 				FE3D1E481973E0A500973719 /* AFSecurityPolicy.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,

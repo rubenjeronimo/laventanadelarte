@@ -12,6 +12,7 @@
 #import "addData.h"
 #import "DetalleViewController.h"
 #import "MapViewController.h"
+#import "MapasViewController.h"
 
 typedef NS_ENUM(NSUInteger, FilterType) {
     FilterTypeAll,
@@ -414,6 +415,12 @@ typedef enum
 }
 
 //#pragma mark - ancho tool bar
+
+
+- (IBAction)mapView:(id)sender {
+    MapasViewController *mapasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"vistaMapaStoryboard"];
+    [self.navigationController pushViewController:mapasVC animated:YES];
+}
 
 
 @end

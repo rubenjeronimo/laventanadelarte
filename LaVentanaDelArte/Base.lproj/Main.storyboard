@@ -39,7 +39,6 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="fbm-2p-avU" secondAttribute="trailing" constant="50" id="KMP-t2-z61"/>
                                 <constraint firstAttribute="centerY" secondItem="ZW2-Lj-gfH" secondAttribute="centerY" constant="-0.5" id="UOd-hm-glP"/>
@@ -232,7 +231,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="E7K-U9-Xmo" kind="push" identifier="eventoMapaSegue" id="p6F-TL-6w8"/>
+                                            <segue destination="E7K-U9-Xmo" kind="push" identifier="" id="p6F-TL-6w8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-ob-OFk">
@@ -268,7 +267,13 @@
                             <constraint firstItem="Xuj-Hw-TLo" firstAttribute="top" secondItem="8VW-Pf-WAu" secondAttribute="bottom" id="eYg-nM-GML"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Exposiciones" id="8ob-6x-NJx"/>
+                    <navigationItem key="navigationItem" title="Exposiciones" id="8ob-6x-NJx">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="tGI-2K-59t">
+                            <connections>
+                                <action selector="mapView:" destination="HR5-Vl-iro" id="ylE-JQ-4x7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="altoToolBar" destination="R0M-he-P2O" id="mT6-ZI-X0n"/>
                         <outlet property="anchoToolBar" destination="rTw-Nh-kTW" id="bfy-XI-U26"/>
@@ -292,6 +297,36 @@
             </objects>
             <point key="canvasLocation" x="1115" y="-112"/>
         </scene>
+        <!--Mapas View Controller-->
+        <scene sceneID="nLV-zC-mle">
+            <objects>
+                <viewController storyboardIdentifier="vistaMapaStoryboard" id="sgF-cy-tSn" customClass="MapasViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dNa-c3-fFP"/>
+                        <viewControllerLayoutGuide type="bottom" id="VZE-ds-GbI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjn-56-a3d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-nd-sui">
+                                <rect key="frame" x="28" y="103" width="265" height="339"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sgF-cy-tSn" id="Ts2-sz-82Q"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapaView" destination="zqM-nd-sui" id="oiX-tF-SBW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oye-N2-D4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693" y="-385"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="beS-J4-5x8">
             <objects>
@@ -311,6 +346,9 @@
                                     <constraint firstAttribute="width" constant="320" id="6tC-xy-KPA"/>
                                     <constraint firstAttribute="height" constant="404" id="pF9-v8-3MT"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="E7K-U9-Xmo" id="sT3-f7-AB2"/>
+                                </connections>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-Hr-4Fd">
                                 <rect key="frame" x="0.0" y="67" width="320" height="44"/>
@@ -355,16 +393,33 @@
                     </view>
                     <navigationItem key="navigationItem" id="qcR-cj-D2e"/>
                     <connections>
-                        <outlet property="MapView" destination="TBH-oY-EQh" id="Xxa-bZ-631"/>
                         <outlet property="altoMapa" destination="pF9-v8-3MT" id="vD1-d8-kls"/>
                         <outlet property="anchoMapa" destination="6tC-xy-KPA" id="Qfd-1O-XnG"/>
                         <outlet property="anchoToolBar" destination="OO3-wd-8J4" id="I7b-cc-JLS"/>
-                        <outlet property="mapView" destination="TBH-oY-EQh" id="VAq-N7-unR"/>
+                        <outlet property="mapView" destination="TBH-oY-EQh" id="WXs-A5-Z4s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJs-Ch-eqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2300" y="-112"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jxm-B6-SCy">
+            <objects>
+                <viewController id="NMH-NA-n5P" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TNy-Of-SQt"/>
+                        <viewControllerLayoutGuide type="bottom" id="XOp-DX-enA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bKX-xX-J7Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d46-BE-6rT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3039" y="153"/>
         </scene>
         <!--Detalle View Controller - Ficha-->
         <scene sceneID="3GA-2N-dXD">
@@ -421,6 +476,16 @@
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="21"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkH-dh-I7a">
+                                        <rect key="frame" x="254" y="17" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="mapaVista:" destination="adh-KO-d7V" eventType="touchUpInside" id="5DR-to-Q0u"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.65056630291005291" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

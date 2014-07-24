@@ -12,7 +12,7 @@
 @interface MapViewController ()<MKMapViewDelegate,UIActionSheetDelegate>
 @property  double latitudPOI;
 @property double longitudPOI;
-@property (weak, nonatomic) IBOutlet MKMapView *MapView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UISwitch *searchPoint;
 @property (nonatomic,strong) CLLocation *selectedLocation;
 @property (nonatomic,strong) NSMutableArray *cameras;
@@ -56,28 +56,28 @@
 -(void)mapea{
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta=0.2;
-    span.longitudeDelta=0.2;
+    span.latitudeDelta=0.1;
+    span.longitudeDelta=0.1;
     CLLocationCoordinate2D location;
     location.latitude = self.latitudPOI;
     location.longitude = self.longitudPOI;
     region.span = span;
     region.center = location;
-    MKCoordinateRegion fitRegion = [self.MapView  regionThatFits:region];
-    [self.MapView setRegion:fitRegion animated:YES];
+    MKCoordinateRegion fitRegion = [self.mapView  regionThatFits:region];
+    [self.mapView setRegion:fitRegion animated:YES];
 }
 -(void)mapea:(CLLocationCoordinate2D)conCoordenadas{
     MKCoordinateRegion region;
     MKCoordinateSpan span;
-    span.latitudeDelta=0.2;
-    span.longitudeDelta=0.2;
+    span.latitudeDelta=0.1;
+    span.longitudeDelta=0.1;
     CLLocationCoordinate2D location;
     location.latitude = conCoordenadas.latitude;
     location.longitude = conCoordenadas.longitude;
     region.span = span;
     region.center = location;
-    MKCoordinateRegion fitRegion = [self.MapView  regionThatFits:region];
-    [self.MapView setRegion:fitRegion animated:YES];
+    MKCoordinateRegion fitRegion = [self.mapView  regionThatFits:region];
+    [self.mapView setRegion:fitRegion animated:YES];
 }
 
 
@@ -90,13 +90,13 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
-            [self.MapView setMapType:MKMapTypeSatellite];
+            [self.mapView setMapType:MKMapTypeSatellite];
             break;
         case 1:
-            [self.MapView setMapType:MKMapTypeStandard];
+            [self.mapView setMapType:MKMapTypeStandard];
             break;
         case 2:
-            [self.MapView setMapType:MKMapTypeHybrid];
+            [self.mapView setMapType:MKMapTypeHybrid];
             break;
         default:
             break;
@@ -104,8 +104,8 @@
 }
 
 - (IBAction)centrarMapa:(id)sender {
-    self.latitudPOI = self.MapView.userLocation.coordinate.latitude;
-    self.longitudPOI = self.MapView.userLocation.coordinate.longitude;
+//    self.latitudPOI = self.MapView.userLocation.coordinate.latitude;
+//    self.longitudPOI = self.MapView.userLocation.coordinate.longitude;
     
     [self mapea];
 }
@@ -113,6 +113,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.mapView.delegate = self;
 //    [self POI];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
@@ -122,8 +123,18 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"not Found"
                                                object:nil];
-
-
+    [self setAnchoToolBar];
+    self.latitudPOI = 40.392756;
+    self.longitudPOI = -3.693344;
+//    CLLocationCoordinate2D punto;
+//    punto.latitude = self.latitudPOI;
+//    punto.longitude = self.longitudPOI;
+//    MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+//    anotacion.coordinate = punto;
+//    anotacion.title = @"no vamos mal";
+//    
+//    [self.MapView addAnnotation:anotacion];
+    [self setDetalleAnotacion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -155,7 +166,7 @@
                 MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
                 [anotacion setCoordinate:coorPunto];
         
-        [self.MapView addAnnotation:anotacion];
+        [self.mapView addAnnotation:anotacion];
     }
     
 }
@@ -188,8 +199,8 @@
 
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"spaces loaded"]) {
-        [self POI];
-        [self.MapView reloadInputViews];
+//        [self POI];
+
     } else if ([[notification name] isEqualToString:@"Not Found"]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"
                                                             message:nil delegate:self
@@ -199,6 +210,14 @@
     }
 }
 
+-(MKMapView *)mapView{
+    if (!_mapView) {
+        _mapView = [[MKMapView alloc]init];
+    }
+    return _mapView;
+}
+
+
 -(void) setDetalleAnotacion{
     CLLocationCoordinate2D punto;
         punto.latitude = [self.detalleEspacio.latitud floatValue];
@@ -206,11 +225,26 @@
         MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
         anotacion.coordinate = punto;
         anotacion.title = self.detalleEspacio.nombre;
-    
-        [self.MapView addAnnotation:anotacion];
-    [self.MapView reloadInputViews];
+    [self.mapView annotations];
+        [self.mapView addAnnotation:anotacion];
+    [self.mapView setNeedsDisplay];
 }
 
+
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    MKAnnotationView *mkView;
+    mkView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"myBars"];
+    MKPinAnnotationView *pinView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"myBars"];
+    pinView.animatesDrop= YES;
+    pinView.pinColor = MKPinAnnotationColorGreen;
+    pinView.canShowCallout = YES;
+//    if (!mkView) {
+//        mkView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"myBars"];
+//    }
+    pinView.canShowCallout = YES;
+     return pinView;
+    return mkView;
+}
 /*
 #pragma mark - Navigation
 

@@ -13,6 +13,7 @@
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
 #import <Twitter/Twitter.h>
+#import "MapasViewController.h"
 @interface DetalleViewController ()<MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topTextFieldContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightTextFieldConstraint;
@@ -326,5 +327,11 @@
     [CATransaction commit];
 }
 
+- (IBAction)mapaVista:(id)sender {
+    MapasViewController *mapasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"vistaMapaStoryboard"];
+    [self.navigationController pushViewController:mapasVC animated:YES];
+    
+    mapasVC.espacioDetalle = self.espacio;
+}
 
 @end
