@@ -138,29 +138,59 @@
 
 
 - (IBAction)shareWithOthers:(id)sender {
-    NSString *nombre = self.evento.name;
-    NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
-    NSString *imagen = self.evento.imagen;
-    NSURL *url = [NSURL URLWithString:imagen];
-    
-    UIActivityViewController *controller =
-    [[UIActivityViewController alloc]
-     initWithActivityItems:@[body, url]
-     applicationActivities:nil];
-    
-    controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
-                                         UIActivityTypeMessage,
-                                         
-                                         UIActivityTypePrint,
-                                         UIActivityTypeCopyToPasteboard,
-                                         UIActivityTypeAssignToContact,
-                                         UIActivityTypeSaveToCameraRoll,
-                                         UIActivityTypeAddToReadingList,
-                                         UIActivityTypePostToFlickr,
-                                         UIActivityTypePostToVimeo,
-                                         UIActivityTypePostToTencentWeibo,
-                                         UIActivityTypeAirDrop];
-    [self presentViewController:controller animated:YES completion:nil];
+    if (!self.espacio && self.evento) {
+        NSString *nombre = self.evento.name;
+        NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
+        NSString *imagen = self.evento.imagen;
+        NSURL *url = [NSURL URLWithString:imagen];
+        
+        UIActivityViewController *controller =
+        [[UIActivityViewController alloc]
+         initWithActivityItems:@[body, url]
+         applicationActivities:nil];
+        
+        controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+                                             UIActivityTypeMessage,
+                                             
+                                             UIActivityTypePrint,
+                                             UIActivityTypeCopyToPasteboard,
+                                             UIActivityTypeAssignToContact,
+                                             UIActivityTypeSaveToCameraRoll,
+                                             UIActivityTypeAddToReadingList,
+                                             UIActivityTypePostToFlickr,
+                                             UIActivityTypePostToVimeo,
+                                             UIActivityTypePostToTencentWeibo,
+//                                             UIActivityTypeAirDrop
+                                             ];
+        [self presentViewController:controller animated:YES completion:nil];
+    }else if (self.espacio && !self.evento){
+        NSString *nombre = self.espacio.nombre;
+        NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
+        NSString *imagen = self.espacio.imagen;
+        NSURL *url = [NSURL URLWithString:imagen];
+        
+        UIActivityViewController *controller =
+        [[UIActivityViewController alloc]
+         initWithActivityItems:@[body, url]
+         applicationActivities:nil];
+        
+        controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+                                             UIActivityTypeMessage,
+                                             
+                                             UIActivityTypePrint,
+                                             UIActivityTypeCopyToPasteboard,
+                                             UIActivityTypeAssignToContact,
+                                             UIActivityTypeSaveToCameraRoll,
+                                             UIActivityTypeAddToReadingList,
+                                             UIActivityTypePostToFlickr,
+                                             UIActivityTypePostToVimeo,
+                                             UIActivityTypePostToTencentWeibo,
+//                                             UIActivityTypeAirDrop
+                                             ];
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+        
+
    
     
     

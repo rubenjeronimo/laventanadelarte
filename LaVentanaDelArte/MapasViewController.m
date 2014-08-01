@@ -8,13 +8,15 @@
 
 #import "MapasViewController.h"
 
-@interface MapasViewController ()
+@interface MapasViewController ()<NSFetchedResultsControllerDelegate>
 @property (nonatomic) float latitudPOI;
 @property (nonatomic) float longitudPOI;
 
 @end
 
-@implementation MapasViewController
+@implementation MapasViewController{
+    NSFetchedResultsController *_fetchedResultsController;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -112,5 +114,54 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)tipoMapa:(id)sender {
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Map Type" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"satellite",@"standard",@"hybrid", nil];
+    [as showInView:self.view];
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            [self.mapaView setMapType:MKMapTypeSatellite];
+            break;
+        case 1:
+            [self.mapaView setMapType:MKMapTypeStandard];
+            break;
+        case 2:
+            [self.mapaView setMapType:MKMapTypeHybrid];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)centrarMapa:(id)sender {
+    //    self.latitudPOI = self.MapView.userLocation.coordinate.latitude;
+    //    self.longitudPOI = self.MapView.userLocation.coordinate.longitude;
+    
+    [self mapea];
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Espacio"];
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", @"gale"];
+    //    fetchRequest.predicate = predicate;
+//    if (self.currentFilter == FilterTypeArts) {
+//        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"tipo == %@", @(self.currentFilter)];
+//    }
+    
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES]];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
 
 @end

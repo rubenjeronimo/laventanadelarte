@@ -13,4 +13,5 @@
 @property (nonatomic,strong) Espacio *detalleEspacio;
 @property (nonatomic,strong) NSManagedObjectContext *contexto;
 -(void) setDetalleAnotacion;
+-(void) POI;
 @end

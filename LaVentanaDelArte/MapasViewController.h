@@ -12,4 +12,5 @@
 @interface MapasViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView *mapaView;
 @property (nonatomic,strong) Espacio *espacioDetalle;
+@property (nonatomic,strong) NSManagedObjectContext *contexto;
 @end

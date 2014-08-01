@@ -9,7 +9,8 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import "Espacio.h"
-@interface MapViewController ()<MKMapViewDelegate,UIActionSheetDelegate>
+#import <CoreLocation/CoreLocation.h>
+@interface MapViewController ()<MKMapViewDelegate,UIActionSheetDelegate,NSFetchedResultsControllerDelegate>
 @property  double latitudPOI;
 @property double longitudPOI;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -42,7 +43,7 @@
     self.latitudPOI = 40.392756;
     self.longitudPOI = -3.693344;
     [self mapea];
-//    [self POI];
+    [self POI];
 //    CLLocationCoordinate2D punto;
 //    punto.latitude = self.latitudPOI;
 //    punto.longitude = self.longitudPOI;
@@ -115,14 +116,14 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
 //    [self POI];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedNotification:)
-                                                 name:@"spaces loaded"
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedNotification:)
-                                                 name:@"not Found"
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(receivedNotification:)
+//                                                 name:@"spaces loaded"
+//                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(receivedNotification:)
+//                                                 name:@"not Found"
+//                                               object:nil];
     [self setAnchoToolBar];
     self.latitudPOI = 40.392756;
     self.longitudPOI = -3.693344;
@@ -160,16 +161,7 @@
 
 //añadir una observacion a la notificacion spaces loaded de addData para que repinte los datos cargados. condicion multi-hilo
 
--(void)POI{
-    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
-                CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
-                MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
-                [anotacion setCoordinate:coorPunto];
-        
-        [self.mapView addAnnotation:anotacion];
-    }
-    
-}
+
 
 - (NSFetchedResultsController *)fetchedResultsController {
     NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:self.espaciosFetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
@@ -179,6 +171,7 @@
 
 - (NSFetchRequest *)espaciosFetchRequest
 {
+    
     if (_espaciosFetchRequest != nil)
     {
         return _espaciosFetchRequest;
@@ -199,7 +192,8 @@
 
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"spaces loaded"]) {
-//        [self POI];
+        NSLog(@"ya he cargado espacios");
+        [self POI];
 
     } else if ([[notification name] isEqualToString:@"Not Found"]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"
@@ -245,6 +239,9 @@
      return pinView;
     return mkView;
 }
+
+
+
 /*
 #pragma mark - Navigation
 
@@ -294,4 +291,24 @@
     
 }
 */
+
+-(void)POI{
+    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
+        espacio.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+        espacio.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
+
+        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
+        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+        [anotacion setCoordinate:coorPunto];
+        
+        [self.mapView addAnnotation:anotacion];
+    }
+    
+}
+
+- (CGFloat)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
+    float diff = bigNumber - smallNumber;
+    return (((float) (arc4random() % ((unsigned)RAND_MAX + 1)) / RAND_MAX) * diff) + smallNumber;
+}
+
 @end

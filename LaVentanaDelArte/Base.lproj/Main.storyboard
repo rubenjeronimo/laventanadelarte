@@ -24,7 +24,7 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="E7K-U9-Xmo" kind="push" id="mfb-gc-Sks"/>
+                                        <segue destination="E7K-U9-Xmo" kind="push" identifier="centroMapSegue" id="mfb-gc-Sks"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-2p-avU">
@@ -165,7 +165,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5H4-Uf-uEr">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5H4-Uf-uEr">
                                                     <rect key="frame" x="227" y="11" width="60" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <constraints>
@@ -195,7 +195,7 @@
                                                 <constraint firstItem="ugr-PD-yeV" firstAttribute="top" secondItem="3PA-bP-Imr" secondAttribute="bottom" constant="8" symbolic="YES" id="C3p-BH-D6e"/>
                                                 <constraint firstItem="ugr-PD-yeV" firstAttribute="leading" secondItem="4NC-qC-Gsh" secondAttribute="leading" constant="8" id="LO1-Mn-ITF"/>
                                                 <constraint firstItem="5H4-Uf-uEr" firstAttribute="top" secondItem="4NC-qC-Gsh" secondAttribute="top" constant="11" id="LPu-MC-m1O"/>
-                                                <constraint firstAttribute="trailing" secondItem="5H4-Uf-uEr" secondAttribute="trailing" constant="5" id="Maq-IZ-ZSA"/>
+                                                <constraint firstAttribute="trailing" secondItem="5H4-Uf-uEr" secondAttribute="trailing" id="Maq-IZ-ZSA"/>
                                                 <constraint firstItem="5H4-Uf-uEr" firstAttribute="leading" secondItem="ugr-PD-yeV" secondAttribute="trailing" priority="700" constant="8" id="Sjd-Oc-yf0"/>
                                                 <constraint firstItem="3PA-bP-Imr" firstAttribute="leading" secondItem="4NC-qC-Gsh" secondAttribute="leading" constant="8" id="SmT-s9-3wQ"/>
                                                 <constraint firstItem="ugr-PD-yeV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3PA-bP-Imr" secondAttribute="bottom" constant="4" id="gId-Zz-pjv"/>
@@ -231,7 +231,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="E7K-U9-Xmo" kind="push" identifier="" id="p6F-TL-6w8"/>
+                                            <segue destination="E7K-U9-Xmo" kind="push" identifier="eventoMapaSegue" id="p6F-TL-6w8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-ob-OFk">
@@ -248,11 +248,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="KPX-ob-OFk" secondAttribute="centerY" constant="-0.5" id="8Hp-p0-Slw"/>
+                                    <constraint firstAttribute="centerY" secondItem="KPX-ob-OFk" secondAttribute="centerY" constant="2" id="8Hp-p0-Slw"/>
                                     <constraint firstItem="p72-WX-jki" firstAttribute="leading" secondItem="agW-Zq-XJn" secondAttribute="leading" constant="20" id="NHm-QC-uYh"/>
                                     <constraint firstAttribute="height" constant="60" id="R0M-he-P2O"/>
                                     <constraint firstAttribute="centerY" secondItem="p72-WX-jki" secondAttribute="centerY" constant="-0.5" id="ZsQ-wq-NfQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="KPX-ob-OFk" secondAttribute="trailing" constant="20" id="q0l-QT-fgr"/>
+                                    <constraint firstAttribute="trailing" secondItem="KPX-ob-OFk" secondAttribute="trailing" constant="42" id="q0l-QT-fgr"/>
                                     <constraint firstAttribute="width" constant="320" id="rTw-Nh-kTW"/>
                                 </constraints>
                             </view>
@@ -267,13 +267,7 @@
                             <constraint firstItem="Xuj-Hw-TLo" firstAttribute="top" secondItem="8VW-Pf-WAu" secondAttribute="bottom" id="eYg-nM-GML"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Exposiciones" id="8ob-6x-NJx">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="tGI-2K-59t">
-                            <connections>
-                                <action selector="mapView:" destination="HR5-Vl-iro" id="ylE-JQ-4x7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Exposiciones" id="8ob-6x-NJx"/>
                     <connections>
                         <outlet property="altoToolBar" destination="R0M-he-P2O" id="mT6-ZI-X0n"/>
                         <outlet property="anchoToolBar" destination="rTw-Nh-kTW" id="bfy-XI-U26"/>
@@ -309,15 +303,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-nd-sui">
-                                <rect key="frame" x="28" y="103" width="265" height="339"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-nd-sui">
+                                <rect key="frame" x="0.0" y="103" width="320" height="465"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="sgF-cy-tSn" id="Ts2-sz-82Q"/>
                                 </connections>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999998807907104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-G0-D0F">
+                                <rect key="frame" x="0.0" y="59" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="55x-zx-n90"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BAM-E8-xtX"/>
+                                    <barButtonItem title="tipo mapa" id="XcK-yK-tYJ">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tipoMapa:" destination="sgF-cy-tSn" id="MnU-gH-Yg6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7L4-vT-9RS"/>
+                                    <barButtonItem title="centra" id="u1G-Tj-Q9r">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="centrarMapa:" destination="sgF-cy-tSn" id="4TH-LD-GCI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aAO-9g-jMh"/>
+                                </items>
+                                <color key="barTintColor" white="0.66199570109999994" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="pNY-G0-D0F" secondAttribute="centerX" id="5Xs-ZS-SJu"/>
+                            <constraint firstItem="VZE-ds-GbI" firstAttribute="top" secondItem="zqM-nd-sui" secondAttribute="bottom" id="cLW-R6-KT9"/>
+                            <constraint firstAttribute="trailing" secondItem="zqM-nd-sui" secondAttribute="trailing" id="d87-Go-aGI"/>
+                            <constraint firstItem="zqM-nd-sui" firstAttribute="top" secondItem="pNY-G0-D0F" secondAttribute="bottom" id="dEL-uz-dKe"/>
+                            <constraint firstItem="zqM-nd-sui" firstAttribute="leading" secondItem="pjn-56-a3d" secondAttribute="leading" id="hdp-eb-f9p"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapaView" destination="zqM-nd-sui" id="oiX-tF-SBW"/>
@@ -325,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oye-N2-D4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="-385"/>
+            <point key="canvasLocation" x="1535" y="-516"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="beS-J4-5x8">
@@ -372,13 +398,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oKA-lC-CZk"/>
-                                    <barButtonItem systemItem="camera" id="KM8-Zw-fsZ">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="fly:" destination="E7K-U9-Xmo" id="ZzU-Du-s7b"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qLL-oR-dzQ"/>
                                 </items>
                                 <color key="barTintColor" white="0.66199570105820105" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
@@ -402,24 +421,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJs-Ch-eqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2300" y="-112"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Jxm-B6-SCy">
-            <objects>
-                <viewController id="NMH-NA-n5P" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TNy-Of-SQt"/>
-                        <viewControllerLayoutGuide type="bottom" id="XOp-DX-enA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bKX-xX-J7Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d46-BE-6rT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3039" y="153"/>
         </scene>
         <!--Detalle View Controller - Ficha-->
         <scene sceneID="3GA-2N-dXD">
@@ -476,16 +477,6 @@
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="21"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkH-dh-I7a">
-                                        <rect key="frame" x="254" y="17" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="mapaVista:" destination="adh-KO-d7V" eventType="touchUpInside" id="5DR-to-Q0u"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.65056630291005291" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -514,7 +505,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="E7K-U9-Xmo" kind="push" identifier="detalleMapaSegue" id="j8a-tN-o6X"/>
+                                    <action selector="mapaVista:" destination="adh-KO-d7V" eventType="touchUpInside" id="qLJ-x2-OxE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM9-a4-QEe">
@@ -668,7 +659,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vda-Vx-NQx"/>
-        <segue reference="j8a-tN-o6X"/>
+        <segue reference="mfb-gc-Sks"/>
+        <segue reference="UPz-eb-5a1"/>
     </inferredMetricsTieBreakers>
 </document>
