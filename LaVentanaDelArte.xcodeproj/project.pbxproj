@@ -15,7 +15,6 @@
 		FE2A72C3197D290100B3EAF8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C2197D290100B3EAF8 /* Social.framework */; };
 		FE2A72C5197D295A00B3EAF8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C4197D295900B3EAF8 /* Twitter.framework */; };
 		FE321FA4197D78FA006EF4B0 /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FE321FA3197D78FA006EF4B0 /* Espacio.m */; };
-		FE321FA7197D78FA006EF4B0 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FE321FA6197D78FA006EF4B0 /* Evento.m */; };
 		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E1A1973C51800973719 /* DetalleViewController.m */; };
 		FE3D1E1D1973CEE300973719 /* sad13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE3D1E1C1973CEE300973719 /* sad13.jpg */; };
@@ -49,6 +48,7 @@
 		FE79014619814A8000670F59 /* MapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE79014519814A8000670F59 /* MapasViewController.m */; };
 		FE79014919817A9500670F59 /* museocontemporaneo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE79014719817A9500670F59 /* museocontemporaneo.png */; };
 		FE79014A19817A9500670F59 /* museonormal.png in Resources */ = {isa = PBXBuildFile; fileRef = FE79014819817A9500670F59 /* museonormal.png */; };
+		FE84972919B4623800EA05FB /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FE84972819B4623800EA05FB /* Evento.m */; };
 		FEAF5E3A1975353A00988526 /* intro.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E391975353A00988526 /* intro.png */; };
 		FEAF5E3E197536C500988526 /* iconoFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E3D197536C500988526 /* iconoFirst.png */; };
 		FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
@@ -90,8 +90,6 @@
 		FE2A72C4197D295900B3EAF8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		FE321FA2197D78FA006EF4B0 /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
 		FE321FA3197D78FA006EF4B0 /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
-		FE321FA5197D78FA006EF4B0 /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
-		FE321FA6197D78FA006EF4B0 /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
 		FE3D1E171973C21400973719 /* VentanaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentanaTableViewCell.m; sourceTree = "<group>"; };
 		FE3D1E191973C51800973719 /* DetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleViewController.h; sourceTree = "<group>"; };
@@ -150,6 +148,8 @@
 		FE79014519814A8000670F59 /* MapasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapasViewController.m; sourceTree = "<group>"; };
 		FE79014719817A9500670F59 /* museocontemporaneo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = museocontemporaneo.png; sourceTree = "<group>"; };
 		FE79014819817A9500670F59 /* museonormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = museonormal.png; sourceTree = "<group>"; };
+		FE84972719B4623800EA05FB /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		FE84972819B4623800EA05FB /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		FEAF5E391975353A00988526 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
 		FEAF5E3D197536C500988526 /* iconoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFirst.png; sourceTree = "<group>"; };
 		FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaVentanaDelArte.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,10 +368,10 @@
 				FE650A061975857A00474A23 /* Espacio+Model.h */,
 				FE650A071975857A00474A23 /* Espacio+Model.m */,
 				FE321FA2197D78FA006EF4B0 /* Espacio.h */,
-				FE321FA5197D78FA006EF4B0 /* Evento.h */,
-				FE321FA6197D78FA006EF4B0 /* Evento.m */,
 				FE321FA3197D78FA006EF4B0 /* Espacio.m */,
 				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
+				FE84972719B4623800EA05FB /* Evento.h */,
+				FE84972819B4623800EA05FB /* Evento.m */,
 				FE1F734E1977E01900D9EE5D /* addData.h */,
 				FE1F734F1977E01900D9EE5D /* addData.m */,
 			);
@@ -520,13 +520,13 @@
 				FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */,
 				FE3D1E481973E0A500973719 /* AFSecurityPolicy.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
+				FE84972919B4623800EA05FB /* Evento.m in Sources */,
 				FE3D1E471973E0A500973719 /* AFNetworkReachabilityManager.m in Sources */,
 				FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */,
 				FE321FA4197D78FA006EF4B0 /* Espacio.m in Sources */,
 				FE3D1E4D1973E0A500973719 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FE3D1E511973E0A500973719 /* UIImageView+AFNetworking.m in Sources */,
 				FE7397A31973FA710072BC7F /* CoreDataStack.m in Sources */,
-				FE321FA7197D78FA006EF4B0 /* Evento.m in Sources */,
 				FE3D1E491973E0A500973719 /* AFURLConnectionOperation.m in Sources */,
 				FE3D1E4E1973E0A500973719 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FE3D1E541973E0A500973719 /* UIWebView+AFNetworking.m in Sources */,

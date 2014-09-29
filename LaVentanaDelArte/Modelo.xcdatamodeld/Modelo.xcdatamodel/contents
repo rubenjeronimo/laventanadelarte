@@ -13,10 +13,10 @@
     </entity>
     <entity name="Evento" representedClassName="Evento" syncable="YES">
         <attribute name="descripcion" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fechaFinal" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="fechaInicio" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="imagen" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="fecha_fin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fecha_inicio" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="foto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="tipo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="space" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Espacio" inverseName="evento" inverseEntity="Espacio" syncable="YES"/>
     </entity>
@@ -24,6 +24,6 @@
     <fetchRequest name="eventosByName" entity="Evento" predicateString="name == $NAME" fetchLimit="1"/>
     <elements>
         <element name="Espacio" positionX="-63" positionY="0" width="128" height="178"/>
-        <element name="Evento" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Evento" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

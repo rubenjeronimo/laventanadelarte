@@ -56,8 +56,8 @@
     
     self.title = @"Ficha exposición";
     self.detailEvento.text = self.evento.descripcion;
-    self.nameEvento.text = self.evento.name;
-    NSURL *url = [NSURL URLWithString:self.evento.imagen];
+    self.nameEvento.text = self.evento.nombre;
+    NSURL *url = [NSURL URLWithString:self.evento.foto];
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.imageEvento.image = [UIImage imageWithData:data];
 
@@ -139,9 +139,9 @@
 
 - (IBAction)shareWithOthers:(id)sender {
     if (!self.espacio && self.evento) {
-        NSString *nombre = self.evento.name;
+        NSString *nombre = self.evento.nombre;
         NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
-        NSString *imagen = self.evento.imagen;
+        NSString *imagen = self.evento.foto;
         NSURL *url = [NSURL URLWithString:imagen];
         
         UIActivityViewController *controller =

@@ -240,13 +240,13 @@ typedef enum
 }
 
 - (void)reloadData {
-    NSError *error = nil;
-    
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
-    }
-    
-    [self.tableView reloadData];
+//    NSError *error = nil;
+//    
+//    if (![[self fetchedResultsController] performFetch:&error]) {
+//        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
+//    }
+//    
+//    [self.tableView reloadData];
     
 }
 
@@ -296,20 +296,20 @@ typedef enum
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Evento *evento = self.eventosFiltrados[indexPath.row];
-        cell.textLabel.text = evento.name;
+        cell.textLabel.text = evento.nombre;
         cell.detailTextLabel.text = evento.descripcion;
-        NSURL *url = [NSURL URLWithString:evento.imagen];
+        NSURL *url = [NSURL URLWithString:evento.foto];
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.imageView.image = [UIImage imageWithData:data];
     } else {
         Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        cell.NameEvento.text = evento.name;
+        cell.NameEvento.text = evento.nombre;
         cell.typeEvento.text = evento.descripcion;
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 
-            NSURL *url = [NSURL URLWithString:evento.imagen];
+            NSURL *url = [NSURL URLWithString:evento.foto];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 
             dispatch_sync(dispatch_get_main_queue(), ^{
@@ -387,6 +387,7 @@ typedef enum
     else if ([segue.identifier isEqualToString:@"eventoMapaSegue"]){
         MapViewController *mapView = [segue destinationViewController];
         mapView.contexto = self.contexto;
+        [mapView POI];
     }
 }
 

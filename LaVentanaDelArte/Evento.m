@@ -2,7 +2,7 @@
 //  Evento.m
 //  LaVentanaDelArte
 //
-//  Created by Ruben Jeronimo Fernandez on 21/07/14.
+//  Created by Ruben Jeronimo Fernandez on 01/09/14.
 //  Copyright (c) 2014 IronHack. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 @implementation Evento
 
 @dynamic descripcion;
-@dynamic fechaFinal;
-@dynamic fechaInicio;
-@dynamic imagen;
-@dynamic name;
+@dynamic fecha_fin;
+@dynamic fecha_inicio;
+@dynamic foto;
+@dynamic nombre;
 @dynamic tipo;
 @dynamic space;
 

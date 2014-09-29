@@ -292,11 +292,14 @@
 }
 */
 
+
+
 -(void)POI{
+    NSLog(@"pasando por POI");
     for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
         espacio.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
         espacio.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
-
+        
         CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
         MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
         [anotacion setCoordinate:coorPunto];
