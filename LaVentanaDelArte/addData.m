@@ -28,8 +28,8 @@
     
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.evento = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
-        for (NSDictionary *eve in listadoTemporal) {
+//        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
+        for (NSDictionary *eve in self.evento) {
             
             NSString *name = [eve valueForKeyPath:@"nombre"];
             Evento *ev = [self eventoByName:name];
