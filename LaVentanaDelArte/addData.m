@@ -24,11 +24,11 @@
     
     AFHTTPRequestOperation *operacion = [[AFHTTPRequestOperation alloc] initWithRequest:consultaEvento];
     operacion.responseSerializer = [AFJSONResponseSerializer serializer];
-    operacion.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+//    operacion.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.evento = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"results.collection1"];
+        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in listadoTemporal) {
             
             NSString *name = [eve valueForKeyPath:@"nombre"];
@@ -40,7 +40,7 @@
             
             @try {
                 ev.nombre = [eve valueForKeyPath:@"nombre"];
-                ev.descripcion = [eve valueForKeyPath:@"descripcion"];
+//                ev.descripcion = [eve valueForKeyPath:@"descripcion"];
                 ev.foto =[eve valueForKeyPath:@"foto"];
                 ev.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
                 
@@ -74,7 +74,7 @@
     NSError * error = nil;
     
     NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"NAME":name};
+    NSDictionary *mappings = @{@"nombre":name};
     
     NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"eventosByName" substitutionVariables:mappings];
     NSArray *result = [self.contexto executeFetchRequest:request error:&error];
