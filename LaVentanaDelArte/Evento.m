@@ -12,12 +12,14 @@
 
 @implementation Evento
 
-@dynamic descripcion;
+@dynamic nombre;
+@dynamic nombre_id;
+@dynamic id_centro;
+@dynamic tipo_expo;
 @dynamic fecha_fin;
 @dynamic fecha_inicio;
+@dynamic resumen;
 @dynamic foto;
-@dynamic nombre;
-@dynamic tipo;
-@dynamic space;
 
 @end
+

@@ -42,7 +42,7 @@
                 ev.nombre = [eve valueForKeyPath:@"nombre"];
 //                ev.descripcion = [eve valueForKeyPath:@"descripcion"];
                 ev.foto =[eve valueForKeyPath:@"foto"];
-                ev.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
+                ev.tipo_expo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
                 
             }
             @catch (NSException *exception) {

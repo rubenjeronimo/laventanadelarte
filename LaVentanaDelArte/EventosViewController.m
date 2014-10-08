@@ -297,14 +297,14 @@ typedef enum
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Evento *evento = self.eventosFiltrados[indexPath.row];
         cell.textLabel.text = evento.nombre;
-        cell.detailTextLabel.text = evento.descripcion;
+        cell.detailTextLabel.text = evento.resumen;
         NSURL *url = [NSURL URLWithString:evento.foto];
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.imageView.image = [UIImage imageWithData:data];
     } else {
         Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         cell.NameEvento.text = evento.nombre;
-        cell.typeEvento.text = evento.descripcion;
+        cell.typeEvento.text = evento.resumen;
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{

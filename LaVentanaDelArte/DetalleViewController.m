@@ -55,7 +55,7 @@
     }else if (self.evento && !self.espacio){
     
     self.title = @"Ficha exposición";
-    self.detailEvento.text = self.evento.descripcion;
+    self.detailEvento.text = self.evento.resumen;
     self.nameEvento.text = self.evento.nombre;
     NSURL *url = [NSURL URLWithString:self.evento.foto];
     NSData *data = [NSData dataWithContentsOfURL:url];
