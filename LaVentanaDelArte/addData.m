@@ -31,7 +31,7 @@
 //        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in self.evento) {
             
-            NSString *name = [eve valueForKeyPath:@"nombre"];
+            NSString *name = [eve valueForKeyPath:@"nombre_id"];
             Evento *ev = [self eventoByName:name];
             
             if (!ev) {  
