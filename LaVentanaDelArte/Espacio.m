@@ -21,5 +21,6 @@
 @dynamic tipologia;
 @dynamic cod_tipo;
 @dynamic evento;
+@dynamic id_centro;
 
 @end

@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * tipologia;
 @property (nonatomic, retain) NSNumber * cod_tipo;
 @property (nonatomic, retain) NSSet *evento;
+@property (nonatomic, retain) NSString *id_centro;
 @end
 
 @interface Espacio (CoreDataGeneratedAccessors)

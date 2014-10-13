@@ -3,7 +3,7 @@
     <entity name="Espacio" representedClassName="Espacio" syncable="YES">
         <attribute name="cod_tipo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="direccion" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id_centro" attributeType="String" syncable="YES"/>
         <attribute name="imagen" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nombre" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="nombre_id" attributeType="String" syncable="YES"/>

@@ -48,7 +48,9 @@
         self.navigationController.navigationBar.alpha=0.5;
         self.detailEvento.text = self.espacio.resumen;
         self.nameEvento.text = self.espacio.nombre;
-        NSURL *url = [NSURL URLWithString:self.espacio.imagen];
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, self.espacio.provincia_id, self.espacio.id_centro,self.espacio.imagen];
+        NSURL *url = [NSURL URLWithString:imString];
         NSData *data = [NSData dataWithContentsOfURL:url];
         self.imageEvento.image = [UIImage imageWithData:data];
 
@@ -340,7 +342,8 @@
 }
 
 - (IBAction)LeerMas:(id)sender {
-    NSURL        *url       = [NSURL URLWithString:@"http://www.laventanadelarte.es"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@", self.espacio.web]];
+//        NSURL *url = [NSURL URLWithString:@"https://www.landgraphix.eu"];
     [[UIApplication sharedApplication] openURL:url];
 }
 

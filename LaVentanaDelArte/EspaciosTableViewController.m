@@ -188,7 +188,13 @@ static NSString *const space = @"space";
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-            NSURL *url = [NSURL URLWithString:espacio.imagen];
+            NSString *foto = espacio.imagen;
+            NSString *provincia = espacio.provincia_id;
+            NSString *centro = [NSString stringWithFormat:@"%@", espacio.id_centro];
+            NSString *fotoInicio = @"http://laventana.solytek.es/images";
+            NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, provincia, centro,foto];
+
+            NSURL *url = [NSURL URLWithString:imString];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
             
             dispatch_sync(dispatch_get_main_queue(), ^{

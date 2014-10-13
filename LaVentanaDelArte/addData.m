@@ -101,18 +101,20 @@
             if (!esp) {
                 esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
             }
-//            @try {
+
                 esp.nombre = [eve valueForKeyPath:@"nombre"];
                 esp.resumen = [eve valueForKeyPath:@"resumen"];
-//                esp.imagen =[eve valueForKeyPath:@"imagen"];
+                esp.imagen =[eve valueForKeyPath:@"foto"];
                 esp.cod_tipo = [eve valueForKey:@"cod_tipo"];
+                esp.id_centro = [eve valueForKey:@"id"];
+                esp.provincia_id = [eve valueForKey:@"provincia_id"];
+                esp.web = [eve valueForKey:@"web"];
+                esp.tipologia = [eve valueForKey:@"tipologia"];
+                
 //                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
 //                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
 //            }
-//            @catch (NSException *exception) {
-//                NSLog(@"Exception: %@", exception);
-//                [esp.managedObjectContext deleteObject:esp];
-//            }
+
         }
         
         [self.contexto performBlock:^{
