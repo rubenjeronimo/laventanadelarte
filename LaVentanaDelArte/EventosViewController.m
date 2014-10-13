@@ -63,7 +63,7 @@ typedef enum
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
     [_eventosBusquedaFetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nombre_id" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     [_eventosBusquedaFetchRequest setSortDescriptors:sortDescriptors];
     
@@ -73,7 +73,7 @@ typedef enum
 {
     if (self.contexto)
     {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nombre_id CONTAINS[cd] %@", searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nombre CONTAINS[cd] %@", searchText];
         [self.eventosBusquedaFetchRequest setPredicate:predicate];
         
         NSError *error = nil;
@@ -240,13 +240,13 @@ typedef enum
 }
 
 - (void)reloadData {
-//    NSError *error = nil;
-//    
-//    if (![[self fetchedResultsController] performFetch:&error]) {
-//        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
-//    }
-//    
-//    [self.tableView reloadData];
+    NSError *error = nil;
+    
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
+    }
+    
+    [self.tableView reloadData];
     
 }
 
@@ -400,9 +400,9 @@ typedef enum
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
     if (self.currentFilter == FilterTypeArts) {
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"tipo == %@", @(self.currentFilter)];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id_centro == %@", @(self.currentFilter)];
     }
-    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController.delegate = self;

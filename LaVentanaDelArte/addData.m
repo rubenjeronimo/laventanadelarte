@@ -31,24 +31,24 @@
 //        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in self.evento) {
             
-            NSString *nombre = [eve valueForKeyPath:@"nombre_id"];
+            NSString *nombre = [eve valueForKeyPath:@"nombre"];
             Evento *ev = [self eventoByName:nombre];
             
             if (!ev) {  
                 ev= [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
             }
             
-            @try {
-                ev.nombre = [eve valueForKeyPath:@"nombre_id"];
-//                ev.descripcion = [eve valueForKeyPath:@"descripcion"];
+//            @try {
+                ev.nombre = [eve valueForKeyPath:@"nombre"];
+                ev.resumen = [eve valueForKeyPath:@"resumen"];
                 ev.foto =[eve valueForKeyPath:@"foto"];
-//                ev.tipo_expo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
+                ev.tipo_expo = [eve valueForKey:@"tipo_expo"];
                 
-            }
-            @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
-                [ev.managedObjectContext deleteObject:ev];
-            }
+//            }
+//            @catch (NSException *exception) {
+//                NSLog(@"Exception: %@", exception);
+//                [ev.managedObjectContext deleteObject:ev];
+//            }
         }
         
         [self.contexto performBlock:^{
