@@ -86,7 +86,7 @@
 }
 
 -(void) takeDataEspacios{
-    NSString *string = @"https://www.kimonolabs.com/api/c4qaaysg?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
+    NSString *string = @"http://laventana.solytek.es/phpconsultaCENTROSiOS.php";
     NSURL *urlEspacio = [NSURL URLWithString:string];
     NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
     
@@ -96,25 +96,25 @@
     operacion.responseSerializer = [AFJSONResponseSerializer serializer];
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.espacio = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
-        for (NSDictionary *eve in listadoTemporal) {
-            NSString *name = [eve valueForKeyPath:@"Name.text"];
+//        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
+        for (NSDictionary *eve in self.espacio) {
+            NSString *name = [eve valueForKeyPath:@"nombre"];
             Espacio *esp = [self espacioByName:name];
             if (!esp) {
                 esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
             }
-            @try {
-                esp.nombre = [eve valueForKeyPath:@"Name.text"];
-                esp.descripcion = [eve valueForKeyPath:@"Detail.text"];
-                esp.imagen =[eve valueForKeyPath:@"Image.src"];
-                esp.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
-                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
-                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
-            }
-            @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
-                [esp.managedObjectContext deleteObject:esp];
-            }
+//            @try {
+                esp.nombre = [eve valueForKeyPath:@"nombre"];
+                esp.resumen = [eve valueForKeyPath:@"resumen"];
+//                esp.imagen =[eve valueForKeyPath:@"imagen"];
+                esp.cod_tipo = [eve valueForKey:@"cod_tipo"];
+//                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+//                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
+//            }
+//            @catch (NSException *exception) {
+//                NSLog(@"Exception: %@", exception);
+//                [esp.managedObjectContext deleteObject:esp];
+//            }
         }
         
         [self.contexto performBlock:^{
@@ -137,7 +137,7 @@
     NSError * error = nil;
     
     NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"NOMBRE":name};
+    NSDictionary *mappings = @{@"nombre":name};
     
     NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"espaciosByName" substitutionVariables:mappings];
     NSArray *result = [self.contexto executeFetchRequest:request error:&error];

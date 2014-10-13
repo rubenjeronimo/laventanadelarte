@@ -46,7 +46,7 @@
     if (self.espacio && !self.evento) {
         self.title = @"Ficha espacio";
         self.navigationController.navigationBar.alpha=0.5;
-        self.detailEvento.text = self.espacio.descripcion;
+        self.detailEvento.text = self.espacio.resumen;
         self.nameEvento.text = self.espacio.nombre;
         NSURL *url = [NSURL URLWithString:self.espacio.imagen];
         NSData *data = [NSData dataWithContentsOfURL:url];

@@ -176,14 +176,14 @@ static NSString *const space = @"space";
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Espacio *espacio = [[self fetchedResultsController]objectAtIndexPath:indexPath];
         cell.textLabel.text = espacio.nombre;
-        cell.detailTextLabel.text = espacio.descripcion;
+        cell.detailTextLabel.text = espacio.resumen;
         NSURL *url = [NSURL URLWithString:espacio.imagen];
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.imageView.image = [UIImage imageWithData:data];
     } else {
         Espacio *espacio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         cell.NameEvento.text = espacio.nombre;
-        cell.typeEvento.text = espacio.descripcion;
+        cell.typeEvento.text = espacio.resumen;
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{

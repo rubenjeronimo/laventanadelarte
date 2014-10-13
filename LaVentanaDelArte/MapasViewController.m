@@ -58,8 +58,8 @@
 -(void) takeDetalle{
     if (self.espacioDetalle) {
         CLLocationCoordinate2D punto;
-        punto.latitude = [self.espacioDetalle.latitud floatValue];
-        punto.longitude = [self.espacioDetalle.longitud floatValue];
+//        punto.latitude = [self.espacioDetalle.latitud floatValue];
+//        punto.longitude = [self.espacioDetalle.longitud floatValue];
         MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
         anotacion.coordinate = punto;
         anotacion.title = self.espacioDetalle.nombre;
