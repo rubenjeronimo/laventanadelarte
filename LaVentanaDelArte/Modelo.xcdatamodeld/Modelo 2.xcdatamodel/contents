@@ -24,8 +24,8 @@
         <attribute name="tipo_expo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="space" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Espacio" inverseName="evento" inverseEntity="Espacio" syncable="YES"/>
     </entity>
-    <fetchRequest name="espaciosByName" entity="Espacio" predicateString="nombre == $NOMBRE"/>
-    <fetchRequest name="eventosByName" entity="Evento" predicateString="name == $NAME" fetchLimit="1"/>
+    <fetchRequest name="espaciosByName" entity="Espacio" predicateString="nombre == $nombre"/>
+    <fetchRequest name="eventosByName" entity="Evento" predicateString="nombre == $nombre" fetchLimit="1"/>
     <elements>
         <element name="Espacio" positionX="-549" positionY="-9" width="128" height="193"/>
         <element name="Evento" positionX="-333" positionY="-6" width="128" height="193"/>

@@ -31,18 +31,18 @@
 //        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in self.evento) {
             
-            NSString *name = [eve valueForKeyPath:@"nombre_id"];
-            Evento *ev = [self eventoByName:name];
+            NSString *nombre = [eve valueForKeyPath:@"nombre_id"];
+            Evento *ev = [self eventoByName:nombre];
             
             if (!ev) {  
                 ev= [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
             }
             
             @try {
-                ev.nombre = [eve valueForKeyPath:@"nombre"];
+                ev.nombre = [eve valueForKeyPath:@"nombre_id"];
 //                ev.descripcion = [eve valueForKeyPath:@"descripcion"];
                 ev.foto =[eve valueForKeyPath:@"foto"];
-                ev.tipo_expo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
+//                ev.tipo_expo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
                 
             }
             @catch (NSException *exception) {
@@ -70,16 +70,16 @@
     [operacion start];
 }
 
-- (Evento *)eventoByName:(NSString *)name {
+- (Evento *)eventoByName:(NSString *)nombre {
     NSError * error = nil;
     
     NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"nombre":name};
+    NSDictionary *mappings = @{@"nombre":nombre};
     
     NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"eventosByName" substitutionVariables:mappings];
     NSArray *result = [self.contexto executeFetchRequest:request error:&error];
     if (!result) {
-        NSLog(@"Error fetching eventos with name (%@): %@", name, error.localizedDescription);
+        NSLog(@"Error fetching eventos with name (%@): %@", nombre, error.localizedDescription);
         return nil;
     }
     return [result firstObject];

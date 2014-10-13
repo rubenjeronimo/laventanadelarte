@@ -63,7 +63,7 @@ typedef enum
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
     [_eventosBusquedaFetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nombre_id" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     [_eventosBusquedaFetchRequest setSortDescriptors:sortDescriptors];
     
@@ -73,7 +73,7 @@ typedef enum
 {
     if (self.contexto)
     {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nombre_id CONTAINS[cd] %@", searchText];
         [self.eventosBusquedaFetchRequest setPredicate:predicate];
         
         NSError *error = nil;
