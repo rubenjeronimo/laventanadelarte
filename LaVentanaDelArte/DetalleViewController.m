@@ -57,7 +57,9 @@
     self.title = @"Ficha exposición";
     self.detailEvento.text = self.evento.resumen;
     self.nameEvento.text = self.evento.nombre;
-    NSURL *url = [NSURL URLWithString:self.evento.foto];
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", fotoInicio, self.evento.provincia_id, self.evento.id_centro,self.evento.id_expo,self.evento.foto];
+    NSURL *url = [NSURL URLWithString:imString];
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.imageEvento.image = [UIImage imageWithData:data];
 
