@@ -38,17 +38,13 @@
                 ev= [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
             }
             
-//            @try {
+
                 ev.nombre = [eve valueForKeyPath:@"nombre"];
                 ev.resumen = [eve valueForKeyPath:@"resumen"];
                 ev.foto =[eve valueForKeyPath:@"foto"];
                 ev.tipo_expo = [eve valueForKey:@"tipo_expo"];
-                
-//            }
-//            @catch (NSException *exception) {
-//                NSLog(@"Exception: %@", exception);
-//                [ev.managedObjectContext deleteObject:ev];
-//            }
+                ev.provincia_id = [eve valueForKey:@"provincia_id"];
+
         }
         
         [self.contexto performBlock:^{

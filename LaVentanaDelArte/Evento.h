@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSDate *fecha_inicio;
 @property (nonatomic, retain) NSString *resumen;
 @property (nonatomic, retain) NSString *foto;
+@property (nonatomic, retain) NSString *provincia_id;
 @property (nonatomic, retain) Espacio *space;
 
 @end

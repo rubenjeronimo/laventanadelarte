@@ -20,6 +20,7 @@
 @dynamic fecha_inicio;
 @dynamic resumen;
 @dynamic foto;
+@dynamic provincia_id;
 
 @end
 

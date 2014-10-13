@@ -298,7 +298,14 @@ typedef enum
         Evento *evento = self.eventosFiltrados[indexPath.row];
         cell.textLabel.text = evento.nombre;
         cell.detailTextLabel.text = evento.resumen;
-        NSURL *url = [NSURL URLWithString:evento.foto];
+        
+        NSString *foto = evento.foto;
+        NSString *provincia = evento.provincia_id;
+        NSString *centro = [NSString stringWithFormat:@"%@", evento.id_centro];
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, provincia, centro,foto];
+        NSURL *url = [NSURL URLWithString:imString];
+        
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.imageView.image = [UIImage imageWithData:data];
     } else {
