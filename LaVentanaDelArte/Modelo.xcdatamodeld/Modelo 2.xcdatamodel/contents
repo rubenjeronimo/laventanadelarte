@@ -18,6 +18,7 @@
         <attribute name="fecha_inicio" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="foto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_centro" attributeType="String" syncable="YES"/>
+        <attribute name="id_expo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nombre_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="provincia_id" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,6 +31,6 @@
     <fetchRequest name="eventosByName" entity="Evento" predicateString="nombre == $nombre" fetchLimit="1"/>
     <elements>
         <element name="Espacio" positionX="-549" positionY="-9" width="128" height="210"/>
-        <element name="Evento" positionX="-333" positionY="-6" width="128" height="208"/>
+        <element name="Evento" positionX="-333" positionY="-6" width="128" height="223"/>
     </elements>
 </model>

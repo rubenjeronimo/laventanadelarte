@@ -315,8 +315,17 @@ typedef enum
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-
-            NSURL *url = [NSURL URLWithString:evento.foto];
+            NSString *foto = evento.foto;
+            NSString *provincia = evento.provincia_id;
+            NSString *idExpo = evento.id_expo;
+            NSString *centro = [NSString stringWithFormat:@"%@", evento.id_centro];
+            NSString *fotoInicio = @"http://laventana.solytek.es/images";
+            NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", fotoInicio, provincia, centro,idExpo,foto];
+            NSURL *url = [NSURL URLWithString:imString];
+            
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            cell.imageView.image = [UIImage imageWithData:data];
+//            NSURL *url = [NSURL URLWithString:evento.foto];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 
             dispatch_sync(dispatch_get_main_queue(), ^{

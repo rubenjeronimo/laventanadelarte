@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSString *resumen;
 @property (nonatomic, retain) NSString *foto;
 @property (nonatomic, retain) NSString *provincia_id;
+@property (nonatomic, retain) NSString *id_expo;
 @property (nonatomic, retain) Espacio *space;
 
 @end

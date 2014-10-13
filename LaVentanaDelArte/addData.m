@@ -44,6 +44,8 @@
                 ev.foto =[eve valueForKeyPath:@"foto"];
                 ev.tipo_expo = [eve valueForKey:@"tipo_expo"];
                 ev.provincia_id = [eve valueForKey:@"provincia_id"];
+                ev.id_centro = [eve valueForKey:@"id_centro"];
+                ev.id_expo = [eve valueForKey:@"id"];
 
         }
         
