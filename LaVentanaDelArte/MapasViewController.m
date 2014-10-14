@@ -9,8 +9,8 @@
 #import "MapasViewController.h"
 
 @interface MapasViewController ()<NSFetchedResultsControllerDelegate>
-@property (nonatomic) float latitudPOI;
-@property (nonatomic) float longitudPOI;
+@property (nonatomic) NSString *latitudPOI;
+@property (nonatomic) NSString *longitudPOI;
 
 @end
 
@@ -30,8 +30,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.latitudPOI = 40.392756;
-    self.longitudPOI = -3.693344;
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    NSString *direccionCompleta = [NSString stringWithFormat:@"%@,SPAIN",self.espacioDetalle.direccion];
+    [geocoder geocodeAddressString:direccionCompleta completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *aPlacemark in placemarks) {
+            NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+            NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+            self.latitudPOI = latDest1;
+            self.longitudPOI = lngDest1;
+        }
+    }];
+    
+    
+//    [geocoder geocodeAddressString:@"6138 Bollinger Road, San Jose, United States" completionHandler:^(NSArray* placemarks, NSError* error){
+//        for (CLPlacemark* aPlacemark in placemarks)
+//        {
+//            // Process the placemark.
+//            NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+//            NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+//            lblDestinationLat.text = latDest1;
+//            lblDestinationLng.text = lngDest1;
+//        }
+//    }
+    
+
     self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
     self.navigationItem.title = @"Mapa";
     [self mapea];
@@ -47,8 +70,8 @@
     span.latitudeDelta=0.1;
     span.longitudeDelta=0.1;
     CLLocationCoordinate2D location;
-    location.latitude = self.latitudPOI;
-    location.longitude = self.longitudPOI;
+//    location.latitude = self.latitudPOI;
+//    location.longitude = self.longitudPOI;
     region.span = span;
     region.center = location;
     MKCoordinateRegion fitRegion = [self.mapaView  regionThatFits:region];
