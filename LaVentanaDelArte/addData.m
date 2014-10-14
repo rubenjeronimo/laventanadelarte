@@ -31,24 +31,22 @@
 //        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in self.evento) {
             
-            NSString *name = [eve valueForKeyPath:@"nombre"];
-            Evento *ev = [self eventoByName:name];
+            NSString *nombre = [eve valueForKeyPath:@"nombre"];
+            Evento *ev = [self eventoByName:nombre];
             
             if (!ev) {  
                 ev= [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
             }
             
-            @try {
+
                 ev.nombre = [eve valueForKeyPath:@"nombre"];
-//                ev.descripcion = [eve valueForKeyPath:@"descripcion"];
+                ev.resumen = [eve valueForKeyPath:@"resumen"];
                 ev.foto =[eve valueForKeyPath:@"foto"];
-                ev.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
-                
-            }
-            @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
-                [ev.managedObjectContext deleteObject:ev];
-            }
+                ev.tipo_expo = [eve valueForKey:@"tipo_expo"];
+                ev.provincia_id = [eve valueForKey:@"provincia_id"];
+                ev.id_centro = [eve valueForKey:@"id_centro"];
+                ev.id_expo = [eve valueForKey:@"id"];
+
         }
         
         [self.contexto performBlock:^{
@@ -70,23 +68,23 @@
     [operacion start];
 }
 
-- (Evento *)eventoByName:(NSString *)name {
+- (Evento *)eventoByName:(NSString *)nombre {
     NSError * error = nil;
     
     NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"nombre":name};
+    NSDictionary *mappings = @{@"nombre":nombre};
     
     NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"eventosByName" substitutionVariables:mappings];
     NSArray *result = [self.contexto executeFetchRequest:request error:&error];
     if (!result) {
-        NSLog(@"Error fetching eventos with name (%@): %@", name, error.localizedDescription);
+        NSLog(@"Error fetching eventos with name (%@): %@", nombre, error.localizedDescription);
         return nil;
     }
     return [result firstObject];
 }
 
 -(void) takeDataEspacios{
-    NSString *string = @"https://www.kimonolabs.com/api/c4qaaysg?apikey=tjx9PaZRwpncvzd4YG9QBCEzD0bDWFgr";
+    NSString *string = @"http://laventana.solytek.es/phpconsultaCENTROSiOS.php";
     NSURL *urlEspacio = [NSURL URLWithString:string];
     NSURLRequest *consultaEvento = [NSURLRequest requestWithURL:urlEspacio];
     
@@ -96,25 +94,27 @@
     operacion.responseSerializer = [AFJSONResponseSerializer serializer];
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.espacio = (NSDictionary *)responseObject;
-        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
-        for (NSDictionary *eve in listadoTemporal) {
-            NSString *name = [eve valueForKeyPath:@"Name.text"];
+//        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
+        for (NSDictionary *eve in self.espacio) {
+            NSString *name = [eve valueForKeyPath:@"nombre"];
             Espacio *esp = [self espacioByName:name];
             if (!esp) {
                 esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
             }
-            @try {
-                esp.nombre = [eve valueForKeyPath:@"Name.text"];
-                esp.descripcion = [eve valueForKeyPath:@"Detail.text"];
-                esp.imagen =[eve valueForKeyPath:@"Image.src"];
-                esp.tipo = arc4random_uniform(10) % 2 == 0 ? @0 : @1;
-                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
-                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
-            }
-            @catch (NSException *exception) {
-                NSLog(@"Exception: %@", exception);
-                [esp.managedObjectContext deleteObject:esp];
-            }
+
+                esp.nombre = [eve valueForKeyPath:@"nombre"];
+                esp.resumen = [eve valueForKeyPath:@"resumen"];
+                esp.imagen =[eve valueForKeyPath:@"foto"];
+                esp.cod_tipo = [eve valueForKey:@"cod_tipo"];
+                esp.id_centro = [eve valueForKey:@"id"];
+                esp.provincia_id = [eve valueForKey:@"provincia_id"];
+                esp.web = [eve valueForKey:@"web"];
+                esp.tipologia = [eve valueForKey:@"tipologia"];
+                
+//                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+//                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
+//            }
+
         }
         
         [self.contexto performBlock:^{
@@ -137,7 +137,7 @@
     NSError * error = nil;
     
     NSManagedObjectModel *model = self.contexto.persistentStoreCoordinator.managedObjectModel;
-    NSDictionary *mappings = @{@"NOMBRE":name};
+    NSDictionary *mappings = @{@"nombre":name};
     
     NSFetchRequest *request = [model fetchRequestFromTemplateWithName:@"espaciosByName" substitutionVariables:mappings];
     NSArray *result = [self.contexto executeFetchRequest:request error:&error];

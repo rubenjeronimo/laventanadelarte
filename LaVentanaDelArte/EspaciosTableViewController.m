@@ -176,19 +176,25 @@ static NSString *const space = @"space";
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Espacio *espacio = [[self fetchedResultsController]objectAtIndexPath:indexPath];
         cell.textLabel.text = espacio.nombre;
-        cell.detailTextLabel.text = espacio.descripcion;
+        cell.detailTextLabel.text = espacio.resumen;
         NSURL *url = [NSURL URLWithString:espacio.imagen];
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.imageView.image = [UIImage imageWithData:data];
     } else {
         Espacio *espacio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         cell.NameEvento.text = espacio.nombre;
-        cell.typeEvento.text = espacio.descripcion;
+        cell.typeEvento.text = espacio.resumen;
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-            NSURL *url = [NSURL URLWithString:espacio.imagen];
+            NSString *foto = espacio.imagen;
+            NSString *provincia = espacio.provincia_id;
+            NSString *centro = [NSString stringWithFormat:@"%@", espacio.id_centro];
+            NSString *fotoInicio = @"http://laventana.solytek.es/images";
+            NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, provincia, centro,foto];
+
+            NSURL *url = [NSURL URLWithString:imString];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
             
             dispatch_sync(dispatch_get_main_queue(), ^{

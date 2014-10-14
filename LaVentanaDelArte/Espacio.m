@@ -12,14 +12,15 @@
 
 @implementation Espacio
 
-@dynamic descripcion;
+@dynamic resumen;
 @dynamic direccion;
 @dynamic imagen;
-@dynamic latitud;
-@dynamic longitud;
 @dynamic nombre;
-@dynamic url;
-@dynamic tipo;
+@dynamic provincia_id;
+@dynamic web;
+@dynamic tipologia;
+@dynamic cod_tipo;
 @dynamic evento;
+@dynamic id_centro;
 
 @end

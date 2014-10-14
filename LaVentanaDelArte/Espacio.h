@@ -13,15 +13,16 @@
 
 @interface Espacio : NSManagedObject
 
-@property (nonatomic, retain) NSString * descripcion;
+@property (nonatomic, retain) NSString * resumen;
 @property (nonatomic, retain) NSString * direccion;
 @property (nonatomic, retain) NSString * imagen;
-@property (nonatomic, retain) NSNumber * latitud;
-@property (nonatomic, retain) NSNumber * longitud;
 @property (nonatomic, retain) NSString * nombre;
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSNumber * tipo;
+@property (nonatomic, retain) NSString * provincia_id;
+@property (nonatomic, retain) NSString * web;
+@property (nonatomic, retain) NSString * tipologia;
+@property (nonatomic, retain) NSNumber * cod_tipo;
 @property (nonatomic, retain) NSSet *evento;
+@property (nonatomic, retain) NSString *id_centro;
 @end
 
 @interface Espacio (CoreDataGeneratedAccessors)

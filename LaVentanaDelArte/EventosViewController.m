@@ -63,7 +63,7 @@ typedef enum
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
     [_eventosBusquedaFetchRequest setEntity:entity];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     [_eventosBusquedaFetchRequest setSortDescriptors:sortDescriptors];
     
@@ -73,7 +73,7 @@ typedef enum
 {
     if (self.contexto)
     {
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nombre CONTAINS[cd] %@", searchText];
         [self.eventosBusquedaFetchRequest setPredicate:predicate];
         
         NSError *error = nil;
@@ -240,13 +240,13 @@ typedef enum
 }
 
 - (void)reloadData {
-//    NSError *error = nil;
-//    
-//    if (![[self fetchedResultsController] performFetch:&error]) {
-//        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
-//    }
-//    
-//    [self.tableView reloadData];
+    NSError *error = nil;
+    
+    if (![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Error fetching Eventos: %@", error.localizedDescription);
+    }
+    
+    [self.tableView reloadData];
     
 }
 
@@ -297,19 +297,31 @@ typedef enum
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         Evento *evento = self.eventosFiltrados[indexPath.row];
         cell.textLabel.text = evento.nombre;
-        cell.detailTextLabel.text = evento.descripcion;
+        cell.detailTextLabel.text = evento.resumen;
+        
         NSURL *url = [NSURL URLWithString:evento.foto];
+        
         NSData *data = [NSData dataWithContentsOfURL:url];
         cell.imageView.image = [UIImage imageWithData:data];
     } else {
         Evento *evento = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         cell.NameEvento.text = evento.nombre;
-        cell.typeEvento.text = evento.descripcion;
+        cell.typeEvento.text = evento.resumen;
         
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 
-            NSURL *url = [NSURL URLWithString:evento.foto];
+//            NSURL *url = [NSURL URLWithString:evento.foto];
+            NSString *foto = evento.foto;
+            NSString *provincia = evento.provincia_id;
+            NSString *idExpo = evento.id_expo;
+            NSString *centro = [NSString stringWithFormat:@"%@", evento.id_centro];
+            NSString *fotoInicio = @"http://laventana.solytek.es/images";
+            NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", fotoInicio, provincia, centro,idExpo,foto];
+            NSURL *url = [NSURL URLWithString:imString];
+//            
+//            NSData *data = [NSData dataWithContentsOfURL:url];
+//            cell.imageView.image = [UIImage imageWithData:data];
             UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 
             dispatch_sync(dispatch_get_main_queue(), ^{
@@ -400,9 +412,9 @@ typedef enum
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
     if (self.currentFilter == FilterTypeArts) {
-        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"tipo == %@", @(self.currentFilter)];
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"id_centro == %@", @(self.currentFilter)];
     }
-    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"nombre" ascending:YES]];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController.delegate = self;

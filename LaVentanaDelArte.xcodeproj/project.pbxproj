@@ -152,6 +152,7 @@
 		FE84972819B4623800EA05FB /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		FEAF5E391975353A00988526 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
 		FEAF5E3D197536C500988526 /* iconoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFirst.png; sourceTree = "<group>"; };
+		FEBD9C8219E548FB0007C084 /* Modelo 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Modelo 2.xcdatamodel"; sourceTree = "<group>"; };
 		FEBE1B95196FD85F0036948F /* LaVentanaDelArte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaVentanaDelArte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBE1B98196FD85F0036948F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FEBE1B9A196FD85F0036948F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -767,9 +768,10 @@
 		FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FEBD9C8219E548FB0007C084 /* Modelo 2.xcdatamodel */,
 				FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */,
 			);
-			currentVersion = FEBE1BD7196FF9900036948F /* Modelo.xcdatamodel */;
+			currentVersion = FEBD9C8219E548FB0007C084 /* Modelo 2.xcdatamodel */;
 			path = Modelo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

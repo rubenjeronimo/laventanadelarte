@@ -46,18 +46,22 @@
     if (self.espacio && !self.evento) {
         self.title = @"Ficha espacio";
         self.navigationController.navigationBar.alpha=0.5;
-        self.detailEvento.text = self.espacio.descripcion;
+        self.detailEvento.text = self.espacio.resumen;
         self.nameEvento.text = self.espacio.nombre;
-        NSURL *url = [NSURL URLWithString:self.espacio.imagen];
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, self.espacio.provincia_id, self.espacio.id_centro,self.espacio.imagen];
+        NSURL *url = [NSURL URLWithString:imString];
         NSData *data = [NSData dataWithContentsOfURL:url];
         self.imageEvento.image = [UIImage imageWithData:data];
 
     }else if (self.evento && !self.espacio){
     
     self.title = @"Ficha exposición";
-    self.detailEvento.text = self.evento.descripcion;
+    self.detailEvento.text = self.evento.resumen;
     self.nameEvento.text = self.evento.nombre;
-    NSURL *url = [NSURL URLWithString:self.evento.foto];
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", fotoInicio, self.evento.provincia_id, self.evento.id_centro,self.evento.id_expo,self.evento.foto];
+    NSURL *url = [NSURL URLWithString:imString];
     NSData *data = [NSData dataWithContentsOfURL:url];
     self.imageEvento.image = [UIImage imageWithData:data];
 
@@ -338,7 +342,8 @@
 }
 
 - (IBAction)LeerMas:(id)sender {
-    NSURL        *url       = [NSURL URLWithString:@"http://www.laventanadelarte.es"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@", self.espacio.web]];
+//        NSURL *url = [NSURL URLWithString:@"https://www.landgraphix.eu"];
     [[UIApplication sharedApplication] openURL:url];
 }
 

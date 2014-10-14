@@ -214,8 +214,8 @@
 
 -(void) setDetalleAnotacion{
     CLLocationCoordinate2D punto;
-        punto.latitude = [self.detalleEspacio.latitud floatValue];
-        punto.longitude = [self.detalleEspacio.longitud floatValue];
+//        punto.latitude = [self.detalleEspacio.latitud floatValue];
+//        punto.longitude = [self.detalleEspacio.longitud floatValue];
         MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
         anotacion.coordinate = punto;
         anotacion.title = self.detalleEspacio.nombre;
@@ -296,16 +296,16 @@
 
 -(void)POI{
     NSLog(@"pasando por POI");
-    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
-        espacio.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
-        espacio.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
+//    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
+//        espacio.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+//        espacio.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
         
-        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
-        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
-        [anotacion setCoordinate:coorPunto];
+//        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
+//        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+//        [anotacion setCoordinate:coorPunto];
         
-        [self.mapView addAnnotation:anotacion];
-    }
+//        [self.mapView addAnnotation:anotacion];
+//    }
     
 }
 
