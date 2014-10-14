@@ -223,7 +223,7 @@ static NSString *const space = @"space";
      */
 }
 
-
+#pragma mark - segues
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString: @"DetalleSegue"]) {
@@ -287,6 +287,8 @@ static NSString *const space = @"space";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - fetchRequest
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {

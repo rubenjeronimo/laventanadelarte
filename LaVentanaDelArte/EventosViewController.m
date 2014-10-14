@@ -155,7 +155,7 @@ typedef enum
 }
 
 - (IBAction)areaEstudio:(id)sender {
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Arte Contemporaneo",@"Todos", nil];
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"   Contemporaneo",@"Todos", nil];
     [as showInView:self.view];
     
 }
