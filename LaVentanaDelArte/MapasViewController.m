@@ -9,8 +9,8 @@
 #import "MapasViewController.h"
 
 @interface MapasViewController ()<NSFetchedResultsControllerDelegate>
-@property (nonatomic) NSString *latitudPOI;
-@property (nonatomic) NSString *longitudPOI;
+@property (nonatomic) float latitudPOI;
+@property (nonatomic) float longitudPOI;
 
 @end
 
@@ -37,9 +37,14 @@
         for (CLPlacemark *aPlacemark in placemarks) {
             NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
             NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
-            self.latitudPOI = latDest1;
-            self.longitudPOI = lngDest1;
+            self.latitudPOI = [latDest1 floatValue];
+            self.longitudPOI = [lngDest1 floatValue];
         }
+        self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
+        self.navigationItem.title = @"Mapa";
+        [self mapea];
+        [self POI];
+        [self takeDetalle];
     }];
     
     
@@ -53,16 +58,21 @@
 //            lblDestinationLng.text = lngDest1;
 //        }
 //    }
-    
-
-    self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
-    self.navigationItem.title = @"Mapa";
-    [self mapea];
-    
-    [self takeDetalle];
-    
 
 }
+
+-(void)POI{
+    CLLocationCoordinate2D POI;
+    POI.latitude = self.latitudPOI;
+    POI.longitude = self.longitudPOI;
+    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+    annotationPoint.coordinate = POI;
+    annotationPoint.title = [NSString stringWithFormat:@"%@", self.espacioDetalle.nombre];
+    annotationPoint.subtitle = [NSString stringWithFormat:@"%@", self.espacioDetalle.direccion];
+    [self.mapaView addAnnotation:annotationPoint];
+}
+
+
 
 -(void)mapea{
     MKCoordinateRegion region;
@@ -70,8 +80,8 @@
     span.latitudeDelta=0.1;
     span.longitudeDelta=0.1;
     CLLocationCoordinate2D location;
-//    location.latitude = self.latitudPOI;
-//    location.longitude = self.longitudPOI;
+    location.latitude = self.latitudPOI;
+    location.longitude = self.longitudPOI;
     region.span = span;
     region.center = location;
     MKCoordinateRegion fitRegion = [self.mapaView  regionThatFits:region];
@@ -166,6 +176,8 @@
     [self mapea];
 }
 
+
+#pragma mark - fetchrequest
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {
         return _fetchedResultsController;
