@@ -11,7 +11,7 @@
 #import "Espacio.h"
 
 @interface addData()
-@property (nonatomic,strong) NSDictionary *evento;
+@property (nonatomic,strong) NSArray *evento;
 @property (nonatomic,strong) NSDictionary *espacio;
 @end
 @implementation addData
@@ -27,7 +27,7 @@
 //    operacion.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.evento = (NSDictionary *)responseObject;
+        self.evento = (NSArray *)responseObject;
 //        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in self.evento) {
             
@@ -94,28 +94,29 @@
     operacion.responseSerializer = [AFJSONResponseSerializer serializer];
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.espacio = (NSDictionary *)responseObject;
-//        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
+        //        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
         for (NSDictionary *eve in self.espacio) {
             NSString *name = [eve valueForKeyPath:@"nombre"];
             Espacio *esp = [self espacioByName:name];
             if (!esp) {
                 esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
             }
+            
+            esp.nombre = [eve valueForKeyPath:@"nombre"];
+            esp.resumen = [eve valueForKeyPath:@"resumen"];
+            esp.imagen =[eve valueForKeyPath:@"foto"];
+            esp.cod_tipo = [eve valueForKey:@"cod_tipo"];
+            esp.id_centro = [eve valueForKey:@"id"];
+            esp.provincia_id = [eve valueForKey:@"provincia_id"];
+            esp.web = [eve valueForKey:@"web"];
+            esp.tipologia = [eve valueForKey:@"tipologia"];
+            esp.direccion = [eve valueForKey:@"direccion"];
+            esp.nombre_id = @"TEST";
+            //                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+            //                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
+            //            }
 
-                esp.nombre = [eve valueForKeyPath:@"nombre"];
-                esp.resumen = [eve valueForKeyPath:@"resumen"];
-                esp.imagen =[eve valueForKeyPath:@"foto"];
-                esp.cod_tipo = [eve valueForKey:@"cod_tipo"];
-                esp.id_centro = [eve valueForKey:@"id"];
-                esp.provincia_id = [eve valueForKey:@"provincia_id"];
-                esp.web = [eve valueForKey:@"web"];
-                esp.tipologia = [eve valueForKey:@"tipologia"];
-                esp.direccion = [eve valueForKey:@"direccion"];
-//                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
-//                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
-//            }
-
-        }
+       }
         
         [self.contexto performBlock:^{
             NSError * error = nil;
