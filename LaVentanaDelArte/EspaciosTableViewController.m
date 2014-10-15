@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, FilterType) {
     FilterTypeAll,
     FilterTypeArts
 };
-@interface EspaciosTableViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
+@interface EspaciosTableViewController () <NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate,UIActionSheetDelegate>
 @property (nonatomic,strong) NSMutableArray *listadoEspacios;
 @property (nonatomic,strong) NSDictionary *espacio;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;

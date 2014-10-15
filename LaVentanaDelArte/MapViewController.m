@@ -117,6 +117,7 @@
 {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    
 //    [self POI];
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(receivedNotification:)
@@ -205,9 +206,6 @@
 }
 
 
-
-
-
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"spaces loaded"]) {
         NSLog(@"ya he cargado espacios");
@@ -221,14 +219,6 @@
         [alertView show];
     }
 }
-
--(MKMapView *)mapView{
-    if (!_mapView) {
-        _mapView = [[MKMapView alloc]init];
-    }
-    return _mapView;
-}
-
 
 -(void) setDetalleAnotacion{
     CLLocationCoordinate2D punto;
