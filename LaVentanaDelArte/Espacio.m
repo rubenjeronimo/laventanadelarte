@@ -2,7 +2,7 @@
 //  Espacio.m
 //  LaVentanaDelArte
 //
-//  Created by Ruben Jeronimo Fernandez on 21/07/14.
+//  Created by Jose A. Herran on 15/10/14.
 //  Copyright (c) 2014 IronHack. All rights reserved.
 //
 
@@ -12,15 +12,16 @@
 
 @implementation Espacio
 
-@dynamic resumen;
+@dynamic cod_tipo;
 @dynamic direccion;
+@dynamic id_centro;
 @dynamic imagen;
 @dynamic nombre;
+@dynamic nombre_id;
 @dynamic provincia_id;
-@dynamic web;
+@dynamic resumen;
 @dynamic tipologia;
-@dynamic cod_tipo;
+@dynamic web;
 @dynamic evento;
-@dynamic id_centro;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2319248719EE7AC6004FD4EB /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319248619EE7AC6004FD4EB /* Espacio.m */; };
 		FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE3197681BA00B29D8E /* EventosViewController.m */; };
 		FE19B4BB1979505F00D40808 /* searchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE19B4BA1979505F00D40808 /* searchicon.png */; };
 		FE1F73501977E01900D9EE5D /* addData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1F734F1977E01900D9EE5D /* addData.m */; };
@@ -14,7 +15,6 @@
 		FE2A72C1197D194F00B3EAF8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */; };
 		FE2A72C3197D290100B3EAF8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C2197D290100B3EAF8 /* Social.framework */; };
 		FE2A72C5197D295A00B3EAF8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE2A72C4197D295900B3EAF8 /* Twitter.framework */; };
-		FE321FA4197D78FA006EF4B0 /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = FE321FA3197D78FA006EF4B0 /* Espacio.m */; };
 		FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E171973C21400973719 /* VentanaTableViewCell.m */; };
 		FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3D1E1A1973C51800973719 /* DetalleViewController.m */; };
 		FE3D1E1D1973CEE300973719 /* sad13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE3D1E1C1973CEE300973719 /* sad13.jpg */; };
@@ -79,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2319248519EE7AC6004FD4EB /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
+		2319248619EE7AC6004FD4EB /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
 		FE0D6DE2197681BA00B29D8E /* EventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosViewController.h; sourceTree = "<group>"; };
 		FE0D6DE3197681BA00B29D8E /* EventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosViewController.m; sourceTree = "<group>"; };
 		FE19B4BA1979505F00D40808 /* searchicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchicon.png; path = Images.xcassets/searchicon.png; sourceTree = "<group>"; };
@@ -88,8 +90,6 @@
 		FE2A72C0197D194F00B3EAF8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FE2A72C2197D290100B3EAF8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		FE2A72C4197D295900B3EAF8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
-		FE321FA2197D78FA006EF4B0 /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
-		FE321FA3197D78FA006EF4B0 /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
 		FE3D1E161973C21400973719 /* VentanaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VentanaTableViewCell.h; sourceTree = "<group>"; };
 		FE3D1E171973C21400973719 /* VentanaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VentanaTableViewCell.m; sourceTree = "<group>"; };
 		FE3D1E191973C51800973719 /* DetalleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalleViewController.h; sourceTree = "<group>"; };
@@ -368,8 +368,8 @@
 				FE7397A21973FA710072BC7F /* CoreDataStack.m */,
 				FE650A061975857A00474A23 /* Espacio+Model.h */,
 				FE650A071975857A00474A23 /* Espacio+Model.m */,
-				FE321FA2197D78FA006EF4B0 /* Espacio.h */,
-				FE321FA3197D78FA006EF4B0 /* Espacio.m */,
+				2319248519EE7AC6004FD4EB /* Espacio.h */,
+				2319248619EE7AC6004FD4EB /* Espacio.m */,
 				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
 				FE84972719B4623800EA05FB /* Evento.h */,
 				FE84972819B4623800EA05FB /* Evento.m */,
@@ -524,7 +524,6 @@
 				FE84972919B4623800EA05FB /* Evento.m in Sources */,
 				FE3D1E471973E0A500973719 /* AFNetworkReachabilityManager.m in Sources */,
 				FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */,
-				FE321FA4197D78FA006EF4B0 /* Espacio.m in Sources */,
 				FE3D1E4D1973E0A500973719 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FE3D1E511973E0A500973719 /* UIImageView+AFNetworking.m in Sources */,
 				FE7397A31973FA710072BC7F /* CoreDataStack.m in Sources */,
@@ -538,6 +537,7 @@
 				FE3D1E4C1973E0A500973719 /* AFURLSessionManager.m in Sources */,
 				FE3D1E1B1973C51800973719 /* DetalleViewController.m in Sources */,
 				FE3D1E451973E0A500973719 /* AFHTTPRequestOperationManager.m in Sources */,
+				2319248719EE7AC6004FD4EB /* Espacio.m in Sources */,
 				FE3D1E521973E0A500973719 /* UIProgressView+AFNetworking.m in Sources */,
 				FEBE1BA5196FD85F0036948F /* main.m in Sources */,
 				FE3D1E501973E0A500973719 /* UIButton+AFNetworking.m in Sources */,
