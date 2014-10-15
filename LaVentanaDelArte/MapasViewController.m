@@ -30,16 +30,49 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.latitudPOI = 40.392756;
-    self.longitudPOI = -3.693344;
-    self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
-    self.navigationItem.title = @"Mapa";
-    [self mapea];
     
-    [self takeDetalle];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    NSString *direccionCompleta = [NSString stringWithFormat:@"%@,SPAIN",self.espacioDetalle.direccion];
+    [geocoder geocodeAddressString:direccionCompleta completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *aPlacemark in placemarks) {
+            NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+            NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+            self.latitudPOI = [latDest1 floatValue];
+            self.longitudPOI = [lngDest1 floatValue];
+        }
+        self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
+        self.navigationItem.title = @"Mapa";
+        [self mapea];
+        [self POI];
+        [self takeDetalle];
+    }];
     
+    
+//    [geocoder geocodeAddressString:@"6138 Bollinger Road, San Jose, United States" completionHandler:^(NSArray* placemarks, NSError* error){
+//        for (CLPlacemark* aPlacemark in placemarks)
+//        {
+//            // Process the placemark.
+//            NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+//            NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+//            lblDestinationLat.text = latDest1;
+//            lblDestinationLng.text = lngDest1;
+//        }
+//    }
 
 }
+
+-(void)POI{
+    CLLocationCoordinate2D POI;
+    POI.latitude = self.latitudPOI;
+    POI.longitude = self.longitudPOI;
+    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+    annotationPoint.coordinate = POI;
+    annotationPoint.title = [NSString stringWithFormat:@"%@", self.espacioDetalle.nombre];
+    annotationPoint.subtitle = [NSString stringWithFormat:@"%@", self.espacioDetalle.direccion];
+    [self.mapaView addAnnotation:annotationPoint];
+}
+
+
 
 -(void)mapea{
     MKCoordinateRegion region;
@@ -143,6 +176,8 @@
     [self mapea];
 }
 
+
+#pragma mark - fetchrequest
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController) {
         return _fetchedResultsController;

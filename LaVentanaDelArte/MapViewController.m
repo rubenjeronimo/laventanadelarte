@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
 @property (strong,nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong,nonatomic) NSFetchRequest *espaciosFetchRequest;
+@property (nonatomic) Espacio *espacio;
 @end
 
 @implementation MapViewController
@@ -52,6 +53,7 @@
 //    anotacion.title = @"no vamos mal";
 //
 //    [self.MapView addAnnotation:anotacion];
+
 }
 
 -(void)mapea{
@@ -187,6 +189,22 @@
     
     return _espaciosFetchRequest;
 }
+
+
+
+- (NSArray *)fetchInMOC:(NSManagedObjectContext *)moc withCentroId:(NSString *)centro_id {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Espacios"]; //Todos los campos de la entidad alarma.
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"centro_id == %@", centro_id]; // Cuando el campo alarmStockId sea igual al parametro de la función.
+    [fetchRequest setPredicate:predicate]; //Aplicamos el filtro al fetchreques, con lo que solo devolverá de la tabla alarmas lo que hayamos recibido en el parámetro de la función.
+    
+    NSError *error;
+    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error]; //Ejecutamos el fetch request sobre el contexto.
+    
+    return results;
+}
+
+
 
 
 

@@ -326,6 +326,8 @@
 }
 */
 
+#pragma mark - segues
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detalleMapaSegue"]) {
         MapViewController *mapView = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
@@ -333,6 +335,9 @@
         [mapView setDetalleAnotacion];
     }
 }
+
+
+
 
 
 - (IBAction)mapDetailView:(id)sender {
