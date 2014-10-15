@@ -22,6 +22,8 @@
 @dynamic foto;
 @dynamic provincia_id;
 @dynamic id_expo;
+@dynamic space;
+@dynamic subtitulo;
 
 @end
 
