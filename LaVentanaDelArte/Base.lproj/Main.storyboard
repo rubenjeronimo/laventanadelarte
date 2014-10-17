@@ -23,6 +23,7 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
+                                        <action selector="mapaCentros:" destination="uHe-DN-F69" eventType="touchUpInside" id="G4j-4a-ZN6"/>
                                         <segue destination="E7K-U9-Xmo" kind="push" identifier="centroMapSegue" id="mfb-gc-Sks"/>
                                     </connections>
                                 </button>
@@ -635,7 +636,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vda-Vx-NQx"/>
-        <segue reference="p6F-TL-6w8"/>
+        <segue reference="UPz-eb-5a1"/>
+        <segue reference="mfb-gc-Sks"/>
     </inferredMetricsTieBreakers>
 </document>
