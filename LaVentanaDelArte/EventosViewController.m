@@ -403,7 +403,7 @@ typedef enum
     }
 }
 
-# pragma mark - busqueda por centro
+# pragma mark - busqueda por centro o por provincia
 - (IBAction)eventosPorCentro:(id)sender {
     NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
     eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
@@ -414,6 +414,14 @@ typedef enum
     [self reloadData];
 }
 
+- (IBAction)eventosPorProvincia:(id)sender {
+    NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
+    eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"provincia_id" ascending:YES]];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"provincia_id" cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    [self reloadData];
+}
 
 #pragma mark - Fetched Result Controller
 
