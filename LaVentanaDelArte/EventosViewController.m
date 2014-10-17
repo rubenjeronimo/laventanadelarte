@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMapButtonConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
-@property (nonatomic,strong) NSDictionary *evento;
+@property (nonatomic,strong) Evento *evento;
 @property (nonatomic,strong) NSArray *eventosFiltrados;
 @property (nonatomic,strong) NSFetchRequest *eventosBusquedaFetchRequest;
 @property (nonatomic) FilterType currentFilter;
@@ -402,6 +402,18 @@ typedef enum
         [mapView POI];
     }
 }
+
+# pragma mark - busqueda por centro
+- (IBAction)eventosPorCentro:(id)sender {
+    NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
+    eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
+//    eventosPorCentroRequest.predicate = [NSPredicate predicateWithFormat:@"id_centro = id_centro"];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"id_centro" ascending:YES]];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"id_centro" cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    [self reloadData];
+}
+
 
 #pragma mark - Fetched Result Controller
 
