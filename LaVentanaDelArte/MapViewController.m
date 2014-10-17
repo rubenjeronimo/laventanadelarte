@@ -8,8 +8,8 @@
 
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
-#import "Espacio.h"
 #import <CoreLocation/CoreLocation.h>
+
 @interface MapViewController ()<MKMapViewDelegate,UIActionSheetDelegate,NSFetchedResultsControllerDelegate>
 @property  double latitudPOI;
 @property double longitudPOI;
@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoMapa;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
-@property (nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
 @property (strong,nonatomic) NSFetchRequest *espaciosFetchRequest;
 @property (nonatomic) Espacio *espacio;
 @end
