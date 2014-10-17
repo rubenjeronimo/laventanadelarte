@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoMapa;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
-@property (strong,nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
 @property (strong,nonatomic) NSFetchRequest *espaciosFetchRequest;
 @property (nonatomic) Espacio *espacio;
 @end
@@ -44,7 +44,34 @@
     self.latitudPOI = 40.392756;
     self.longitudPOI = -3.693344;
     [self mapea];
-//    [self POI];
+    [self POI];
+    
+    for (Espacio *space in [self.fetchedResultsController fetchedObjects]) {
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        NSString *direccionCompleta = [NSString stringWithFormat:@"%@,SPAIN",space.direccion];
+        [geocoder geocodeAddressString:direccionCompleta completionHandler:^(NSArray *placemarks, NSError *error) {
+            for (CLPlacemark *aPlacemark in placemarks) {
+                NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+                NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+                self.latitudPOI = [latDest1 floatValue];
+                self.longitudPOI = [lngDest1 floatValue];
+                
+                CLLocationCoordinate2D POI;
+                POI.latitude = self.latitudPOI;
+                POI.longitude = self.longitudPOI;
+                [self mapea:POI];
+                MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+                annotationPoint.coordinate = POI;
+                annotationPoint.title = [NSString stringWithFormat:@"%@", space.nombre];
+                annotationPoint.subtitle = [NSString stringWithFormat:@"%@", space.direccion];
+                [self.mapView addAnnotation:annotationPoint];
+
+            }
+        }];
+        
+    }
+    
+
 //    CLLocationCoordinate2D punto;
 //    punto.latitude = self.latitudPOI;
 //    punto.longitude = self.longitudPOI;
@@ -126,10 +153,10 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(receivedNotification:)
 //                                                 name:@"not Found"
-////                                               object:nil];
-//    [self setAnchoToolBar];
-//    self.latitudPOI = 40.392756;
-//    self.longitudPOI = -3.693344;
+//                                               object:nil];
+    [self setAnchoToolBar];
+    self.latitudPOI = 40.392756;
+    self.longitudPOI = -3.693344;
 //    CLLocationCoordinate2D punto;
 //    punto.latitude = self.latitudPOI;
 //    punto.longitude = self.longitudPOI;
@@ -164,13 +191,6 @@
 
 //añadir una observacion a la notificacion spaces loaded de addData para que repinte los datos cargados. condicion multi-hilo
 
-
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:self.espaciosFetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
-  
-    return fetchedResultsController;
-}
 
 - (NSFetchRequest *)espaciosFetchRequest
 {
@@ -209,7 +229,7 @@
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"spaces loaded"]) {
         NSLog(@"ya he cargado espacios");
-//        [self POI];
+        [self POI];
 
     } else if ([[notification name] isEqualToString:@"Not Found"]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"
@@ -300,35 +320,22 @@
 }
 */
 
--(void) geocodificaDireccion:(Espacio*)espacio{
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    NSString *direccionCompleta = [NSString stringWithFormat:@"%@,SPAIN",espacio.direccion];
-    [geocoder geocodeAddressString:direccionCompleta completionHandler:^(NSArray *placemarks, NSError *error) {
-        for (CLPlacemark *aPlacemark in placemarks) {
-            NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
-            NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
-            self.latitudPOI = [latDest1 floatValue];
-            self.longitudPOI = [lngDest1 floatValue];
-            }
-        }
-     ];
-}
+
+
 -(void)POI{
     NSLog(@"pasando por POI");
-    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
-        espacio.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
-        espacio.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
+//    for (Espacio *espacio in self.fetchedResultsController.fetchedObjects) {
+//        espacio.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
+//        espacio.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
         
-        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
-        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
-        [anotacion setCoordinate:coorPunto];
+//        CLLocationCoordinate2D coorPunto = CLLocationCoordinate2DMake([espacio.latitud floatValue],[espacio.longitud floatValue]);
+//        MKPointAnnotation *anotacion = [[MKPointAnnotation alloc]init];
+//        [anotacion setCoordinate:coorPunto];
         
-        [self.mapView addAnnotation:anotacion];
-    }
+//        [self.mapView addAnnotation:anotacion];
+//    }
     
 }
-
-
 
 - (CGFloat)randomFloatBetween:(float)smallNumber and:(float)bigNumber {
     float diff = bigNumber - smallNumber;

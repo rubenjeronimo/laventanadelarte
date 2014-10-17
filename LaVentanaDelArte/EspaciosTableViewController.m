@@ -28,11 +28,6 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @implementation EspaciosTableViewController{
     NSFetchedResultsController *_fetchedResultsController;
 }
-- (IBAction)mapaCentros:(id)sender {
-    MapViewController *mapasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MapView"];
-        mapasVC.contexto = self.contexto;
-    [self.navigationController pushViewController:mapasVC animated:YES];
-}
 
 static NSString *const name = @"name";
 static NSString *const space = @"space";
@@ -236,12 +231,12 @@ static NSString *const space = @"space";
         DetalleViewController *detalleVC = [segue destinationViewController];
         Espacio *espacio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         detalleVC.espacio = espacio;
+    } else if ([segue.identifier isEqualToString:@"centroMapSegue"]){
+        MapViewController *mapView = [segue destinationViewController];
+        mapView.contexto = self.contexto;
+        mapView.fetchedResultsController = [self fetchedResultsController];
+        [mapView POI];
     }
-//    else if ([segue.identifier isEqualToString:@"centroMapSegue"]){
-//    MapViewController *mapView = [segue destinationViewController];
-//    mapView.contexto = self.contexto;
-//    [mapView POI];
-//    }
 }
 
 /*
