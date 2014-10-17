@@ -432,6 +432,7 @@ typedef enum
 
 - (IBAction)mapView:(id)sender {
     MapasViewController *mapasVC = [self.storyboard instantiateViewControllerWithIdentifier:@"vistaMapaStoryboard"];
+    mapasVC.contexto = self.contexto;
     [self.navigationController pushViewController:mapasVC animated:YES];
 }
 
