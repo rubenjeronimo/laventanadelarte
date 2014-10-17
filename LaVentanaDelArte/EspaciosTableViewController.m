@@ -231,11 +231,11 @@ static NSString *const space = @"space";
         DetalleViewController *detalleVC = [segue destinationViewController];
         Espacio *espacio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         detalleVC.espacio = espacio;
-    }
-    else if ([segue.identifier isEqualToString:@"centroMapSegue"]){
-    MapViewController *mapView = [segue destinationViewController];
-    mapView.contexto = self.contexto;
-    [mapView POI];
+    } else if ([segue.identifier isEqualToString:@"centroMapSegue"]){
+        MapViewController *mapView = [segue destinationViewController];
+        mapView.contexto = self.contexto;
+        mapView.fetchedResultsController = [self fetchedResultsController];
+        [mapView POI];
     }
 }
 

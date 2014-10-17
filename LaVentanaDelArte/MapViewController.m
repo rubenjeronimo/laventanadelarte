@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoMapa;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
-@property (strong,nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic,strong) NSFetchedResultsController *fetchedResultsController;
 @property (strong,nonatomic) NSFetchRequest *espaciosFetchRequest;
 @property (nonatomic) Espacio *espacio;
 @end
@@ -45,6 +45,33 @@
     self.longitudPOI = -3.693344;
     [self mapea];
     [self POI];
+    
+    for (Espacio *space in [self.fetchedResultsController fetchedObjects]) {
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        NSString *direccionCompleta = [NSString stringWithFormat:@"%@,SPAIN",space.direccion];
+        [geocoder geocodeAddressString:direccionCompleta completionHandler:^(NSArray *placemarks, NSError *error) {
+            for (CLPlacemark *aPlacemark in placemarks) {
+                NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+                NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+                self.latitudPOI = [latDest1 floatValue];
+                self.longitudPOI = [lngDest1 floatValue];
+                
+                CLLocationCoordinate2D POI;
+                POI.latitude = self.latitudPOI;
+                POI.longitude = self.longitudPOI;
+                [self mapea:POI];
+                MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+                annotationPoint.coordinate = POI;
+                annotationPoint.title = [NSString stringWithFormat:@"%@", space.nombre];
+                annotationPoint.subtitle = [NSString stringWithFormat:@"%@", space.direccion];
+                [self.mapView addAnnotation:annotationPoint];
+
+            }
+        }];
+        
+    }
+    
+
 //    CLLocationCoordinate2D punto;
 //    punto.latitude = self.latitudPOI;
 //    punto.longitude = self.longitudPOI;
@@ -164,13 +191,6 @@
 
 //añadir una observacion a la notificacion spaces loaded de addData para que repinte los datos cargados. condicion multi-hilo
 
-
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:self.espaciosFetchRequest managedObjectContext:self.contexto sectionNameKeyPath:nil cacheName:nil];
-  
-    return fetchedResultsController;
-}
 
 - (NSFetchRequest *)espaciosFetchRequest
 {
