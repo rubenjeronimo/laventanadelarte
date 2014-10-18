@@ -32,6 +32,10 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @property (nonatomic,strong) NSArray *eventosFiltrados;
 @property (nonatomic,strong) NSFetchRequest *eventosBusquedaFetchRequest;
 @property (nonatomic) FilterType currentFilter;
+
+@property (nonatomic,strong) NSMutableArray *listadoEventosPorCentro;
+@property (nonatomic,strong) NSMutableArray *listadoEventosPorProvincia;
+
 @end
 typedef enum
 {
@@ -261,6 +265,13 @@ typedef enum
     return 1; // filtered events
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[_fetchedResultsController sections]objectAtIndex:section];
+    return [sectionInfo name];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.tableView)
@@ -407,7 +418,6 @@ typedef enum
 - (IBAction)eventosPorCentro:(id)sender {
     NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
     eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
-//    eventosPorCentroRequest.predicate = [NSPredicate predicateWithFormat:@"id_centro = id_centro"];
     eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"id_centro" ascending:YES]];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"id_centro" cacheName:nil];
     _fetchedResultsController.delegate = self;
