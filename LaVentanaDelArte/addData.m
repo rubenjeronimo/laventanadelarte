@@ -28,34 +28,35 @@
     
     [operacion setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.evento = (NSArray *)responseObject;
-//        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
+        //        NSArray *listadoTemporal = [self.evento valueForKeyPath:@"exposiciones"];
         for (NSDictionary *eve in self.evento) {
             
             NSString *nombre = [eve valueForKeyPath:@"nombre"];
             Evento *ev = [self eventoByName:nombre];
             
-            if (!ev) {  
+            if (!ev) {
                 ev= [NSEntityDescription insertNewObjectForEntityForName:@"Evento" inManagedObjectContext:self.contexto];
             }
             
-
-                ev.nombre = [eve valueForKeyPath:@"nombre"];
-                ev.resumen = [eve valueForKeyPath:@"resumen"];
-                ev.foto =[eve valueForKeyPath:@"foto"];
-                ev.tipo_expo = [eve valueForKey:@"tipo_expo"];
-                ev.provincia_id = [eve valueForKey:@"provincia_id"];
-                ev.id_centro = [eve valueForKey:@"id_centro"];
-                ev.id_expo = [eve valueForKey:@"id"];
-                ev.fecha_fin = [eve valueForKey:@"fecha_fin"];
-
+            
+            ev.nombre = [eve objectForKey:@"nombre"];
+            ev.resumen = [eve objectForKey:@"resumen"];
+            ev.foto =[eve objectForKey:@"foto"];
+            ev.tipo_expo = [eve objectForKey:@"tipo_expo"];
+            ev.provincia_id = [eve objectForKey:@"provincia_id"];
+            ev.id_centro = [eve objectForKey:@"id_centro"];
+            ev.centro = [eve objectForKey:@"centro"];
+            ev.id_expo = [eve objectForKey:@"id"];
+            
+            
         }
-        
+                                                                 
         [self.contexto performBlock:^{
-            NSError * error = nil;
-            if (![self.contexto save:&error]) {
-                NSLog(@"Error saving context: %@", error.localizedDescription);
-            }
-        }];
+                NSError * error = nil;
+                if (![self.contexto save:&error]) {
+                    NSLog(@"Error saving context: %@", error.localizedDescription);
+                }
+            }];
         
       //  [self reloadData];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"events loaded" object:self];
@@ -97,21 +98,21 @@
         self.espacio = (NSDictionary *)responseObject;
         //        NSArray *listadoTemporal = [self.espacio valueForKeyPath:@"results.Lavapies"];
         for (NSDictionary *eve in self.espacio) {
-            NSString *name = [eve valueForKeyPath:@"nombre"];
+            NSString *name = [eve objectForKey:@"nombre"];
             Espacio *esp = [self espacioByName:name];
             if (!esp) {
                 esp=[NSEntityDescription insertNewObjectForEntityForName:@"Espacio" inManagedObjectContext:self.contexto];
             }
             
-            esp.nombre = [eve valueForKeyPath:@"nombre"];
-            esp.resumen = [eve valueForKeyPath:@"resumen"];
-            esp.imagen =[eve valueForKeyPath:@"foto"];
-            esp.cod_tipo = [eve valueForKey:@"cod_tipo"];
-            esp.id_centro = [eve valueForKey:@"id"];
-            esp.provincia_id = [eve valueForKey:@"provincia_id"];
-            esp.web = [eve valueForKey:@"web"];
-            esp.tipologia = [eve valueForKey:@"tipologia"];
-            esp.direccion = [eve valueForKey:@"direccion"];
+            esp.nombre = [eve objectForKey:@"nombre"];
+            esp.resumen = [eve objectForKey:@"resumen"];
+            esp.imagen =[eve objectForKey:@"foto"];
+            esp.cod_tipo = [eve objectForKey:@"cod_tipo"];
+            esp.id_centro = [eve objectForKey:@"id"];
+            esp.provincia_id = [eve objectForKey:@"provincia_id"];
+            esp.web = [eve objectForKey:@"web"];
+            esp.tipologia = [eve objectForKey:@"tipologia"];
+            esp.direccion = [eve objectForKey:@"direccion"];
             esp.nombre_id = @"TEST";
             //                esp.latitud = [NSNumber numberWithFloat:[self randomFloatBetween:40.39 and:40.41]];
             //                esp.longitud= [NSNumber numberWithFloat:[self randomFloatBetween:-3.71 and:-3.68]];
