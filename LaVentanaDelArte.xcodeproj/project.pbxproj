@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2319248719EE7AC6004FD4EB /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319248619EE7AC6004FD4EB /* Espacio.m */; };
-		23F1B62919F3BBEF001C307E /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F1B62819F3BBEF001C307E /* Evento.m */; };
+		23F1B62F19F3CE9F001C307E /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F1B62E19F3CE9F001C307E /* Evento.m */; };
 		FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE3197681BA00B29D8E /* EventosViewController.m */; };
 		FE19B4BB1979505F00D40808 /* searchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE19B4BA1979505F00D40808 /* searchicon.png */; };
 		FE1F73501977E01900D9EE5D /* addData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1F734F1977E01900D9EE5D /* addData.m */; };
@@ -81,8 +81,8 @@
 /* Begin PBXFileReference section */
 		2319248519EE7AC6004FD4EB /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
 		2319248619EE7AC6004FD4EB /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
-		23F1B62719F3BBEF001C307E /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
-		23F1B62819F3BBEF001C307E /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
+		23F1B62D19F3CE9F001C307E /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		23F1B62E19F3CE9F001C307E /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		FE0D6DE2197681BA00B29D8E /* EventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosViewController.h; sourceTree = "<group>"; };
 		FE0D6DE3197681BA00B29D8E /* EventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosViewController.m; sourceTree = "<group>"; };
 		FE19B4BA1979505F00D40808 /* searchicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchicon.png; path = Images.xcassets/searchicon.png; sourceTree = "<group>"; };
@@ -371,8 +371,8 @@
 				2319248519EE7AC6004FD4EB /* Espacio.h */,
 				2319248619EE7AC6004FD4EB /* Espacio.m */,
 				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
-				23F1B62719F3BBEF001C307E /* Evento.h */,
-				23F1B62819F3BBEF001C307E /* Evento.m */,
+				23F1B62D19F3CE9F001C307E /* Evento.h */,
+				23F1B62E19F3CE9F001C307E /* Evento.m */,
 				FE1F734E1977E01900D9EE5D /* addData.h */,
 				FE1F734F1977E01900D9EE5D /* addData.m */,
 			);
@@ -521,7 +521,7 @@
 				FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */,
 				FE3D1E481973E0A500973719 /* AFSecurityPolicy.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
-				23F1B62919F3BBEF001C307E /* Evento.m in Sources */,
+				23F1B62F19F3CE9F001C307E /* Evento.m in Sources */,
 				FE3D1E471973E0A500973719 /* AFNetworkReachabilityManager.m in Sources */,
 				FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */,
 				FE3D1E4D1973E0A500973719 /* AFNetworkActivityIndicatorManager.m in Sources */,

@@ -13,7 +13,7 @@
 
 @interface Evento : NSManagedObject
 
-@property (nonatomic, retain) NSDate * fecha_fin;
+@property (nonatomic, retain) NSString * fecha_fin;
 @property (nonatomic, retain) NSDate * fecha_inicio;
 @property (nonatomic, retain) NSString * foto;
 @property (nonatomic, retain) NSString * id_centro;
