@@ -14,7 +14,7 @@
         <relationship name="evento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Evento" inverseName="space" inverseEntity="Evento" syncable="YES"/>
     </entity>
     <entity name="Evento" representedClassName="Evento" syncable="YES">
-        <attribute name="fecha_fin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fecha_fin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fecha_inicio" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="foto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id_centro" attributeType="String" syncable="YES"/>
@@ -31,6 +31,6 @@
     <fetchRequest name="eventosByName" entity="Evento" predicateString="nombre == $nombre" fetchLimit="1"/>
     <elements>
         <element name="Espacio" positionX="-549" positionY="-9" width="128" height="210"/>
-        <element name="Evento" positionX="-333" positionY="-6" width="128" height="223"/>
+        <element name="Evento" positionX="-333" positionY="-6" width="128" height="225"/>
     </elements>
 </model>

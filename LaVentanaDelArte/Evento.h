@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSString *subtitulo;
 @property (nonatomic, retain) NSNumber *id_centro;
 @property (nonatomic, retain) NSString *tipo_expo;
-@property (nonatomic, retain) NSDate *fecha_fin;
+@property (nonatomic, retain) NSString *fecha_fin;
 @property (nonatomic, retain) NSDate *fecha_inicio;
 @property (nonatomic, retain) NSString *resumen;
 @property (nonatomic, retain) NSString *foto;

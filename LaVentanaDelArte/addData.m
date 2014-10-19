@@ -46,6 +46,7 @@
                 ev.provincia_id = [eve valueForKey:@"provincia_id"];
                 ev.id_centro = [eve valueForKey:@"id_centro"];
                 ev.id_expo = [eve valueForKey:@"id"];
+                ev.fecha_fin = [eve valueForKey:@"fecha_fin"];
 
         }
         

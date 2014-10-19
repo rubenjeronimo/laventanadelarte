@@ -335,20 +335,20 @@ static NSString *const space = @"space";
     [self reloadData];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            self.currentFilter = FilterTypeArts;
-            break;
-        case 1:
-            self.currentFilter = FilterTypeAll;
-            break;
-        default:
-            break;
-    }
-    _fetchedResultsController = nil;
-    [self reloadData];
-}
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+//    switch (buttonIndex) {
+//        case 0:
+//            self.currentFilter = FilterTypeArts;
+//            break;
+//        case 1:
+//            self.currentFilter = FilterTypeAll;
+//            break;
+//        default:
+//            break;
+//    }
+//    _fetchedResultsController = nil;
+//    [self reloadData];
+//}
 
 
 

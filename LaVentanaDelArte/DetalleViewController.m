@@ -50,6 +50,7 @@
         self.navigationController.navigationBar.alpha=0.5;
         self.detailEvento.text = self.espacio.resumen;
         self.nameEvento.text = self.espacio.nombre;
+        self.centroLabel.text = @"";
         NSString *fotoInicio = @"http://laventana.solytek.es/images";
         NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, self.espacio.provincia_id, self.espacio.id_centro,self.espacio.imagen];
         NSURL *url = [NSURL URLWithString:imString];
@@ -61,7 +62,8 @@
     self.title = @"Ficha exposición";
     self.detailEvento.text = self.evento.resumen;
     self.nameEvento.text = self.evento.nombre;
-    self.centroLabel.text = self.evento.id_centro;
+        NSString *centroLabelString = self.evento.fecha_fin;
+    self.centroLabel.text = [NSString stringWithFormat: @"Hasta el:%@",centroLabelString];
         NSString *fotoInicio = @"http://laventana.solytek.es/images";
         NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", fotoInicio, self.evento.provincia_id, self.evento.id_centro,self.evento.id_expo,self.evento.foto];
     NSURL *url = [NSURL URLWithString:imString];
