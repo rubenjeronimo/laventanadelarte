@@ -329,7 +329,7 @@ static NSString *const space = @"space";
 //    [as showInView:self.view];
     NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Espacio"];
     eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Espacio" inManagedObjectContext:self.contexto];
-    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"cod_tipo" ascending:YES]];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"tipologia" ascending:YES]];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"tipologia" cacheName:nil];
     _fetchedResultsController.delegate = self;
     [self reloadData];
