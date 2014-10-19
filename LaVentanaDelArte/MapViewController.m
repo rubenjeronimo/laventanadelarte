@@ -58,7 +58,7 @@
                 CLLocationCoordinate2D POI;
                 POI.latitude = self.latitudPOI;
                 POI.longitude = self.longitudPOI;
-                [self mapea:POI];
+//                [self mapea:POI];
                 MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
                 annotationPoint.coordinate = POI;
                 annotationPoint.title = [NSString stringWithFormat:@"%@", space.nombre];
@@ -228,7 +228,7 @@
 - (void)receivedNotification:(NSNotification *) notification {
     if ([[notification name] isEqualToString:@"spaces loaded"]) {
         NSLog(@"ya he cargado espacios");
-        [self POI];
+//        [self POI];
 
     } else if ([[notification name] isEqualToString:@"Not Found"]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Results Found"

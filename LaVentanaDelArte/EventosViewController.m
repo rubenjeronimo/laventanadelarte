@@ -28,10 +28,14 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMapButtonConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
-@property (nonatomic,strong) NSDictionary *evento;
+@property (nonatomic,strong) Evento *evento;
 @property (nonatomic,strong) NSArray *eventosFiltrados;
 @property (nonatomic,strong) NSFetchRequest *eventosBusquedaFetchRequest;
 @property (nonatomic) FilterType currentFilter;
+
+@property (nonatomic,strong) NSMutableArray *listadoEventosPorCentro;
+@property (nonatomic,strong) NSMutableArray *listadoEventosPorProvincia;
+
 @end
 typedef enum
 {
@@ -261,6 +265,13 @@ typedef enum
     return 1; // filtered events
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[_fetchedResultsController sections]objectAtIndex:section];
+    return [sectionInfo name];
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.tableView)
@@ -401,6 +412,25 @@ typedef enum
         mapView.contexto = self.contexto;
         [mapView POI];
     }
+}
+
+# pragma mark - busqueda por centro o por provincia
+- (IBAction)eventosPorCentro:(id)sender {
+    NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
+    eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"id_centro" ascending:YES]];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"id_centro" cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    [self reloadData];
+}
+
+- (IBAction)eventosPorProvincia:(id)sender {
+    NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
+    eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"provincia_id" ascending:YES]];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"provincia_id" cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    [self reloadData];
 }
 
 #pragma mark - Fetched Result Controller
