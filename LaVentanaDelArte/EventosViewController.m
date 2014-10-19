@@ -418,8 +418,8 @@ typedef enum
 - (IBAction)eventosPorCentro:(id)sender {
     NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Evento"];
     eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Evento" inManagedObjectContext:self.contexto];
-    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"id_centro" ascending:YES]];
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"id_centro" cacheName:nil];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"centro" ascending:YES]];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"centro" cacheName:nil];
     _fetchedResultsController.delegate = self;
     [self reloadData];
 }

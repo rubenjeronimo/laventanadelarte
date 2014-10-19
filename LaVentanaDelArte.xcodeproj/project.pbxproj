@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2319248719EE7AC6004FD4EB /* Espacio.m in Sources */ = {isa = PBXBuildFile; fileRef = 2319248619EE7AC6004FD4EB /* Espacio.m */; };
+		23F1B62919F3BBEF001C307E /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F1B62819F3BBEF001C307E /* Evento.m */; };
 		FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0D6DE3197681BA00B29D8E /* EventosViewController.m */; };
 		FE19B4BB1979505F00D40808 /* searchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = FE19B4BA1979505F00D40808 /* searchicon.png */; };
 		FE1F73501977E01900D9EE5D /* addData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1F734F1977E01900D9EE5D /* addData.m */; };
@@ -48,7 +49,6 @@
 		FE79014619814A8000670F59 /* MapasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE79014519814A8000670F59 /* MapasViewController.m */; };
 		FE79014919817A9500670F59 /* museocontemporaneo.png in Resources */ = {isa = PBXBuildFile; fileRef = FE79014719817A9500670F59 /* museocontemporaneo.png */; };
 		FE79014A19817A9500670F59 /* museonormal.png in Resources */ = {isa = PBXBuildFile; fileRef = FE79014819817A9500670F59 /* museonormal.png */; };
-		FE84972919B4623800EA05FB /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = FE84972819B4623800EA05FB /* Evento.m */; };
 		FEAF5E3A1975353A00988526 /* intro.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E391975353A00988526 /* intro.png */; };
 		FEAF5E3E197536C500988526 /* iconoFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = FEAF5E3D197536C500988526 /* iconoFirst.png */; };
 		FEBE1B99196FD85F0036948F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEBE1B98196FD85F0036948F /* Foundation.framework */; };
@@ -81,6 +81,8 @@
 /* Begin PBXFileReference section */
 		2319248519EE7AC6004FD4EB /* Espacio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Espacio.h; sourceTree = "<group>"; };
 		2319248619EE7AC6004FD4EB /* Espacio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Espacio.m; sourceTree = "<group>"; };
+		23F1B62719F3BBEF001C307E /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		23F1B62819F3BBEF001C307E /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		FE0D6DE2197681BA00B29D8E /* EventosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventosViewController.h; sourceTree = "<group>"; };
 		FE0D6DE3197681BA00B29D8E /* EventosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventosViewController.m; sourceTree = "<group>"; };
 		FE19B4BA1979505F00D40808 /* searchicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchicon.png; path = Images.xcassets/searchicon.png; sourceTree = "<group>"; };
@@ -148,8 +150,6 @@
 		FE79014519814A8000670F59 /* MapasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapasViewController.m; sourceTree = "<group>"; };
 		FE79014719817A9500670F59 /* museocontemporaneo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = museocontemporaneo.png; sourceTree = "<group>"; };
 		FE79014819817A9500670F59 /* museonormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = museonormal.png; sourceTree = "<group>"; };
-		FE84972719B4623800EA05FB /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
-		FE84972819B4623800EA05FB /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		FEAF5E391975353A00988526 /* intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro.png; sourceTree = "<group>"; };
 		FEAF5E3D197536C500988526 /* iconoFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoFirst.png; sourceTree = "<group>"; };
 		FEBD9C8219E548FB0007C084 /* Modelo 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Modelo 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -371,8 +371,8 @@
 				2319248519EE7AC6004FD4EB /* Espacio.h */,
 				2319248619EE7AC6004FD4EB /* Espacio.m */,
 				FEBE1BD6196FF9900036948F /* Modelo.xcdatamodeld */,
-				FE84972719B4623800EA05FB /* Evento.h */,
-				FE84972819B4623800EA05FB /* Evento.m */,
+				23F1B62719F3BBEF001C307E /* Evento.h */,
+				23F1B62819F3BBEF001C307E /* Evento.m */,
 				FE1F734E1977E01900D9EE5D /* addData.h */,
 				FE1F734F1977E01900D9EE5D /* addData.m */,
 			);
@@ -521,7 +521,7 @@
 				FE0D6DE4197681BA00B29D8E /* EventosViewController.m in Sources */,
 				FE3D1E481973E0A500973719 /* AFSecurityPolicy.m in Sources */,
 				FEBE1BA9196FD85F0036948F /* AppDelegate.m in Sources */,
-				FE84972919B4623800EA05FB /* Evento.m in Sources */,
+				23F1B62919F3BBEF001C307E /* Evento.m in Sources */,
 				FE3D1E471973E0A500973719 /* AFNetworkReachabilityManager.m in Sources */,
 				FE3D1E181973C21400973719 /* VentanaTableViewCell.m in Sources */,
 				FE3D1E4D1973E0A500973719 /* AFNetworkActivityIndicatorManager.m in Sources */,
