@@ -132,6 +132,14 @@ static NSString *const space = @"space";
     return [[[self fetchedResultsController] sections] count];;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[_fetchedResultsController sections]objectAtIndex:section];
+    return [sectionInfo name];
+}
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfItems = 0;
@@ -317,8 +325,14 @@ static NSString *const space = @"space";
     [self.tableView reloadData];
 }
 - (IBAction)areaEstudio:(id)sender {
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Arte Contemporaneo",@"Todos", nil];
-    [as showInView:self.view];
+//    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de evento" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Arte Contemporaneo",@"Todos", nil];
+//    [as showInView:self.view];
+    NSFetchRequest *eventosPorCentroRequest = [NSFetchRequest fetchRequestWithEntityName:@"Espacio"];
+    eventosPorCentroRequest.entity = [NSEntityDescription entityForName:@"Espacio" inManagedObjectContext:self.contexto];
+    eventosPorCentroRequest.sortDescriptors = @[[[NSSortDescriptor alloc]initWithKey:@"cod_tipo" ascending:YES]];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:eventosPorCentroRequest managedObjectContext:self.contexto sectionNameKeyPath:@"tipologia" cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    [self reloadData];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
