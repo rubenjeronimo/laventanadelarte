@@ -161,13 +161,15 @@
         NSString *nombre = self.evento.nombre;
         NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
         NSString *imagen = self.evento.foto;
-        NSURL *url = [NSURL URLWithString:imagen];
-        
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", fotoInicio, self.evento.provincia_id, self.evento.id_centro,self.evento.id_expo,imagen];
+        NSURL *url = [NSURL URLWithString:imString];
+        UIImage *imagenShare = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         UIActivityViewController *controller =
         [[UIActivityViewController alloc]
-         initWithActivityItems:@[body, url]
+         initWithActivityItems:@[body, imagenShare]
          applicationActivities:nil];
-        
+        [controller setValue:body forKey:@"subject"];
         controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
                                              UIActivityTypeMessage,
                                              
@@ -186,13 +188,16 @@
         NSString *nombre = self.espacio.nombre;
         NSString *body = [NSString stringWithFormat:@"I think that %@ is a good suggestion for you",nombre];
         NSString *imagen = self.espacio.imagen;
-        NSURL *url = [NSURL URLWithString:imagen];
+        NSString *fotoInicio = @"http://laventana.solytek.es/images";
+        NSString *imString = [NSString stringWithFormat:@"%@/%@/%@/%@", fotoInicio, self.espacio.provincia_id, self.espacio.id_centro,imagen];
+        NSURL *url = [NSURL URLWithString:imString];
+        UIImage *imagenShare = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         
         UIActivityViewController *controller =
         [[UIActivityViewController alloc]
-         initWithActivityItems:@[body, url]
+         initWithActivityItems:@[body, imagenShare]
          applicationActivities:nil];
-        
+        [controller setValue:body forKey:@"subject"];
         controller.excludedActivityTypes = @[UIActivityTypePostToWeibo,
                                              UIActivityTypeMessage,
                                              

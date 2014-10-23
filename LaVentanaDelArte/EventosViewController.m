@@ -371,8 +371,8 @@ typedef enum
     
     
     CATransform3D rotation;
-    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-    rotation.m34 = 1.0/ -600;
+//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+//    rotation.m34 = 1.0/ -600;
     
     
     cell.layer.shadowColor = [[UIColor blackColor]CGColor];
@@ -380,7 +380,7 @@ typedef enum
     cell.alpha = 0;
     
     cell.layer.transform = rotation;
-    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
     
     
     [UIView beginAnimations:@"rotation" context:NULL];

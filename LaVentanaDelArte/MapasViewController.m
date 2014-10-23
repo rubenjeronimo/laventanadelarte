@@ -12,6 +12,11 @@
 @property (nonatomic) float latitudPOI;
 @property (nonatomic) float longitudPOI;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoToolBar;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *altoMapa;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *anchoMapa;
+
 @end
 
 @implementation MapasViewController{
@@ -176,6 +181,18 @@
     [self mapea];
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self setAnchoToolBar];
+}
+
+-(void)setAnchoToolBar{
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.1];
+    self.anchoToolBar.constant = self.view.frame.size.width;
+    self.anchoMapa.constant = self.view.frame.size.width;
+    self.altoMapa.constant = self.view.frame.size.height;
+    [CATransaction commit];
+}
 
 #pragma mark - fetchrequest
 - (NSFetchedResultsController *)fetchedResultsController {

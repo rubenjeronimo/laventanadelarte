@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -18,8 +17,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZW2-Lj-gfH">
-                                    <rect key="frame" x="32" y="13" width="64" height="30"/>
-                                    <state key="normal" title="Mapa">
+                                    <rect key="frame" x="32" y="15" width="64" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="MAPA">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -28,8 +28,9 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-2p-avU">
-                                    <rect key="frame" x="223" y="13" width="55" height="30"/>
-                                    <state key="normal" title="Tipo">
+                                    <rect key="frame" x="223" y="15" width="55" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="TIPO">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -39,11 +40,10 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="fbm-2p-avU" secondAttribute="trailing" constant="50" id="KMP-t2-z61"/>
-                                <constraint firstAttribute="centerY" secondItem="ZW2-Lj-gfH" secondAttribute="centerY" constant="-0.5" id="UOd-hm-glP"/>
-                                <constraint firstItem="fbm-2p-avU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZW2-Lj-gfH" secondAttribute="trailing" priority="800" constant="120" id="cD2-w7-eLa"/>
-                                <constraint firstItem="ZW2-Lj-gfH" firstAttribute="leading" secondItem="nun-O8-62Q" secondAttribute="leading" constant="50" id="l5l-LH-e1D"/>
-                                <constraint firstAttribute="centerY" secondItem="fbm-2p-avU" secondAttribute="centerY" constant="-0.5" id="nJn-z6-mPQ"/>
+                                <constraint firstAttribute="trailing" secondItem="fbm-2p-avU" secondAttribute="trailing" constant="75" id="KMP-t2-z61"/>
+                                <constraint firstAttribute="centerY" secondItem="ZW2-Lj-gfH" secondAttribute="centerY" id="UOd-hm-glP"/>
+                                <constraint firstItem="ZW2-Lj-gfH" firstAttribute="leading" secondItem="nun-O8-62Q" secondAttribute="leading" constant="75" id="l5l-LH-e1D"/>
+                                <constraint firstAttribute="centerY" secondItem="fbm-2p-avU" secondAttribute="centerY" id="nJn-z6-mPQ"/>
                             </constraints>
                         </view>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="wOK-4e-cXP">
@@ -214,19 +214,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agW-Zq-XJn">
                                 <rect key="frame" x="0.0" y="64" width="320" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p72-WX-jki">
-                                        <rect key="frame" x="32" y="13" width="72" height="30"/>
-                                        <state key="normal" title="Por centro">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="eventosPorCentro:" destination="HR5-Vl-iro" eventType="touchUpInside" id="GrG-1A-M3B"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-ob-OFk">
-                                        <rect key="frame" x="186" y="13" width="92" height="30"/>
-                                        <state key="normal" title="Por Provincia">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-ob-OFk">
+                                        <rect key="frame" x="186" y="15" width="92" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <state key="normal" title="POR PROVINCIA">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -234,13 +225,24 @@
                                             <action selector="eventosPorProvincia:" destination="HR5-Vl-iro" eventType="touchUpInside" id="5Nv-gw-h27"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p72-WX-jki">
+                                        <rect key="frame" x="31" y="18" width="67" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <state key="normal" title="POR CENTRO">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="eventosPorCentro:" destination="HR5-Vl-iro" eventType="touchUpInside" id="GrG-1A-M3B"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="KPX-ob-OFk" secondAttribute="centerY" constant="2" id="8Hp-p0-Slw"/>
+                                    <constraint firstAttribute="centerY" secondItem="KPX-ob-OFk" secondAttribute="centerY" id="8Hp-p0-Slw"/>
                                     <constraint firstItem="p72-WX-jki" firstAttribute="leading" secondItem="agW-Zq-XJn" secondAttribute="leading" constant="20" id="NHm-QC-uYh"/>
                                     <constraint firstAttribute="height" constant="60" id="R0M-he-P2O"/>
-                                    <constraint firstAttribute="centerY" secondItem="p72-WX-jki" secondAttribute="centerY" constant="-0.5" id="ZsQ-wq-NfQ"/>
+                                    <constraint firstAttribute="centerY" secondItem="p72-WX-jki" secondAttribute="centerY" id="ZsQ-wq-NfQ"/>
                                     <constraint firstAttribute="trailing" secondItem="KPX-ob-OFk" secondAttribute="trailing" constant="42" id="q0l-QT-fgr"/>
                                     <constraint firstAttribute="width" constant="320" id="rTw-Nh-kTW"/>
                                 </constraints>
@@ -292,27 +294,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-nd-sui">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqM-nd-sui">
                                 <rect key="frame" x="0.0" y="103" width="320" height="465"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="465" id="6yT-4T-z2H"/>
+                                    <constraint firstAttribute="width" constant="320" id="Y6Z-EV-krH"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="sgF-cy-tSn" id="Ts2-sz-82Q"/>
                                 </connections>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999998807907104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-G0-D0F">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-G0-D0F">
                                 <rect key="frame" x="0.0" y="59" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="55x-zx-n90"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BAM-E8-xtX"/>
-                                    <barButtonItem title="tipo mapa" id="XcK-yK-tYJ">
+                                    <barButtonItem title="TIPO MAPA" id="XcK-yK-tYJ">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="tipoMapa:" destination="sgF-cy-tSn" id="MnU-gH-Yg6"/>
+                                            <action selector="tipoMapa:" destination="sgF-cy-tSn" id="XFU-6B-IbM"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7L4-vT-9RS"/>
-                                    <barButtonItem title="centra" id="u1G-Tj-Q9r">
+                                    <barButtonItem title="CENTRA" id="u1G-Tj-Q9r">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="centrarMapa:" destination="sgF-cy-tSn" id="4TH-LD-GCI"/>
@@ -320,7 +326,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aAO-9g-jMh"/>
                                 </items>
-                                <color key="barTintColor" white="0.66199570109999994" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.60092179232804233" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -330,9 +336,13 @@
                             <constraint firstAttribute="trailing" secondItem="zqM-nd-sui" secondAttribute="trailing" id="d87-Go-aGI"/>
                             <constraint firstItem="zqM-nd-sui" firstAttribute="top" secondItem="pNY-G0-D0F" secondAttribute="bottom" id="dEL-uz-dKe"/>
                             <constraint firstItem="zqM-nd-sui" firstAttribute="leading" secondItem="pjn-56-a3d" secondAttribute="leading" id="hdp-eb-f9p"/>
+                            <constraint firstItem="pNY-G0-D0F" firstAttribute="top" secondItem="dNa-c3-fFP" secondAttribute="bottom" constant="40" id="hfl-Hm-QZg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="altoMapa" destination="6yT-4T-z2H" id="CZ1-pa-0gq"/>
+                        <outlet property="anchoMapa" destination="Y6Z-EV-krH" id="VNF-UA-v7w"/>
+                        <outlet property="anchoToolBar" destination="55x-zx-n90" id="7dC-Sx-awg"/>
                         <outlet property="mapaView" destination="zqM-nd-sui" id="oiX-tF-SBW"/>
                     </connections>
                 </viewController>
@@ -369,14 +379,14 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6jR-kX-TwM"/>
-                                    <barButtonItem title="tipo" id="ccy-WP-vhh">
+                                    <barButtonItem title="TIPO MAPA" id="ccy-WP-vhh">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="tipoMapa:" destination="E7K-U9-Xmo" id="RLr-rb-XIr"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uKo-R8-DuX"/>
-                                    <barButtonItem title="centra" id="pV5-t4-bWL">
+                                    <barButtonItem title="CENTRA ESPACIO" id="pV5-t4-bWL">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="centrarMapa:" destination="E7K-U9-Xmo" id="wSs-Jx-O9X"/>
@@ -459,7 +469,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Xb7-bU-x4M">
                                         <rect key="frame" x="141" y="34" width="171" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -615,6 +625,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vda-Vx-NQx"/>
+        <segue reference="UPz-eb-5a1"/>
     </inferredMetricsTieBreakers>
 </document>
