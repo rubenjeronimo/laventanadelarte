@@ -43,7 +43,7 @@
             ev.resumen = [eve objectForKey:@"resumen"];
             ev.foto =[eve objectForKey:@"foto"];
             ev.tipo_expo = [eve objectForKey:@"tipo_expo"];
-            ev.provincia_id = [eve objectForKey:@"provincia_id"];
+            ev.provincia_id = [[[eve objectForKey:@"provincia_id"] capitalizedString] stringByReplacingOccurrencesOfString:@"-" withString:@" "];
             ev.id_centro = [eve objectForKey:@"id_centro"];
             ev.centro = [eve objectForKey:@"centro"];
             ev.id_expo = [eve objectForKey:@"id"];
