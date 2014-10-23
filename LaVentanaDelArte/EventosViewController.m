@@ -297,9 +297,19 @@ typedef enum
     return [self fetchedResultsController].sectionIndexTitles;
 }
 
+//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+//    return index;
+//}
+
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-    return index;
+    return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
+
+
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
