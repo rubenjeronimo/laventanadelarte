@@ -86,14 +86,14 @@ typedef enum
 }
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    EventoSearchScope scopeKey = controller.searchBar.selectedScopeButtonIndex;
+    EventoSearchScope scopeKey = (int)controller.searchBar.selectedScopeButtonIndex;
     [self searchForText:searchString scope:scopeKey];
     return YES;
 }
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
 {
     NSString *searchString = controller.searchBar.text;
-    [self searchForText:searchString scope:searchOption];
+    [self searchForText:searchString scope:(int)searchOption];
     return YES;
 }
 
@@ -292,8 +292,14 @@ typedef enum
     }
     
 }
-    
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [self fetchedResultsController].sectionIndexTitles;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return index;
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
