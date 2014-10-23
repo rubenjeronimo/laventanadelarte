@@ -81,7 +81,7 @@ static NSString *const space = @"space";
                                              selector:@selector(receivedNotification:)
                                                  name:@"not Found"
                                                object:nil];
-    [self reloadData];
+    //[self reloadData];
 }
 
 - (void)receivedNotification:(NSNotification *) notification {
