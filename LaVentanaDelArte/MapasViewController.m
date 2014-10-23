@@ -153,7 +153,7 @@
 }
 */
 - (IBAction)tipoMapa:(id)sender {
-    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Map Type" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Satélite", @"Estándar", @"Híbrido", nil];
+    UIActionSheet *as = [[UIActionSheet alloc]initWithTitle:@"Tipo de Mapa" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Satélite", @"Estándar", @"Híbrido", nil];
     [as showInView:self.view];
     
 }
