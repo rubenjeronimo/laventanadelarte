@@ -142,7 +142,7 @@ typedef enum
     [super viewDidLoad];
     self.navigationController.navigationBar.backgroundColor = [UIColor grayColor];
     self.anchoToolBar.constant = self.view.frame.size.width;
-    [self reloadData];
+    //[self reloadData];
     addData *addD = [[addData alloc]init];
     addD.contexto = self.contexto;
     [addD takeDataEventos];
