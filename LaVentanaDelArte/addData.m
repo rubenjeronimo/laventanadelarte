@@ -46,6 +46,7 @@
             ev.provincia_id = [[[eve objectForKey:@"provincia_id"] capitalizedString] stringByReplacingOccurrencesOfString:@"-" withString:@" "];
             ev.id_centro = [eve objectForKey:@"id_centro"];
             ev.centro = [eve objectForKey:@"centro"];
+            ev.fecha_fin = [eve objectForKey:@"fecha_fin"];
             ev.id_expo = [eve objectForKey:@"id"];
             
             

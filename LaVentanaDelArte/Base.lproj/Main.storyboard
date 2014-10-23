@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -451,15 +452,15 @@
                             <view alpha="0.79999999999999982" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHn-OI-4pN">
                                 <rect key="frame" x="0.0" y="288" width="320" height="63"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb7-bU-x4M">
-                                        <rect key="frame" x="129" y="34" width="171" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-bq-Uym">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-bq-Uym">
                                         <rect key="frame" x="19" y="0.0" width="281" height="40"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="21"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Xb7-bU-x4M">
+                                        <rect key="frame" x="141" y="34" width="171" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -492,50 +493,23 @@
                                     <action selector="mapaVista:" destination="adh-KO-d7V" eventType="touchUpInside" id="qLJ-x2-OxE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM9-a4-QEe">
-                                <rect key="frame" x="214" y="479" width="36" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="g3e-dp-hPH"/>
-                                    <constraint firstAttribute="height" constant="35" id="ri7-FG-PKZ"/>
-                                </constraints>
-                                <state key="normal" image="like.png">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="likeButton:" destination="adh-KO-d7V" eventType="touchUpInside" id="7Da-sd-7ea"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHL-wX-JcT">
-                                <rect key="frame" x="264" y="479" width="36" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="7dx-p7-rj2"/>
-                                    <constraint firstAttribute="width" constant="36" id="QiI-Zo-CKd"/>
-                                </constraints>
-                                <state key="normal" image="unlike.png">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="unlikeButton:" destination="adh-KO-d7V" eventType="touchUpInside" id="7QR-6S-ysU"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NQS-b8-fPe">
+                                <rect key="frame" x="26" y="493" width="278" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="qHL-wX-JcT" secondAttribute="bottom" constant="5" id="3JU-q9-n9h"/>
-                            <constraint firstItem="pM9-a4-QEe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5kq-AK-9bF" secondAttribute="trailing" priority="900" constant="10" id="Ch0-91-meY"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qHL-wX-JcT" secondAttribute="trailing" constant="10" id="FdZ-sC-zoO"/>
                             <constraint firstItem="AHn-OI-4pN" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" id="KdF-ty-HFL"/>
                             <constraint firstItem="5kq-AK-9bF" firstAttribute="leading" secondItem="wN9-S7-2pm" secondAttribute="trailing" constant="8" id="LKc-VN-0gD"/>
                             <constraint firstItem="gxk-SH-sgY" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" id="doo-Wh-Kkd"/>
-                            <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="pM9-a4-QEe" secondAttribute="bottom" constant="5" id="fnV-V8-cFO"/>
                             <constraint firstItem="gxk-SH-sgY" firstAttribute="top" secondItem="NuC-NO-Qbj" secondAttribute="bottom" constant="295" id="gub-0f-fVJ"/>
                             <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="wN9-S7-2pm" secondAttribute="bottom" id="kzS-aQ-zCA"/>
                             <constraint firstItem="tLA-1a-lpj" firstAttribute="top" secondItem="5kq-AK-9bF" secondAttribute="bottom" id="mRf-Rb-MQZ"/>
                             <constraint firstAttribute="trailing" secondItem="gxk-SH-sgY" secondAttribute="trailing" id="p6L-em-SV0"/>
                             <constraint firstItem="AHn-OI-4pN" firstAttribute="top" secondItem="NuC-NO-Qbj" secondAttribute="bottom" constant="224" id="tIp-we-CTE"/>
-                            <constraint firstItem="qHL-wX-JcT" firstAttribute="leading" secondItem="pM9-a4-QEe" secondAttribute="trailing" constant="5" id="zDq-WN-wQv"/>
                             <constraint firstItem="wN9-S7-2pm" firstAttribute="leading" secondItem="Rai-Zh-Uaq" secondAttribute="leading" constant="5" id="zvH-C7-mia"/>
                         </constraints>
                     </view>
@@ -549,12 +523,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="botonLike" destination="pM9-a4-QEe" id="rKd-aF-QOg"/>
-                        <outlet property="botonUnlike" destination="qHL-wX-JcT" id="mfs-bX-NwJ"/>
+                        <outlet property="botonLeerMas" destination="wN9-S7-2pm" id="qb5-SW-QY3"/>
+                        <outlet property="botonMapa" destination="5kq-AK-9bF" id="nRO-De-edk"/>
                         <outlet property="centroLabel" destination="Xb7-bU-x4M" id="iCY-MU-S9Q"/>
                         <outlet property="detailEvento" destination="gxk-SH-sgY" id="drR-oe-Cdp"/>
                         <outlet property="heightViewTitulo" destination="Sh0-q7-FDx" id="68e-4o-cQk"/>
                         <outlet property="imageEvento" destination="wwE-fD-atv" id="c2W-wl-kzf"/>
+                        <outlet property="labelCentroDesdeEvento" destination="NQS-b8-fPe" id="mbd-ki-rlO"/>
                         <outlet property="leftButtonsConstraint" destination="zvH-C7-mia" id="JAR-uN-EQf"/>
                         <outlet property="leftTextFieldConstraint" destination="doo-Wh-Kkd" id="lYa-o9-W26"/>
                         <outlet property="mapButton" destination="5kq-AK-9bF" id="wMD-Go-tta"/>
@@ -632,9 +607,7 @@
     <resources>
         <image name="618311-Bank-512.png" width="30" height="30"/>
         <image name="events-icon.png" width="30" height="30"/>
-        <image name="like.png" width="35" height="35"/>
         <image name="sad13.jpg" width="625" height="924"/>
-        <image name="unlike.png" width="35" height="35"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

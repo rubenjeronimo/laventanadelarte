@@ -298,14 +298,7 @@ typedef enum
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-    NSInteger locator = 0;
-    for (NSString *provincia in [self.fetchedResultsController.sections valueForKey:@"name"]) {
-        if ([title isEqualToString:[provincia substringToIndex:1]]) {
-            locator = [[self.fetchedResultsController.sections valueForKey:@"name"] indexOfObject:provincia];
-            break;
-        }
-    }
-    return locator;
+   return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
 
 
