@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightViewTitulo;
 @property (weak, nonatomic) IBOutlet UILabel *centroLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *botonMapa;
+@property (weak, nonatomic) IBOutlet UIButton *botonLeerMas;
+@property (weak, nonatomic) IBOutlet UILabel *labelCentroDesdeEvento;
 
 @end
 
@@ -46,6 +49,9 @@
     // Do any additional setup after loading the view.
     
     if (self.espacio && !self.evento) {
+        self.labelCentroDesdeEvento.hidden=YES;
+        self.botonMapa.hidden=NO;
+        self.botonLeerMas.hidden=NO;
         self.title = @"Ficha espacio";
         self.navigationController.navigationBar.alpha=0.5;
         self.detailEvento.text = self.espacio.resumen;
@@ -58,7 +64,11 @@
         self.imageEvento.image = [UIImage imageWithData:data];
 
     }else if (self.evento && !self.espacio){
-    
+        self.botonMapa.hidden=YES;
+        self.botonLeerMas.hidden=YES;
+                self.labelCentroDesdeEvento.hidden=NO;
+        self.labelCentroDesdeEvento.text = self.evento.centro;
+        
     self.title = @"Ficha exposición";
     self.detailEvento.text = self.evento.resumen;
     self.nameEvento.text = self.evento.nombre;
