@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @property (nonatomic,strong) NSMutableArray *listadoEventos;
 @property (nonatomic,strong) NSDictionary *evento;
 @property (nonatomic) FilterType currentFilter;
+@property (weak, nonatomic) IBOutlet UIView *toolBar;
+
 @end
 
 @implementation EspaciosTableViewController{
@@ -39,6 +41,31 @@ static NSString *const space = @"space";
     }
     return self;
 }
+
+-(void) viewWillAppear:(BOOL)animated{
+    CAGradientLayer *bgLayer = self.blueGradient;
+    bgLayer.frame = self.toolBar.bounds;
+    [self.toolBar.layer insertSublayer:bgLayer atIndex:0];
+}
+//Blue gradient background
+- (CAGradientLayer*) blueGradient {
+    UIColor *colorOne = [UIColor colorWithRed:(126/255.0) green:(190/255.0) blue:(188/255.0) alpha:1.0];
+    UIColor *colorTwo = [UIColor colorWithRed:(17/255.0)  green:(74/255.0)  blue:(72/255.0)  alpha:1.0];
+    
+    NSArray *colors = [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, nil];
+    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+    NSNumber *stopTwo = [NSNumber numberWithFloat:1.0];
+    
+    NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, nil];
+    
+    CAGradientLayer *headerLayer = [CAGradientLayer layer];
+    headerLayer.colors = colors;
+    headerLayer.locations = locations;
+    
+    return headerLayer;
+    
+}
+
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -63,9 +90,7 @@ static NSString *const space = @"space";
     
 }
 
--(void)viewWillAppear:(BOOL)animated{
 
-}
 
 - (void)viewDidLoad
 {

@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, FilterType) {
 @property (nonatomic,strong) NSFetchRequest *eventosBusquedaFetchRequest;
 @property (nonatomic) FilterType currentFilter;
 
+@property (weak, nonatomic) IBOutlet UIView *toolBar;
 @property (nonatomic,strong) NSMutableArray *listadoEventosPorCentro;
 @property (nonatomic,strong) NSMutableArray *listadoEventosPorProvincia;
 
@@ -129,7 +130,7 @@ typedef enum
 -(void) setPortait{
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.1];
-    self.altoToolBar.constant = 65;
+    self.altoToolBar.constant = 55;
     self.topTableView.constant = 0;
     self.leftMapButtonConstraint.constant = self.view.frame.size.width/6;
     self.rightTipoButtonConstraint.constant = self.view.frame.size.width/6;
@@ -142,7 +143,9 @@ typedef enum
     [super viewDidLoad];
     self.navigationController.navigationBar.backgroundColor = [UIColor grayColor];
     self.anchoToolBar.constant = self.view.frame.size.width;
-    //[self reloadData];
+    
+
+    
     addData *addD = [[addData alloc]init];
     addD.contexto = self.contexto;
     [addD takeDataEventos];
@@ -156,6 +159,30 @@ typedef enum
                                                object:nil];
     [self reDibujaToolBar];
 
+}
+
+-(void) viewWillAppear:(BOOL)animated{
+    CAGradientLayer *bgLayer = self.blueGradient;
+    bgLayer.frame = self.toolBar.bounds;
+    [self.toolBar.layer insertSublayer:bgLayer atIndex:0];
+}
+//Blue gradient background
+- (CAGradientLayer*) blueGradient {
+    UIColor *colorOne = [UIColor colorWithRed:(126/255.0) green:(190/255.0) blue:(188/255.0) alpha:1.0];
+    UIColor *colorTwo = [UIColor colorWithRed:(17/255.0)  green:(74/255.0)  blue:(72/255.0)  alpha:1.0];
+    
+    NSArray *colors = [NSArray arrayWithObjects:(id)colorOne.CGColor, colorTwo.CGColor, nil];
+    NSNumber *stopOne = [NSNumber numberWithFloat:0.0];
+    NSNumber *stopTwo = [NSNumber numberWithFloat:1.0];
+    
+    NSArray *locations = [NSArray arrayWithObjects:stopOne, stopTwo, nil];
+    
+    CAGradientLayer *headerLayer = [CAGradientLayer layer];
+    headerLayer.colors = colors;
+    headerLayer.locations = locations;
+    
+    return headerLayer;
+    
 }
 
 - (IBAction)areaEstudio:(id)sender {
