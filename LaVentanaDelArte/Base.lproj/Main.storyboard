@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Espacios-->
@@ -20,7 +21,7 @@
                                     <rect key="frame" x="32" y="15" width="64" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                     <state key="normal" title="MAPA">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -31,7 +32,7 @@
                                     <rect key="frame" x="223" y="15" width="55" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                     <state key="normal" title="TIPO">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -111,6 +112,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="s97-vb-7bl" id="k7q-iW-99A"/>
+                        <outlet property="toolBar" destination="nun-O8-62Q" id="gMj-Ud-mYz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dju-0o-w4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,7 +220,7 @@
                                         <rect key="frame" x="186" y="15" width="92" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="POR PROVINCIA">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -229,7 +231,7 @@
                                         <rect key="frame" x="31" y="18" width="67" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="POR CENTRO">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -237,7 +239,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.48468327522277832" green="0.74413204193115234" blue="0.73731958866119385" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="KPX-ob-OFk" secondAttribute="centerY" id="8Hp-p0-Slw"/>
                                     <constraint firstItem="p72-WX-jki" firstAttribute="leading" secondItem="agW-Zq-XJn" secondAttribute="leading" constant="20" id="NHm-QC-uYh"/>
@@ -266,6 +268,7 @@
                         <outlet property="rightTipoButtonConstraint" destination="q0l-QT-fgr" id="p2M-bR-b3c"/>
                         <outlet property="searchDisplayController" destination="SPj-9H-CV7" id="XAO-D6-bmc"/>
                         <outlet property="tableView" destination="8VW-Pf-WAu" id="BXa-Lh-4Iu"/>
+                        <outlet property="toolBar" destination="agW-Zq-XJn" id="zGg-3p-J90"/>
                         <outlet property="topTableView" destination="TXH-lL-5rP" id="Rfc-xk-epe"/>
                     </connections>
                 </viewController>
