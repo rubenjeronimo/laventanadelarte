@@ -446,6 +446,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="YxB-s5-q1Q"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wN9-S7-2pm">
                                 <rect key="frame" x="5" y="521" width="75" height="30"/>
                                 <constraints>
@@ -477,9 +483,9 @@
                                 <rect key="frame" x="0.0" y="288" width="600" height="63"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="3Pr-bq-Uym">
-                                        <rect key="frame" x="19" y="16" width="250" height="24"/>
+                                        <rect key="frame" x="20" y="16" width="560" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="uB5-fy-OLi"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="uB5-fy-OLi"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="21"/>
                                         <nil key="highlightedColor"/>
@@ -501,7 +507,8 @@
                                     <constraint firstAttribute="height" constant="63" id="Sh0-q7-FDx"/>
                                     <constraint firstAttribute="bottom" secondItem="3Pr-bq-Uym" secondAttribute="bottom" constant="23" id="X0I-Aj-ioe"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="ZVm-8u-U5r"/>
-                                    <constraint firstItem="3Pr-bq-Uym" firstAttribute="leading" secondItem="AHn-OI-4pN" secondAttribute="leading" constant="19" id="f9V-bB-PAe"/>
+                                    <constraint firstItem="3Pr-bq-Uym" firstAttribute="leading" secondItem="AHn-OI-4pN" secondAttribute="leading" constant="20" id="f9V-bB-PAe"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Pr-bq-Uym" secondAttribute="trailing" constant="20" id="k32-L7-gpl"/>
                                     <constraint firstAttribute="trailing" secondItem="Xb7-bU-x4M" secondAttribute="trailing" constant="8" id="xOa-2a-PcX"/>
                                     <constraint firstItem="3Pr-bq-Uym" firstAttribute="top" secondItem="AHn-OI-4pN" secondAttribute="top" constant="16" id="yzq-KH-J96"/>
                                 </constraints>
@@ -530,17 +537,11 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NQS-b8-fPe">
-                                <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad13.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wwE-fD-atv">
-                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="YxB-s5-q1Q"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
