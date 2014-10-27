@@ -102,6 +102,9 @@ typedef enum
     self.anchoToolBar.constant = self.view.frame.size.width;
     [self.tableView reloadData];
     [self reDibujaToolBar];
+    CAGradientLayer *bgLayer = self.blueGradient;
+    bgLayer.frame = self.toolBar.bounds;
+    [self.toolBar.layer insertSublayer:bgLayer atIndex:0];
 }
 
 -(void) reDibujaToolBar{

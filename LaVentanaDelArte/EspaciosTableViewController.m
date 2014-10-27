@@ -141,6 +141,9 @@ static NSString *const space = @"space";
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [self.tableView reloadData];
+    CAGradientLayer *bgLayer = self.blueGradient;
+    bgLayer.frame = self.toolBar.bounds;
+    [self.toolBar.layer insertSublayer:bgLayer atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
